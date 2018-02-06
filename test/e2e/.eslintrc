@@ -1,0 +1,11 @@
+{
+  "env": {
+    "mocha": true
+  },
+  "globals": {
+    "cy": false,
+    "Cypress": false,
+    "expect": false,
+    "assert": false
+  }
+}
