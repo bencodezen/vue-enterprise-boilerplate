@@ -1,51 +1,78 @@
 {
-  "name": "vue-enterprise-boilerplate",
-  "version": "0.1.0",
+  "name": "frontend",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve --open",
+    "dev": "vue-cli-service serve",
+    "dev:e2e": "vue-cli-service e2e:open --mode=development",
     "build": "vue-cli-service build",
-    "test": "vue-cli-service test",
+    "lint":
+      "eslint --ext .js,.vue --fix . && stylelint --fix \"src/**/*.vue\" \"src/**/*.scss\" && markdownlint docs/ src/ test/ *.md && yarn prettier --write \"**/*.{js,css,scss,vue,md}\"",
+    "unit": "jest",
+    "unit:coverage": "yarn unit --coverage",
+    "unit:watch": "jest --watch --notify --notifyMode change",
     "e2e": "vue-cli-service e2e",
-    "lint": "vue-cli-service lint",
-    "e2e:open": "vue-cli-service e2e:open"
+    "test": "yarn unit && yarn e2e",
+    "test:ci": "yarn lint && yarn unit:coverage --ci && yarn e2e"
   },
-  "dependencies": {
-    "vue": "^2.5.13",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.0-alpha.8",
-    "@vue/cli-plugin-e2e-cypress": "^3.0.0-alpha.8",
-    "@vue/cli-plugin-eslint": "^3.0.0-alpha.8",
-    "@vue/cli-plugin-unit-jest": "^3.0.0-alpha.8",
-    "@vue/cli-service": "^3.0.0-alpha.8",
-    "@vue/eslint-config-prettier": "^3.0.0-alpha.8",
-    "@vue/test-utils": "^1.0.0-beta.10",
-    "babel-core": "^7.0.0-0",
-    "babel-jest": "^22.0.4",
-    "lint-staged": "^6.0.0",
-    "node-sass": "^4.7.2",
-    "sass-loader": "^6.0.6",
-    "vue-template-compiler": "^2.5.13"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ],
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.js": [
-      "vue-cli-service lint",
-      "git add"
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add",
+      "jest --no-cache --findRelatedTests"
     ],
     "*.vue": [
-      "vue-cli-service lint",
-      "git add"
-    ]
+      "eslint --fix",
+      "stylelint --fix",
+      "prettier --write",
+      "git add",
+      "jest --no-cache --findRelatedTests"
+    ],
+    "*.scss": ["stylelint --fix", "prettier --write", "git add"],
+    "*.md": ["markdownlint", "prettier --write", "git add"],
+    "*.{png,jpeg,jpg,gif,svg}": ["imagemin-lint-staged", "git add"]
+  },
+  "engines": {
+    "node": ">= 8.3.0",
+    "yarn": ">=1.0.0"
+  },
+  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"],
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "lodash": "^4.17.5",
+    "mock-authentication-api": "^1.0.3",
+    "normalize.css": "^8.0.0",
+    "vue": "^2.5.13",
+    "vue-meta": "^1.4.3",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.0-beta.1",
+    "@vue/cli-plugin-e2e-cypress": "^3.0.0-beta.1",
+    "@vue/cli-plugin-eslint": "^3.0.0-beta.1",
+    "@vue/cli-plugin-unit-jest": "^3.0.0-beta.1",
+    "@vue/cli-service": "^3.0.0-beta.1",
+    "@vue/eslint-config-prettier": "^3.0.0-beta.1",
+    "@vue/eslint-config-standard": "^3.0.0-beta.1",
+    "@vue/test-utils": "^1.0.0-beta.11",
+    "babel-core": "^7.0.0-0",
+    "babel-jest": "^22.0.4",
+    "imagemin-lint-staged": "^0.3.0",
+    "lint-staged": "^6.1.1",
+    "markdownlint-cli": "^0.7.1",
+    "node-sass": "^4.7.2",
+    "prettier-stylelint": "^0.4.2",
+    "sass-loader": "^6.0.6",
+    "stylelint": "^8.4.0",
+    "stylelint-config-css-modules": "^1.1.0",
+    "stylelint-config-recess-order": "^1.2.3",
+    "stylelint-config-standard": "^18.0.0",
+    "stylelint-scss": "^2.3.0",
+    "vue-template-compiler": "^2.5.13"
   }
 }

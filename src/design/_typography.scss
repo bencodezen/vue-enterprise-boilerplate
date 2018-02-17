@@ -1,0 +1,391 @@
+// Interpolate v1.0
+
+// This mixin generates CSS for interpolation of length properties.
+// It has 5 required values, including the target property, initial
+// screen size, initial value, final screen size and final value.
+
+// It has two optional values which include an easing property,
+// which is a string, representing a CSS animation-timing-function
+// and finally a number of bending-points, that determines how many
+// interpolations steps are applied along the easing function.
+
+// Author: Mike Riethmuller - @MikeRiethmuller
+// More information: http://codepen.io/MadeByMike/pen/a2249946658b139b7625b2a58cf03a65?editors=0100
+
+///
+/// @param {String} $property - The CSS property to interpolate
+/// @param {Unit} $min-screen - A CSS length unit
+/// @param {Unit} $min-value - A CSS length unit
+/// @param {Unit} $max-screen - Value to be parsed
+/// @param {Unit} $max-value - Value to be parsed
+/// @param {String} $easing - Value to be parsed
+/// @param {Integer} $bending-points - Value to be parsed
+///
+
+// Examples on line 258
+
+// Issues:
+
+// - cubic-bezier requires whitespace
+// - cubic-bezier cannot parse negative values
+
+// stylelint-disable scss/dollar-variable-pattern
+@mixin interpolate($property, $min-screen, $min-value, $max-screen, $max-value, $easing: 'linear', $bending-points: 2) {
+  // Default Easing 'Linear'
+  $p0: 0;
+  $p1: 0;
+  $p2: 1;
+  $p3: 1;
+
+  // Parse Cubic Bezier string
+  @if (str-slice($easing, 1, 12) == 'cubic-bezier') {
+    // Get the values between the brackets
+    // TODO: Deal with different whitespace
+    $i: str-index($easing, ')'); // Get index of closing bracket
+    $values: str-slice($easing, 14, $i - 1); // Extract values between brackts
+    $list: explode($values, ', '); // Split the values into a list
+
+    @debug ($list);
+
+    // Cast values to numebrs
+    $p0: number(nth($list, 1));
+    $p1: number(nth($list, 2));
+    $p2: number(nth($list, 3));
+    $p3: number(nth($list, 4));
+  }
+
+  @if ($easing == 'ease') {
+    $p0: 0.25;
+    $p1: 1;
+    $p2: 0.25;
+    $p3: 1;
+  }
+
+  @if ($easing == 'ease-in-out') {
+    $p0: 0.42;
+    $p1: 0;
+    $p2: 0.58;
+    $p3: 1;
+  }
+
+  @if ($easing == 'ease-in') {
+    $p0: 0.42;
+    $p1: 0;
+    $p2: 1;
+    $p3: 1;
+  }
+
+  @if ($easing == 'ease-out') {
+    $p0: 0;
+    $p1: 0;
+    $p2: 0.58;
+    $p3: 1;
+  }
+
+  #{$property}: $min-value;
+
+  @if ($easing == 'linear' or $bending-points < 1) {
+    @media screen and (min-width: $min-screen) {
+      #{$property}: calc-interpolation(
+        $min-screen,
+        $min-value,
+        $max-screen,
+        $max-value
+      );
+    }
+  } @else {
+    // Loop through bending points
+    $t: 1 / ($bending-points + 1);
+    $i: 1;
+    $prev-screen: $min-screen;
+    $prev-value: $min-value;
+
+    @while $t * $i <= 1 {
+      $bending-point: $t * $i;
+      $value: cubic-bezier($p0, $p1, $p2, $p3, $bending-point);
+      $screen-int: lerp($min-screen, $max-screen, $bending-point);
+      $value-int: lerp($min-value, $max-value, $value);
+
+      @media screen and (min-width: $prev-screen) {
+        #{$property}: calc-interpolation(
+          $prev-screen,
+          $prev-value,
+          $screen-int,
+          $value-int
+        );
+      }
+
+      $prev-screen: $screen-int;
+      $prev-value: $value-int;
+      $i: $i + 1;
+    }
+  }
+
+  @media screen and (min-width: $max-screen) {
+    #{$property}: $max-value;
+  }
+}
+
+// Requires several helper functions including: pow, calc-interpolation, cubic-bezier, number and explode
+
+// Math functions:
+
+// Linear interpolations in CSS as a Sass function
+// Author: Mike Riethmuller | https://madebymike.com.au/writing/precise-control-responsive-typography/ I
+
+@function calc-interpolation($min-screen, $min-value, $max-screen, $max-value) {
+  $a: ($max-value - $min-value) / ($max-screen - $min-screen);
+  $b: $min-value - $a * $min-screen;
+
+  $sign: '+';
+
+  @if ($b < 0) {
+    $sign: '-';
+    $b: abs($b);
+  }
+
+  @return calc(#{$a * 100}vw #{$sign} #{$b});
+}
+
+// This is a crude Sass port webkits cubic-bezier function. Looking to simplify this if you can help.
+@function solve-bexier-x($p1x, $p1y, $p2x, $p2y, $x) {
+  $cx: 3 * $p1x;
+  $bx: 3 * ($p2x - $p1x) - $cx;
+  $ax: 1 - $cx - $bx;
+
+  $t0: 0;
+  $t1: 1;
+  $t2: $x;
+  $x2: 0;
+  $res: 1000;
+
+  @while ($t0 < $t1 or $break) {
+    $x2: (($ax * $t2 + $bx) * $t2 + $cx) * $t2;
+
+    @if (abs($x2 - $x) < $res) {
+      @return $t2;
+    }
+
+    @if ($x > $x2) {
+      $t0: $t2;
+    } @else {
+      $t1: $t2;
+    }
+    $t2: ($t1 - $t0) * 0.5 + $t0;
+  }
+
+  @return $t2;
+}
+
+@function cubic-bezier($p1x, $p1y, $p2x, $p2y, $x) {
+  $cy: 3 * $p1y;
+  $by: 3 * ($p2y - $p1y) - $cy;
+  $ay: 1 - $cy - $by;
+  $t: solve-bexier-x($p1x, $p1y, $p2x, $p2y, $x);
+
+  @return (($ay * $t + $by) * $t + $cy) * $t;
+}
+
+// A stright up lerp
+// Credit: Ancient Greeks possibly Hipparchus of Rhodes
+@function lerp($a, $b, $t) {
+  @return $a + ($b - $a) * $t;
+}
+
+// String functions:
+
+// Cast string to number
+// Credit: Hugo Giraudel | https://www.sassmeister.com/gist/9fa19d254864f33d4a80
+@function number($value) {
+  @if type-of($value) == 'number' {
+    @return $value;
+  } @else if type-of($value) != 'string' {
+    $_: log('Value for `to-number` should be a number or a string.');
+  }
+
+  $result: 0;
+  $digits: 0;
+  $minus: str-slice($value, 1, 1) == '-';
+  $numbers: (
+    '0': 0,
+    '1': 1,
+    '2': 2,
+    '3': 3,
+    '4': 4,
+    '5': 5,
+    '6': 6,
+    '7': 7,
+    '8': 8,
+    '9': 9
+  );
+
+  @for $i from if($minus, 2, 1) through str-length($value) {
+    $character: str-slice($value, $i, $i);
+
+    @if not (index(map-keys($numbers), $character) or $character == '.') {
+      @return to-length(if($minus, -$result, $result), str-slice($value, $i));
+    }
+
+    @if $character == '.' {
+      $digits: 1;
+    } @else if $digits == 0 {
+      $result: $result * 10 + map-get($numbers, $character);
+    } @else {
+      $digits: $digits * 10;
+      $result: $result + map-get($numbers, $character) / $digits;
+    }
+  }
+
+  @return if($minus, -$result, $result);
+}
+
+// Explode a string by a delimiter
+// Credit: https://gist.github.com/danielpchen/3677421ea15dcf2579ff
+@function explode($string, $delimiter) {
+  $result: ();
+
+  @if $delimiter == '' {
+    @for $i from 1 through str-length($string) {
+      $result: append($result, str-slice($string, $i, $i));
+    }
+
+    @return $result;
+  }
+  $exploding: true;
+
+  @while $exploding {
+    $d-index: str-index($string, $delimiter);
+
+    @if $d-index {
+      @if $d-index > 1 {
+        $result: append($result, str-slice($string, 1, $d-index - 1));
+        $string: str-slice($string, $d-index + str-length($delimiter));
+      } @else if $d-index == 1 {
+        $string: str-slice($string, 1, $d-index + str-length($delimiter));
+      } @else {
+        $result: append($result, $string);
+        $exploding: false;
+      }
+    } @else {
+      $result: append($result, $string);
+      $exploding: false;
+    }
+  }
+
+  @return $result;
+}
+
+// Using vertical rhythm methods from https://scotch.io/tutorials/aesthetic-sass-3-typography-and-vertical-rhythm
+// Using perfect 8/9 for low contrast and perfect fifth 2/3 for high
+$type-scale: (
+  -1: 0.889rem,
+  0: 1rem,
+  1: 1.125rem,
+  2: 1.266rem,
+  3: 1.424rem
+);
+
+@function type-scale($level) {
+  @if map-has-key($type-scale, $level) {
+    @return map-get($type-scale, $level);
+  }
+
+  @warn "Unknown `#{$level}` in $type-scale.";
+
+  @return null;
+}
+
+$type-scale-contrast: (
+  -1: 1rem,
+  0: 1.3333rem,
+  1: 1.777rem,
+  2: 2.369rem,
+  3: 3.157rem
+);
+
+@function type-scale-contrast($level) {
+  @if map-has-key($type-scale-contrast, $level) {
+    @return map-get($type-scale-contrast, $level);
+  }
+
+  @warn "Unknown `#{$level}` in $type-scale-contrast.";
+
+  @return null;
+}
+
+$base-font-size: 1rem;
+$base-line-height: $base-font-size * 1.25;
+
+$line-heights: (
+  -1: $base-line-height,
+  0: $base-line-height,
+  1: $base-line-height * 1.5,
+  2: $base-line-height * 1.5,
+  3: $base-line-height * 1.5
+);
+
+@function line-height($level) {
+  @if map-has-key($line-heights, $level) {
+    @return map-get($line-heights, $level);
+  }
+
+  @warn "Unknown `#{$level}` in $line-height.";
+
+  @return null;
+}
+
+$base-line-height-contrast: $base-line-height;
+
+$line-heights-contrast: (
+  -1: $base-line-height-contrast,
+  0: $base-line-height-contrast * 2,
+  1: $base-line-height-contrast * 2,
+  2: $base-line-height-contrast * 2,
+  3: $base-line-height * 3
+);
+
+@function line-height-contrast($level) {
+  @if map-has-key($line-heights-contrast, $level) {
+    @return map-get($line-heights-contrast, $level);
+  }
+
+  @warn "Unknown `#{$level}` in $line-heights-contrast.";
+
+  @return null;
+}
+
+// Mixing these two sets of mixins ala Rachel:
+@mixin got-rhythm($level: 0) {
+  @include interpolate('font-size', $size-content-width-min, type-scale($level), $size-content-width-max, type-scale-contrast($level));
+  @include interpolate('line-height', $size-content-width-min, line-height($level), $size-content-width-max, line-height-contrast($level));
+}
+
+%typography-xxlarge {
+  @include got-rhythm(3);
+
+  @extend %heading-font;
+}
+
+%typography-xlarge {
+  @include got-rhythm(2);
+
+  @extend %heading-font;
+}
+
+%typography-large {
+  @include got-rhythm(1);
+
+  @extend %heading-font;
+}
+
+%typography-medium {
+  @include got-rhythm(0);
+
+  @extend %content-font;
+}
+
+%typography-small {
+  @include got-rhythm(-1);
+
+  @extend %content-font;
+}

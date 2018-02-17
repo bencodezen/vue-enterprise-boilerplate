@@ -1,22 +1,28 @@
+# OS Files
 .DS_Store
-node_modules
-/dist
+Thumbs.db
 
-/test/e2e/videos/
-/test/e2e/screenshots/
+# Dependencies
+node_modules/
 
-# local env files
+# Dev/Build Artifacts
+/dist/
+/tests/e2e/videos/
+/tests/e2e/screenshots/
+/tests/unit/coverage/
+
+# Local Env Files
 .env.local
 .env.*.local
 
 # Log files
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Editor directories and files
+# Editor
 .idea
-.vscode
 *.suo
 *.ntvs*
 *.njsproj

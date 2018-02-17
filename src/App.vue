@@ -1,32 +1,67 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view/>
   </div>
 </template>
 
-<style>
+<script>
+import appConfig from '@/app.config'
+
+export default {
+  page: {
+    // All subcomponent titles will be injected into this template
+    titleTemplate(title) {
+      title = typeof title === 'function' ? title(this.$store) : title
+      return title ? `${title} | ${appConfig.title}` : appConfig.title
+    },
+  },
+}
+</script>
+
+<!-- This should generally be the only global CSS in the app -->
+<style lang="scss">
+@import '~normalize.css/normalize.css';
+@import '~@design';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  @extend %typography-small;
 }
 
-#nav {
-  padding: 30px;
+a,
+a:visited {
+  color: $color-link-text;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+h1 {
+  @extend %typography-xxlarge;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+h2 {
+  @extend %typography-xlarge;
+}
+
+h3 {
+  @extend %typography-large;
+}
+
+h4 {
+  @extend %typography-medium;
+}
+
+h5,
+h6 {
+  @extend %typography-small;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
 }
 </style>

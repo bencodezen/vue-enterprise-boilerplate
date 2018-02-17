@@ -1,0 +1,12 @@
+{
+  "default": true,
+  // Rule customizations for markdownlint go here
+  // https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md
+
+  // Disable line length restrictions, because editor soft-wrapping is being
+  // used instead.
+  "line-length": false,
+  // Disable multiple blank line enforcement, because it's handled by Prettier
+  // and conflicts in some edge cases, such as with empty files.
+  "no-multiple-blanks": false
+}

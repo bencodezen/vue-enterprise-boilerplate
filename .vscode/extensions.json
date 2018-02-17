@@ -1,0 +1,26 @@
+{
+  // See http://go.microsoft.com/fwlink/?LinkId=827846
+  // for the documentation about the extensions.json format
+  "recommendations": [
+    // Syntax highlighting and more for .vue files
+    // https://github.com/vuejs/vetur
+    "octref.vetur",
+    // Lint-on-save with ESLint
+    // https://github.com/Microsoft/vscode-eslint
+    "dbaeumer.vscode-eslint",
+    // Lint-on-save with Stylelint
+    // https://github.com/shinnn/vscode-stylelint
+    "shinnn.stylelint",
+    // Format-on-save with Prettier
+    "esbenp.prettier-vscode",
+    // SCSS intellisense
+    "mrmlnc.vscode-scss",
+    // Test `.spec.js` files on save with Jest
+    "Orta.vscode-jest",
+    // Lint markdown in README files
+    "DavidAnson.vscode-markdownlint",
+    // Add icons to more easily distinguish between
+    // files and folders in the sidebar
+    "robertohuertasm.vscode-icons"
+  ]
+}

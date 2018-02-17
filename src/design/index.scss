@@ -1,0 +1,12 @@
+@import 'colors';
+@import 'sizes';
+@import 'fonts';
+@import 'typography';
+
+// stylelint-disable property-case, property-no-unknown
+// For any SCSS variables you want to import into JavaScript,
+// you must first export them here:
+// :export {
+//   _contentWidthMax: $size-content-width-max;
+// }
+// stylelint-enable property-case, property-no-unknown
