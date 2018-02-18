@@ -7,7 +7,7 @@
     "dev:e2e": "vue-cli-service e2e:open --mode=development",
     "build": "vue-cli-service build",
     "lint":
-      "eslint --ext .js,.vue --fix . && stylelint --fix \"src/**/*.vue\" \"src/**/*.scss\" && markdownlint docs/ src/ test/ *.md && prettier --list-different --write \"**/*.{js,css,scss,vue,md}\"",
+      "eslint --ext .js,.vue --fix . && stylelint --fix \"src/**/*.vue\" \"src/**/*.scss\" && markdownlint docs/ src/ test/ *.md && prettier --list-different --write \"**/*.{js,jsx,json,css,scss,vue,md}\"",
     "unit": "jest",
     "unit:watch": "jest --watch --notify --notifyMode change",
     "e2e": "vue-cli-service e2e --config videoRecording=false",
@@ -24,6 +24,7 @@
       "git add",
       "jest --no-cache --findRelatedTests"
     ],
+    "*.json": ["prettier --list-different --write", "git add"],
     "*.vue": [
       "eslint --fix",
       "stylelint --fix",
