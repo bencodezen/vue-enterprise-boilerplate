@@ -64,7 +64,7 @@ describe('@state/modules/auth', () => {
         id: 1,
         username: 'admin',
         name: 'Vue Master',
-        token: 'token-to-use-on-authenticated-requests',
+        token: 'mock-token',
       }
       expect(currentUser).toEqual(expectedCurrentUser)
       expect(commitMock).toHaveBeenCalledWith(
@@ -89,7 +89,7 @@ describe('@state/modules/auth', () => {
     )
 
     logInPromise.catch(error => {
-      expect(error).toEqual('Invalid User Credentials')
+      expect(error.message).toEqual('Request failed with status code 401')
       done()
     })
   })

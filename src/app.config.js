@@ -5,4 +5,7 @@
 module.exports = {
   title: 'My Project',
   description: 'This is a project!',
+  prod: {
+    baseUrl: 'http://example.com',
+  },
 }

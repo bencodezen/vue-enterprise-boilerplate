@@ -1,5 +1,5 @@
 <script>
-import appConfig from '@/app.config'
+import appConfig from '@src/app.config'
 import Layout from '@layouts/main'
 
 export default {

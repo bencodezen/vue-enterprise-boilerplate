@@ -6,7 +6,8 @@
     "dev": "vue-cli-service serve",
     "dev:e2e": "vue-cli-service e2e:open --mode=development",
     "build": "vue-cli-service build",
-    "lint": "eslint --ext .js,.vue --fix . && stylelint --fix \"src/**/*.vue\" \"src/**/*.scss\" && markdownlint docs/ src/ test/ *.md && prettier --list-different --write \"**/*.{js,jsx,json,css,scss,vue,md}\"",
+    "lint":
+      "eslint --ext .js,.vue --fix . && stylelint --fix \"src/**/*.vue\" \"src/**/*.scss\" && markdownlint docs/ src/ test/ *.md && prettier --list-different --write \"**/*.{js,jsx,json,css,scss,vue,md}\"",
     "unit": "jest",
     "unit:watch": "jest --watch --notify --notifyMode change",
     "e2e": "vue-cli-service e2e --config videoRecording=false",
@@ -17,14 +18,14 @@
     "pre-commit": "lint-staged"
   },
   "engines": {
-    "node": ">= 8.3.0",
+    "node": ">=8.9.0",
     "yarn": ">=1.0.0"
   },
   "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"],
   "dependencies": {
+    "axios": "^0.17.1",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.5",
-    "mock-authentication-api": "^1.0.3",
     "normalize.css": "^8.0.0",
     "vue": "^2.5.13",
     "vue-meta": "^1.4.3",
@@ -42,6 +43,7 @@
     "@vue/test-utils": "^1.0.0-beta.11",
     "babel-core": "^7.0.0-0",
     "babel-jest": "^22.0.4",
+    "express": "^4.16.2",
     "imagemin-lint-staged": "^0.3.0",
     "lint-staged": "^6.1.1",
     "markdownlint-cli": "^0.7.1",

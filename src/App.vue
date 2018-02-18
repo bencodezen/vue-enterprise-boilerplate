@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import appConfig from '@/app.config'
+import appConfig from '@src/app.config'
 
 export default {
   page: {

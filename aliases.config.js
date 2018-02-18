@@ -5,7 +5,7 @@ function resolveSrc(_path) {
 }
 
 const aliases = {
-  '@': 'src',
+  '@src': 'src',
   '@router': 'src/router',
   '@views': 'src/router/views',
   '@layouts': 'src/router/layouts',

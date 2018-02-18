@@ -1,7 +1,7 @@
 <script>
 import Layout from '@layouts/main'
 import { authActions } from '@state/helpers'
-import appConfig from '@/app.config'
+import appConfig from '@src/app.config'
 
 export default {
   page: {
