@@ -43,7 +43,6 @@ module.exports = (on, config) => {
     // Videos & Screenshots
     // https://docs.cypress.io/guides/core-concepts/screenshots-and-videos.html
     // ===
-    videoRecording: false,
     videoUploadOnPasses: true,
     videoCompression: 32,
     videosFolder: 'tests/e2e/videos',

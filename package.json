@@ -7,13 +7,12 @@
     "dev:e2e": "vue-cli-service e2e:open --mode=development",
     "build": "vue-cli-service build",
     "lint":
-      "eslint --ext .js,.vue --fix . && stylelint --fix \"src/**/*.vue\" \"src/**/*.scss\" && markdownlint docs/ src/ test/ *.md && yarn prettier --write \"**/*.{js,css,scss,vue,md}\"",
+      "eslint --ext .js,.vue --fix . && stylelint --fix \"src/**/*.vue\" \"src/**/*.scss\" && markdownlint docs/ src/ test/ *.md && prettier --list-different --write \"**/*.{js,css,scss,vue,md}\"",
     "unit": "jest",
-    "unit:coverage": "yarn unit --coverage",
     "unit:watch": "jest --watch --notify --notifyMode change",
-    "e2e": "vue-cli-service e2e",
+    "e2e": "vue-cli-service e2e --config videoRecording=false",
     "test": "yarn unit && yarn e2e",
-    "test:ci": "yarn lint && yarn unit:coverage --ci && yarn e2e"
+    "test:ci": "yarn lint && jest --coverage --ci && vue-cli-service e2e"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
@@ -21,19 +20,23 @@
   "lint-staged": {
     "*.{js,jsx}": [
       "eslint --fix",
-      "prettier --write",
+      "prettier --list-different --write",
       "git add",
       "jest --no-cache --findRelatedTests"
     ],
     "*.vue": [
       "eslint --fix",
       "stylelint --fix",
-      "prettier --write",
+      "prettier --list-different --write",
       "git add",
       "jest --no-cache --findRelatedTests"
     ],
-    "*.scss": ["stylelint --fix", "prettier --write", "git add"],
-    "*.md": ["markdownlint", "prettier --write", "git add"],
+    "*.scss": [
+      "stylelint --fix",
+      "prettier --list-different --write",
+      "git add"
+    ],
+    "*.md": ["markdownlint", "prettier --list-different --write", "git add"],
     "*.{png,jpeg,jpg,gif,svg}": ["imagemin-lint-staged", "git add"]
   },
   "engines": {
@@ -66,10 +69,10 @@
     "lint-staged": "^6.1.1",
     "markdownlint-cli": "^0.7.1",
     "node-sass": "^4.7.2",
-    "prettier-stylelint": "^0.4.2",
     "sass-loader": "^6.0.6",
     "stylelint": "^8.4.0",
     "stylelint-config-css-modules": "^1.1.0",
+    "stylelint-config-prettier": "^2.0.0",
     "stylelint-config-recess-order": "^1.2.3",
     "stylelint-config-standard": "^18.0.0",
     "stylelint-scss": "^2.3.0",

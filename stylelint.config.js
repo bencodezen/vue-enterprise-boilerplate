@@ -1,13 +1,16 @@
 module.exports = {
   extends: [
-    // Use the Standard config as the base linting config
+    // Use the Standard config as the base
+    // https://github.com/stylelint/stylelint-config-standard
     'stylelint-config-standard',
     // Enforce a standard order for CSS properties
+    // https://github.com/stormwarning/stylelint-config-recess-order
     'stylelint-config-recess-order',
     // Override rules that would interfere with Prettier
-    // https://github.com/hugomrdias/prettier-stylelint/blob/master/config.js
-    './node_modules/prettier-stylelint/config.js',
+    // https://github.com/shannonmoeller/stylelint-config-prettier
+    'stylelint-config-prettier',
     // Override rules to allow linting of CSS modules
+    // https://github.com/pascalduez/stylelint-config-css-modules
     'stylelint-config-css-modules',
   ],
   plugins: [
@@ -25,6 +28,19 @@ module.exports = {
     // Limit the number of universal selectors in a selector,
     // to avoid very slow selectors
     'selector-max-universal': 1,
+    // ===
+    // PRETTIER
+    // ===
+    // HACK: to compensate for https://github.com/shannonmoeller/stylelint-config-prettier/issues/4
+    // Modifying setting from Standard: https://github.com/stylelint/stylelint-config-standard/blob/7b76d7d0060f2e13a331806a09c2096c7536b0a6/index.js#L6
+    'at-rule-empty-line-before': [
+      'always',
+      {
+        except: ['blockless-after-same-name-blockless', 'first-nested'],
+        ignore: ['after-comment'],
+        ignoreAtRules: ['else'],
+      },
+    ],
     // ===
     // SCSS
     // ===
