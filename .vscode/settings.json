@@ -18,55 +18,8 @@
     "**/coverage": true
   },
   "files.associations": {
-    ".markdownlintrc": "jsonc",
-    ".markdownlint.json": "jsonc"
+    ".markdownlintrc": "jsonc"
   },
-  // https://github.com/vscode-icons/vscode-icons/blob/master/src/icon-manifest/supportedExtensions.ts
-  "vsicons.associations.files": [
-    {
-      "icon": "js",
-      "extensions": ["js"],
-      "format": "svg"
-    },
-    {
-      "icon": "testjs",
-      "extensions": ["unit.js", "e2e.js"],
-      "format": "svg"
-    },
-    {
-      "icon": "markdownlint",
-      "extensions": ["markdownlintrc", "markdownlint.json"],
-      "format": "svg"
-    }
-  ],
-  // https://github.com/vscode-icons/vscode-icons/blob/master/src/icon-manifest/supportedFolders.ts
-  "vsicons.associations.folders": [
-    {
-      "icon": "test",
-      "extensions": ["unit"],
-      "format": "svg"
-    },
-    {
-      "icon": "cypress",
-      "extensions": ["e2e"],
-      "format": "svg"
-    },
-    {
-      "icon": "route",
-      "extensions": ["router"],
-      "format": "svg"
-    },
-    {
-      "icon": "server",
-      "extensions": ["mock-api"],
-      "format": "svg"
-    },
-    {
-      "icon": "sass",
-      "extensions": ["design"],
-      "format": "svg"
-    }
-  ],
   // ===
   // Event Triggers
   // ===

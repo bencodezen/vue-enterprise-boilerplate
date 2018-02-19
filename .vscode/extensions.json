@@ -18,9 +18,6 @@
     // Test `.spec.js` files on save with Jest
     "Orta.vscode-jest",
     // Lint markdown in README files
-    "DavidAnson.vscode-markdownlint",
-    // Add icons to more easily distinguish between
-    // files and folders in the sidebar
-    "robertohuertasm.vscode-icons"
+    "DavidAnson.vscode-markdownlint"
   ]
 }
