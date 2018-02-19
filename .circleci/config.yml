@@ -31,4 +31,9 @@ jobs:
       # run tests!
       - run: yarn test:ci
 
-
+      - store_artifacts:
+          path: tests/unit/coverage
+      - store_artifacts:
+          path: tests/e2e/videos
+      - store_artifacts:
+          path: tests/e2e/screenshots
