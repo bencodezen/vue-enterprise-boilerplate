@@ -50,7 +50,7 @@
     "markdownlint-cli": "^0.7.1",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
-    "stylelint": "^8.4.0",
+    "stylelint": "^9.0.0",
     "stylelint-config-css-modules": "^1.2.0",
     "stylelint-config-prettier": "^2.0.0",
     "stylelint-config-recess-order": "^1.2.3",
