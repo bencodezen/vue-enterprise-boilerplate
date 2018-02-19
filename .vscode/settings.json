@@ -5,9 +5,10 @@
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
   "editor.trimAutoWhitespace": true,
-  "files.eol": "\n",
   "files.trimTrailingWhitespace": true,
+  "files.eol": "\n",
   "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
   // ===
   // Files
   // ===
