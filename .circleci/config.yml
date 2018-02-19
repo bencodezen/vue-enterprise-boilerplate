@@ -1,39 +1,77 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
 version: 2
+
+vm_settings: &vm_settings
+  docker:
+    # https://circleci.com/docs/2.0/circleci-images/#nodejs
+    - image: circleci/node:latest-browsers
+  working_directory: ~/repo
+
+# Restore cached dependencies
+install_restore_cache: &install_restore_cache
+  keys:
+    - dependencies-{{ checksum "yarn.lock" }}
+    # Fall back to using the latest cache if no exact match is found
+    - dependencies-
+
+# Install with Yarn
+install_run: &install_run
+  name: Install dependencies with Yarn, purely from the lockfile
+  command: yarn install --frozen-lockfile
+
+# Cache installed dependencies
+install_save_cache: &install_save_cache
+  paths:
+    - node_modules
+  key: dependencies-{{ checksum "yarn.lock" }}
+
 jobs:
-  build:
-    docker:
-      # specify the version you desire here
-      - image: circleci/node:latest-browsers
 
-    working_directory: ~/repo
-
+  test:
+    <<: *vm_settings
     steps:
       - checkout
 
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "yarn.lock" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+      # Install dependencies
+      - restore_cache: *install_restore_cache
+      - run: *install_run
+      - save_cache: *install_save_cache
 
-      - run: yarn install --frozen-lockfile
+      - run:
+          name: Run tests
+          command: yarn test:ci
 
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "yarn.lock" }}
-
-      # run tests!
-      - run: yarn test:ci
-
+      # Store test artifacts
       - store_artifacts:
           path: tests/unit/coverage
       - store_artifacts:
           path: tests/e2e/videos
       - store_artifacts:
           path: tests/e2e/screenshots
+
+  # deploy:
+  #   <<: *vm_settings
+  #   steps:
+  #     # Install dependencies
+  #     - restore_cache: *install_restore_cache
+  #     - run: *install_run
+  #     - save_cache: *install_save_cache
+
+  #     # Build the app for production
+  #     - run: yarn build
+
+  #     ADD YOUR DEPLOYMENT PROCESS HERE
+  #     https://circleci.com/docs/2.0/deployment-integrations/
+
+workflows:
+  version: 2
+  test_and_deploy:
+    jobs:
+      - test
+      # - deploy:
+      #     # Only deploy if tests pass
+      #     requires:
+      #       - test
+      #     # Only deploy the master branch
+      #     filters:
+      #       branches:
+      #         only: master
