@@ -9,9 +9,10 @@ const modules = {}
 
 requireModule.keys().forEach(fileName => {
   if (fileName === './index.js' || /\.unit\.js$/.test(fileName)) return
-  modules[camelCase(fileName.replace(/(\.\/|\.js)/g, ''))] = requireModule(
-    fileName
-  )
+  modules[camelCase(fileName.replace(/(\.\/|\.js)/g, ''))] = {
+    namespaced: true,
+    ...requireModule(fileName),
+  }
 })
 
 export default modules

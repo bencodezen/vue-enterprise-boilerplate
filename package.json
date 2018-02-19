@@ -8,11 +8,12 @@
     "build": "vue-cli-service build",
     "lint":
       "eslint --ext .js,.vue --fix . && stylelint --fix \"src/**/*.vue\" \"src/**/*.scss\" && markdownlint docs/ src/ test/ *.md && prettier --list-different --write \"**/*.{js,jsx,json,css,scss,vue,md}\"",
-    "unit": "jest",
+    "unit": "jest --no-cache",
     "unit:watch": "jest --watch --notify --notifyMode change",
     "e2e": "vue-cli-service e2e --config videoRecording=false",
     "test": "yarn unit && yarn e2e",
-    "test:ci": "yarn lint && jest --coverage --ci && vue-cli-service e2e"
+    "test:ci":
+      "yarn lint && jest --no-cache --coverage --ci && vue-cli-service e2e"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
@@ -50,10 +51,10 @@
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
     "stylelint": "^8.4.0",
-    "stylelint-config-css-modules": "^1.1.0",
+    "stylelint-config-css-modules": "^1.2.0",
     "stylelint-config-prettier": "^2.0.0",
     "stylelint-config-recess-order": "^1.2.3",
-    "stylelint-config-standard": "^18.0.0",
+    "stylelint-config-standard": "^18.1.0",
     "stylelint-scss": "^2.3.0",
     "vue-template-compiler": "^2.5.13"
   }

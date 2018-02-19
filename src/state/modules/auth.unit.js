@@ -43,54 +43,52 @@ describe('@state/modules/auth', () => {
     })
   })
 
-  it('Action: logIn commits the currentUser and returns a promise that resolves to the user when NOT already logged in and provided a correct username and password', done => {
+  it('Action: logIn commits the currentUser and returns a promise that resolves to the user when NOT already logged in and provided a correct username and password', () => {
     const commitMock = jest.fn()
 
-    const logInPromise = require('./auth').actions.logIn(
-      {
-        getters: {
-          loggedIn: false,
+    return require('./auth')
+      .actions.logIn(
+        {
+          getters: {
+            loggedIn: false,
+          },
+          commit: commitMock,
         },
-        commit: commitMock,
-      },
-      {
-        username: 'admin',
-        password: 'password',
-      }
-    )
-
-    logInPromise.then(currentUser => {
-      const expectedCurrentUser = {
-        id: 1,
-        username: 'admin',
-        name: 'Vue Master',
-        token: 'mock-token',
-      }
-      expect(currentUser).toEqual(expectedCurrentUser)
-      expect(commitMock).toHaveBeenCalledWith(
-        'SET_CURRENT_USER',
-        expectedCurrentUser
+        {
+          username: 'admin',
+          password: 'password',
+        }
       )
-      done()
-    })
+      .then(currentUser => {
+        const expectedCurrentUser = {
+          id: 1,
+          username: 'admin',
+          name: 'Vue Master',
+          token: 'mock-token',
+        }
+        expect(currentUser).toEqual(expectedCurrentUser)
+        expect(commitMock).toHaveBeenCalledWith(
+          'SET_CURRENT_USER',
+          expectedCurrentUser
+        )
+      })
   })
 
-  it('Action: logIn returns a promise that throws when NOT already logged in and provided an incorrect username and password', done => {
-    const logInPromise = require('./auth').actions.logIn(
-      {
-        getters: {
-          loggedIn: false,
+  it('Action: logIn returns a promise that throws when NOT already logged in and provided an incorrect username and password', () => {
+    return require('./auth')
+      .actions.logIn(
+        {
+          getters: {
+            loggedIn: false,
+          },
         },
-      },
-      {
-        username: 'bad username',
-        password: 'bad password',
-      }
-    )
-
-    logInPromise.catch(error => {
-      expect(error.message).toEqual('Request failed with status code 401')
-      done()
-    })
+        {
+          username: 'bad username',
+          password: 'bad password',
+        }
+      )
+      .catch(error => {
+        expect(error.message).toEqual('Request failed with status code 401')
+      })
   })
 })

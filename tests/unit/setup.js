@@ -36,9 +36,22 @@ global.createComponentMocks = ({ store, router, style, mocks, stubs }) => {
   if (store) {
     localVue.use(Vuex)
     returnOptions.store = new Vuex.Store({
-      state: store.state || {},
-      getters: store.getters || {},
-      actions: store.actions || {},
+      modules: Object.keys(store)
+        .map(moduleName => {
+          const storeModule = store[moduleName]
+          return {
+            [moduleName]: {
+              state: storeModule.state || {},
+              getters: storeModule.getters || {},
+              actions: storeModule.actions || {},
+              namespaced:
+                typeof storeModule.namespaced === 'undefined'
+                  ? true
+                  : storeModule.namespaced,
+            },
+          }
+        })
+        .reduce((moduleA, moduleB) => Object.assign({}, moduleA, moduleB), {}),
     })
   }
 

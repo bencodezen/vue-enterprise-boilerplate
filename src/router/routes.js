@@ -12,7 +12,7 @@ export default [
     component: require('@views/login').default,
     beforeEnter(routeTo, routeFrom, next) {
       // If the user is already logged in
-      if (store.getters.loggedIn) {
+      if (store.getters['auth/loggedIn']) {
         // Redirect to the home page instead
         next({ name: 'home' })
       } else {
@@ -36,7 +36,7 @@ export default [
       authRequired: true,
     },
     beforeEnter(routeTo, routeFrom, next) {
-      store.dispatch('logOut')
+      store.dispatch('auth/logOut')
       // Navigate back to previous page
       const authRequiredOnPreviousRoute = routeFrom.matched.some(
         route => route.meta.authRequired

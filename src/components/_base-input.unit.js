@@ -1,11 +1,11 @@
-import AppInput from './app-input'
+import BaseInput from './_base-input'
 
-describe('@components/app-input', () => {
+describe('@components/base-input', () => {
   it('works with v-model', () => {
     const parent = mount({
-      components: { AppInput },
+      components: { BaseInput },
       data: () => ({ foo: '' }),
-      template: `<AppInput v-model="foo"/>`,
+      template: `<BaseInput v-model="foo"/>`,
     })
     const input = parent.find('input')
 

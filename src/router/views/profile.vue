@@ -1,6 +1,6 @@
 <script>
 import Layout from '@layouts/main'
-import { authGetters } from '@state/helpers'
+import { authComputed } from '@state/helpers'
 
 export default {
   page() {
@@ -16,7 +16,7 @@ export default {
   },
   components: { Layout },
   computed: {
-    ...authGetters,
+    ...authComputed,
   },
 }
 </script>
@@ -24,7 +24,7 @@ export default {
 <template>
   <Layout>
     <h1>
-      <AppIcon name="user"/>
+      <BaseIcon name="user"/>
       {{ currentUser.name }}
       Profile
     </h1>

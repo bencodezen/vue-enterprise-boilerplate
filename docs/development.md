@@ -1,1 +1,44 @@
 # Development
+
+## First-time setup
+
+Make sure you have the following installed:
+
+* [Node](https://nodejs.org/en/) (at least the latest LTS)
+* [Yarn](https://yarnpkg.com/lang/en/docs/install/) (at least 1.0)
+
+Then update `src/app.config.js` to suit your application.
+
+## Installation
+
+```sh
+# Install dependencies from package.json
+yarn install
+```
+
+## Dev server
+
+```sh
+# Launch the dev server
+yarn dev
+
+# Launch the dev server and automatically open it in
+# your default browser when ready
+yarn dev --open
+
+# Launch the dev server with the Cypress client for
+# test-driven development in a friendly interface
+yarn dev:e2e
+```
+
+### Developing with the production API
+
+By default, dev and tests filter requests through the mock API in `tests/mock-api`. To test directly against the production API instead, update `prod.baseUrl` in `src/app.config.js` and run dev and test commands with the `PROD_API=true` environment variable.
+
+## Aliases
+
+To simplify referencing local modules and refactoring, you can set aliases to be shared between dev and unit tests in `aliases.config.js`. As a convention, this project uses an `@` prefix to denote aliases.
+
+## Base components
+
+[Base components](https://vuejs.org/v2/style-guide/#Base-component-names-strongly-recommended) (a.k.a. presentational, dumb, or pure components) that apply app-specific styling and conventions should all begin with the `_base-` prefix. Since these components are typically used in place of raw HTML element (and thus used as frequently), they're automatically globally registered for convenience. This means you don't have to import and locally register them to use them in templates.

@@ -20,7 +20,7 @@ router.beforeEach((routeTo, routeFrom, next) => {
   // (including nested routes)
   const authRequired = routeTo.matched.some(route => route.meta.authRequired)
 
-  if (!authRequired || store.getters.loggedIn) {
+  if (!authRequired || store.getters['auth/loggedIn']) {
     // Just continue to the route
     return next()
   } else {

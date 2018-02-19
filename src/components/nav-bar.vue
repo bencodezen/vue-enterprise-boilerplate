@@ -1,5 +1,5 @@
 <script>
-import { authGetters } from '@state/helpers'
+import { authComputed } from '@state/helpers'
 import NavBarRoutes from './nav-bar-routes.vue'
 
 export default {
@@ -31,7 +31,7 @@ export default {
     }
   },
   computed: {
-    ...authGetters,
+    ...authComputed,
   },
 }
 </script>

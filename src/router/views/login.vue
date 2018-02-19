@@ -1,6 +1,6 @@
 <script>
 import Layout from '@layouts/main'
-import { authActions } from '@state/helpers'
+import { authMethods } from '@state/helpers'
 import appConfig from '@src/app.config'
 
 export default {
@@ -18,7 +18,7 @@ export default {
     }
   },
   methods: {
-    ...authActions,
+    ...authMethods,
     // Try to log the user in with the username
     // and password they provided.
     tryToLogIn() {
@@ -48,26 +48,26 @@ export default {
       :class="$style.form"
       @submit.prevent="tryToLogIn"
     >
-      <AppInput
+      <BaseInput
         v-model="username"
         name="username"
       />
-      <AppInput
+      <BaseInput
         v-model="password"
         name="password"
         type="password"
       />
-      <AppButton
+      <BaseButton
         type="submit"
         :disabled="tryingToLogIn"
       >
-        <AppIcon
+        <BaseIcon
           v-if="tryingToLogIn"
           source="custom"
           name="loading"
         />
         <span v-else>Log in</span>
-      </AppButton>
+      </BaseButton>
       <p v-if="authError">
         There was an error logging in to your account.
       </p>

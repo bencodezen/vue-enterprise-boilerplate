@@ -2,7 +2,6 @@
   // ===
   // Spacing
   // ===
-  "editor.wordWrapColumn": 80,
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
   "editor.trimAutoWhitespace": true,
@@ -13,14 +12,9 @@
   // Files
   // ===
   "files.exclude": {
-    "**/.git": true,
-    "**/.DS_Store": true,
-    "**/db.json": true,
-    "**/*.log.*": true,
+    "**/*.log": true,
+    "**/*.log*": true,
     "**/dist": true,
-    "**/tmp": true,
-    "**/cache": true,
-    "**/node_modules": true,
     "**/coverage": true
   },
   "files.associations": {
@@ -30,13 +24,13 @@
   // https://github.com/vscode-icons/vscode-icons/blob/master/src/icon-manifest/supportedExtensions.ts
   "vsicons.associations.files": [
     {
-      "icon": "testjs",
-      "extensions": ["unit.js"],
+      "icon": "js",
+      "extensions": ["js"],
       "format": "svg"
     },
     {
-      "icon": "js",
-      "extensions": ["js"],
+      "icon": "testjs",
+      "extensions": ["unit.js", "e2e.js"],
       "format": "svg"
     },
     {
@@ -49,49 +43,50 @@
   "vsicons.associations.folders": [
     {
       "icon": "test",
-      "extensions": ["unit", "e2e"],
+      "extensions": ["unit"],
       "format": "svg"
     },
     {
-      "icon": "helper",
-      "extensions": ["custom-assertions"]
+      "icon": "cypress",
+      "extensions": ["e2e"],
+      "format": "svg"
+    },
+    {
+      "icon": "route",
+      "extensions": ["router"],
+      "format": "svg"
+    },
+    {
+      "icon": "server",
+      "extensions": ["mock-api"],
+      "format": "svg"
+    },
+    {
+      "icon": "sass",
+      "extensions": ["design"],
+      "format": "svg"
     }
   ],
   // ===
-  // GENERAL FORMATTING
+  // Event Triggers
   // ===
   "editor.formatOnSave": true,
-  "prettier.printWidth": 80,
+  "eslint.autoFixOnSave": true,
+  "eslint.run": "onSave",
   // ===
   // HTML
   // ===
   "html.format.enable": false,
-  "emmet.excludeLanguages": [],
-  "emmet.includeLanguages": {
-    "vue-html": "html"
-  },
-  "emmet.syntaxProfiles": {
-    "markdown": "html",
-    "vue": "html",
-    "vue-html": "html",
-    "javascript": "html"
-  },
   "html.suggest.angular1": false,
   "html.suggest.ionic": false,
   "vetur.validation.template": false,
-  "vetur.format.defaultFormatter.html": "none",
   // ===
   // JS(ON)
   // ===
+  "eslint.validate": ["javascript", "javascriptreact", "vue"],
   "javascript.format.enable": false,
   "json.format.enable": false,
-  "eslint.run": "onSave",
-  "eslint.autoFixOnSave": true,
-  "eslint.validate": ["javascript", "javascriptreact", "vue"],
   "vetur.validation.script": false,
-  "vetur.format.scriptInitialIndent": false,
-  "vetur.format.defaultFormatter.js": "prettier",
-  "prettier.eslintIntegration": true,
   // ===
   // CSS
   // ===
@@ -100,15 +95,11 @@
   "css.validate": false,
   "scss.validate": false,
   "vetur.validation.style": false,
-  "vetur.format.styleInitialIndent": false,
-  "vetur.format.defaultFormatter.css": "prettier",
-  "vetur.format.defaultFormatter.scss": "prettier",
-  "vetur.format.defaultFormatter.postcss": "prettier",
-  "prettier.stylelintIntegration": true,
   // ===
   // MARKDOWN
   // ===
   "[markdown]": {
-    "editor.wordWrap": "wordWrapColumn"
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 80
   }
 }

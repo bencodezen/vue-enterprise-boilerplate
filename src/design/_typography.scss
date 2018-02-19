@@ -277,7 +277,7 @@
 
 // Using vertical rhythm methods from https://scotch.io/tutorials/aesthetic-sass-3-typography-and-vertical-rhythm
 // Using perfect 8/9 for low contrast and perfect fifth 2/3 for high
-$type-scale: (
+$typography-type-scale: (
   -1: 0.889rem,
   0: 1rem,
   1: 1.125rem,
@@ -286,16 +286,16 @@ $type-scale: (
 );
 
 @function type-scale($level) {
-  @if map-has-key($type-scale, $level) {
-    @return map-get($type-scale, $level);
+  @if map-has-key($typography-type-scale, $level) {
+    @return map-get($typography-type-scale, $level);
   }
 
-  @warn "Unknown `#{$level}` in $type-scale.";
+  @warn "Unknown `#{$level}` in $typography-type-scale.";
 
   @return null;
 }
 
-$type-scale-contrast: (
+$typography-type-scale-contrast: (
   -1: 1rem,
   0: 1.3333rem,
   1: 1.777rem,
@@ -304,29 +304,29 @@ $type-scale-contrast: (
 );
 
 @function type-scale-contrast($level) {
-  @if map-has-key($type-scale-contrast, $level) {
-    @return map-get($type-scale-contrast, $level);
+  @if map-has-key($typography-type-scale-contrast, $level) {
+    @return map-get($typography-type-scale-contrast, $level);
   }
 
-  @warn "Unknown `#{$level}` in $type-scale-contrast.";
+  @warn "Unknown `#{$level}` in $typography-type-scale-contrast.";
 
   @return null;
 }
 
-$base-font-size: 1rem;
-$base-line-height: $base-font-size * 1.25;
+$typography-base-font-size: 1rem;
+$typography-base-line-height: $typography-base-font-size * 1.25;
 
-$line-heights: (
-  -1: $base-line-height,
-  0: $base-line-height,
-  1: $base-line-height * 1.5,
-  2: $base-line-height * 1.5,
-  3: $base-line-height * 1.5
+$typography-line-heights: (
+  -1: $typography-base-line-height,
+  0: $typography-base-line-height,
+  1: $typography-base-line-height * 1.5,
+  2: $typography-base-line-height * 1.5,
+  3: $typography-base-line-height * 1.5
 );
 
 @function line-height($level) {
-  @if map-has-key($line-heights, $level) {
-    @return map-get($line-heights, $level);
+  @if map-has-key($typography-line-heights, $level) {
+    @return map-get($typography-line-heights, $level);
   }
 
   @warn "Unknown `#{$level}` in $line-height.";
@@ -334,22 +334,22 @@ $line-heights: (
   @return null;
 }
 
-$base-line-height-contrast: $base-line-height;
+$typography-base-line-height-contrast: $typography-base-line-height;
 
-$line-heights-contrast: (
-  -1: $base-line-height-contrast,
-  0: $base-line-height-contrast * 2,
-  1: $base-line-height-contrast * 2,
-  2: $base-line-height-contrast * 2,
-  3: $base-line-height * 3
+$typography-line-heights-contrast: (
+  -1: $typography-base-line-height-contrast,
+  0: $typography-base-line-height-contrast * 2,
+  1: $typography-base-line-height-contrast * 2,
+  2: $typography-base-line-height-contrast * 2,
+  3: $typography-base-line-height * 3
 );
 
 @function line-height-contrast($level) {
-  @if map-has-key($line-heights-contrast, $level) {
-    @return map-get($line-heights-contrast, $level);
+  @if map-has-key($typography-line-heights-contrast, $level) {
+    @return map-get($typography-line-heights-contrast, $level);
   }
 
-  @warn "Unknown `#{$level}` in $line-heights-contrast.";
+  @warn "Unknown `#{$level}` in $typography-line-heights-contrast.";
 
   @return null;
 }

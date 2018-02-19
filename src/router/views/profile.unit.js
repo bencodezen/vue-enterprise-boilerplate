@@ -9,8 +9,8 @@ describe('@views/profile', () => {
       Profile,
       createComponentMocks({
         store: {
-          state: {
-            auth: {
+          auth: {
+            state: {
               currentUser: {
                 name: 'My Name',
               },

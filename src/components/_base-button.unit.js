@@ -1,9 +1,9 @@
-import AppButton from './app-button'
+import BaseButton from './_base-button'
 
-describe('@components/app-button', () => {
+describe('@components/base-button', () => {
   it('renders its content', () => {
     const slotContent = '<span>foo</span>'
-    const { element } = mountShallow(AppButton, {
+    const { element } = mountShallow(BaseButton, {
       slots: {
         default: slotContent,
       },

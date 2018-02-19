@@ -1,8 +1,8 @@
-import AppIcon from './app-icon'
+import BaseIcon from './_base-icon'
 
-describe('@components/app-icon', () => {
+describe('@components/base-icon', () => {
   it('renders a font-awesome icon', () => {
-    const { element } = mountShallow(AppIcon, {
+    const { element } = mountShallow(BaseIcon, {
       ...createComponentMocks({
         style: {
           fa: 'fa',
@@ -18,7 +18,7 @@ describe('@components/app-icon', () => {
   })
 
   it('renders a custom icon', () => {
-    const { element } = mountShallow(AppIcon, {
+    const { element } = mountShallow(BaseIcon, {
       ...createComponentMocks({
         style: {
           iconCustomSomeIcon: 'icon-custom-some-icon',

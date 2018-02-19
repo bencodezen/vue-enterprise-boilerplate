@@ -37,16 +37,18 @@ function mountLogin() {
   return mountShallowView(Login, {
     ...createComponentMocks({
       store: {
-        actions: {
-          logIn(_, { username, password }) {
-            if (
-              username === 'correctUsername' &&
-              password === 'correctPassword'
-            ) {
-              return Promise.resolve('testToken')
-            } else {
-              return Promise.reject(new Error('testError'))
-            }
+        auth: {
+          actions: {
+            logIn(_, { username, password }) {
+              if (
+                username === 'correctUsername' &&
+                password === 'correctPassword'
+              ) {
+                return Promise.resolve('testToken')
+              } else {
+                return Promise.reject(new Error('testError'))
+              }
+            },
           },
         },
       },

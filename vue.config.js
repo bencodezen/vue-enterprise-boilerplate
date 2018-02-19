@@ -17,18 +17,16 @@ module.exports = {
     // This option does not affect *.vue files.
     modules: true,
   },
-  // Split vendors using autoDLLPlugin.
+  // Split dependencies into their own bundle.
+  // https://github.com/vuejs/vue-cli/blob/dev/docs/cli-service.md#dll-mode
   dll: true,
-  ...(process.env.PROD_API
-    ? {
-        proxy: {
-          '/api': appConfig.prod.baseUrl,
-        },
-      }
-    : {
-        devServer: {
-          // Provide a mock API for development and tests
-          before: require('./tests/mock-api'),
-        },
-      }),
+  // Configure Webpack's dev server.
+  // https://github.com/vuejs/vue-cli/blob/dev/docs/cli-service.md
+  devServer: {
+    ...(process.env.PROD_API
+      ? // Proxy API endpoints to the production base URL.
+        { proxy: { '/api': { target: appConfig.prod.baseUrl } } }
+      : // Proxy API endpoints a local mock API.
+        { before: require('./tests/mock-api') }),
+  },
 }
