@@ -13,7 +13,8 @@
     "e2e": "vue-cli-service e2e --config videoRecording=false",
     "test": "yarn unit && yarn e2e",
     "test:ci":
-      "yarn lint && jest --no-cache --coverage --ci && vue-cli-service e2e"
+      "yarn lint && jest --no-cache --coverage --ci && vue-cli-service e2e",
+    "new": "hygen new"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
@@ -45,6 +46,7 @@
     "babel-core": "^7.0.0-0",
     "babel-jest": "^22.0.4",
     "express": "^4.16.2",
+    "hygen": "^1.4.9",
     "imagemin-lint-staged": "^0.3.0",
     "lint-staged": "^6.1.1",
     "markdownlint-cli": "^0.7.1",
