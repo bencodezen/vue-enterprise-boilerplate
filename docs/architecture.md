@@ -1,5 +1,6 @@
 # Architecture
 
+* [`_templates`](#templates)
 * [`.circleci`](#circleci)
 * [`.vscode`](#vscode)
 * [`docs`](#docs)
@@ -16,6 +17,10 @@
   * [`app.vue`](#appvue)
   * [`main.js`](#mainjs)
 * [`tests`](#tests)
+
+## `_templates`
+
+Generator templates to speed up development. See [the development doc](development.md#generators) for more.
 
 ## `.circleci`
 
