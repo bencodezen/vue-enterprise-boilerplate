@@ -1,17 +1,3 @@
-<template>
-  <span
-    v-if="source === 'font-awesome'"
-    :class="[
-      $style.fa,
-      $style['fa-' + name],
-    ]"
-  />
-  <span
-    v-else-if="source === 'custom'"
-    :class="customIconClass"
-  />
-</template>
-
 <script>
 import camelCase from 'lodash/camelCase'
 
@@ -34,6 +20,20 @@ export default {
   },
 }
 </script>
+
+<template>
+  <span
+    v-if="source === 'font-awesome'"
+    :class="[
+      $style.fa,
+      $style['fa-' + name],
+    ]"
+  />
+  <span
+    v-else-if="source === 'custom'"
+    :class="customIconClass"
+  />
+</template>
 
 <style lang="scss" module>
 $fa-font-path: 'font-awesome/fonts';
