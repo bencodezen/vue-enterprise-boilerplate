@@ -1,6 +1,7 @@
 // See these docs for details on Jest's matcher utils:
 // https://facebook.github.io/jest/docs/en/expect.html#thisutils
 
+const _ = require('lodash')
 const customMatchers = {}
 
 customMatchers.toBeAViewComponent = function(options, mockInstance) {
@@ -46,6 +47,34 @@ customMatchers.toBeAViewComponent = function(options, mockInstance) {
 
 customMatchers.toBeAViewComponentUsing = function(options, mockInstance) {
   return customMatchers.toBeAViewComponent.apply(this, [options, mockInstance])
+}
+
+customMatchers.toBeAVuexModule = function(options) {
+  if (isAVuexModule()) {
+    return {
+      message: () =>
+        `expected ${this.utils.printReceived(options)} not to be a Vuex module`,
+      pass: true,
+    }
+  } else {
+    return {
+      message: () =>
+        `expected ${this.utils.printReceived(
+          options
+        )} to a valid Vuex module, include state, getters, mutations, and actions`,
+      pass: false,
+    }
+  }
+
+  function isAVuexModule() {
+    return (
+      _.isPlainObject(options) &&
+      _.isPlainObject(options.state) &&
+      _.isPlainObject(options.getters) &&
+      _.isPlainObject(options.mutations) &&
+      _.isPlainObject(options.actions)
+    )
+  }
 }
 
 // https://facebook.github.io/jest/docs/en/expect.html#expectextendmatchers

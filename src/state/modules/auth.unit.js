@@ -1,29 +1,24 @@
+import * as authModule from './auth'
+
 describe('@state/modules/auth', () => {
-  const prevLocalStorage = window.localStorage
-  beforeAll(() => {
-    window.localStorage = {
-      getItem: () => null,
-      setItem() {},
-    }
-  })
-  afterAll(() => {
-    window.localStorage = prevLocalStorage
+  it('exports a valid Vuex module', () => {
+    expect(authModule).toBeAVuexModule()
   })
 
   it('Getter: loggedIn returns true when currentUser is an object', () => {
-    const loggedIn = require('./auth').getters.loggedIn
+    const loggedIn = authModule.getters.loggedIn
     const loggedInValue = loggedIn({ currentUser: {} })
     expect(loggedInValue).toEqual(true)
   })
 
   it('Getter: loggedIn returns false when currentUser is null', () => {
-    const loggedIn = require('./auth').getters.loggedIn
+    const loggedIn = authModule.getters.loggedIn
     const loggedInValue = loggedIn({ currentUser: null })
     expect(loggedInValue).toEqual(false)
   })
 
   it('Action: logIn returns a promise that resolves to the currentUser when already logged in', done => {
-    const logInPromise = require('./auth').actions.logIn(
+    const logInPromise = authModule.actions.logIn(
       {
         state: {
           currentUser: {
@@ -46,8 +41,8 @@ describe('@state/modules/auth', () => {
   it('Action: logIn commits the currentUser and returns a promise that resolves to the user when NOT already logged in and provided a correct username and password', () => {
     const commitMock = jest.fn()
 
-    return require('./auth')
-      .actions.logIn(
+    return authModule.actions
+      .logIn(
         {
           getters: {
             loggedIn: false,
@@ -75,8 +70,8 @@ describe('@state/modules/auth', () => {
   })
 
   it('Action: logIn returns a promise that throws when NOT already logged in and provided an incorrect username and password', () => {
-    return require('./auth')
-      .actions.logIn(
+    return authModule.actions
+      .logIn(
         {
           getters: {
             loggedIn: false,
