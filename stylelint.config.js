@@ -29,7 +29,7 @@ module.exports = {
     // to avoid very slow selectors
     'selector-max-universal': 1,
     // Disallow allow global element/type selectors in scoped modules
-    'selector-max-type': [0, { ignore: ['descendant', 'compounded'] }],
+    'selector-max-type': [0, { ignore: ['child', 'descendant', 'compounded'] }],
     // ===
     // PRETTIER
     // ===
