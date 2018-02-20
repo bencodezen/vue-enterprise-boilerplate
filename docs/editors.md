@@ -1,5 +1,9 @@
 # Editor integration
 
+* [Visual Studio Code](#visual-studio-code)
+  * [Configuration](#configuration)
+* [FAQ](#faq)
+
 ## Visual Studio Code
 
 This project is best developed in VS Code. With the [recommended extensions](https://code.visualstudio.com/docs/editor/extension-gallery#_workspace-recommended-extensions) and settings in `.vscode`, you get:

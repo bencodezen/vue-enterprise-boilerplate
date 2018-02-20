@@ -14,6 +14,7 @@ describe('@views/login', () => {
     const routerPush = jest.fn()
     vm.$router = { push: routerPush }
 
+    expect.assertions(2)
     return vm.tryToLogIn().then(() => {
       expect(vm.authError).toEqual(null)
       expect(routerPush).toHaveBeenCalledWith({ name: 'home' })
@@ -26,6 +27,7 @@ describe('@views/login', () => {
     const routerPush = jest.fn()
     vm.$router = { push: routerPush }
 
+    expect.assertions(2)
     return vm.tryToLogIn().then(() => {
       expect(vm.authError).toBeTruthy()
       expect(vm.$el.textContent).toContain('error')

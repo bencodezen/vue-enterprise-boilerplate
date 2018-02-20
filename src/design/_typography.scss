@@ -26,8 +26,8 @@
 
 // Issues:
 
-// - cubic-bezier requires whitespace
-// - cubic-bezier cannot parse negative values
+// - kubic-bezier requires whitespace
+// - kubic-bezier cannot parse negative values
 
 // stylelint-disable scss/dollar-variable-pattern
 @mixin interpolate($property, $min-screen, $min-value, $max-screen, $max-value, $easing: 'linear', $bending-points: 2) {
@@ -38,7 +38,7 @@
   $p3: 1;
 
   // Parse Cubic Bezier string
-  @if (str-slice($easing, 1, 12) == 'cubic-bezier') {
+  @if (str-slice($easing, 1, 12) == 'kubic-bezier') {
     // Get the values between the brackets
     // TODO: Deal with different whitespace
     $i: str-index($easing, ')'); // Get index of closing bracket
@@ -102,7 +102,7 @@
 
     @while $t * $i <= 1 {
       $bending-point: $t * $i;
-      $value: cubic-bezier($p0, $p1, $p2, $p3, $bending-point);
+      $value: kubic-bezier($p0, $p1, $p2, $p3, $bending-point);
       $screen-int: lerp($min-screen, $max-screen, $bending-point);
       $value-int: lerp($min-value, $max-value, $value);
 
@@ -126,7 +126,7 @@
   }
 }
 
-// Requires several helper functions including: pow, calc-interpolation, cubic-bezier, number and explode
+// Requires several helper functions including: pow, calc-interpolation, kubic-bezier, number and explode
 
 // Math functions:
 
@@ -177,7 +177,7 @@
   @return $t2;
 }
 
-@function cubic-bezier($p1x, $p1y, $p2x, $p2y, $x) {
+@function kubic-bezier($p1x, $p1y, $p2x, $p2y, $x) {
   $cy: 3 * $p1y;
   $by: 3 * ($p2y - $p1y) - $cy;
   $ay: 1 - $cy - $by;

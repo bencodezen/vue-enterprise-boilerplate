@@ -1,17 +1,14 @@
 // Mock axios in our unit tests, so that no one
 
 const axios = require('axios')
-const appConfig = require('@src/app.config')
 
 const mockApiPort = 9090
 
 const axiosInstance = axios.create({
-  baseURL: process.env.PROD_API
-    ? appConfig.prod.baseUrl
-    : `http://localhost:${mockApiPort}`,
+  baseURL: process.env.API_BASE_URL || `http://localhost:${mockApiPort}`,
 })
 
-if (!process.env.PROD_API) {
+if (!process.env.API_BASE_URL) {
   let mockApiServer
 
   axiosInstance.interceptors.request.use(config => {

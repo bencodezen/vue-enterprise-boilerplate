@@ -1,6 +1,12 @@
 <template>
   <div id="app">
-    <router-view/>
+    <!--
+    Even when routes use the same component, treat them
+    as distinct and create the component again.
+    -->
+    <div :key="$route.fullPath">
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -20,6 +26,9 @@ export default {
 
 <!-- This should generally be the only global CSS in the app -->
 <style lang="scss">
+// Allow element/type selectors, because this is global CSS
+// stylelint-disable selector-max-type, selector-class-pattern
+
 @import '~normalize.css/normalize.css';
 @import '~@design';
 
@@ -29,9 +38,17 @@ export default {
   box-sizing: border-box;
 }
 
+body {
+  background: $color-body-bg;
+}
+
 #app {
   @extend %typography-small;
 }
+
+// ===
+// Base element styles
+// ===
 
 a,
 a:visited {
@@ -58,6 +75,10 @@ h5,
 h6 {
   @extend %typography-small;
 }
+
+// ===
+// Animations
+// ===
 
 @keyframes spin {
   100% {

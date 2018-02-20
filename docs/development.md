@@ -1,4 +1,12 @@
-# Development
+# Setup and development
+
+* [First-time setup](#first-time-setup)
+* [Installation](#installation)
+* [Dev server](#dev-server)
+  * [Developing with the production API](#developing-with-the-production-api)
+* [Aliases](#aliases)
+* [Globals](#globals)
+  * [Base components](#base-components)
 
 ## First-time setup
 
@@ -7,7 +15,10 @@ Make sure you have the following installed:
 * [Node](https://nodejs.org/en/) (at least the latest LTS)
 * [Yarn](https://yarnpkg.com/lang/en/docs/install/) (at least 1.0)
 
-Then update `src/app.config.js` to suit your application.
+Then update the following files to suit your application:
+
+* `src/app.config.js` (provides metadata about your app)
+* `.circleci/config.yml` (assuming you want to automatically [deploy to production](production.md) with continuous integration)
 
 ## Installation
 
@@ -33,12 +44,22 @@ yarn dev:e2e
 
 ### Developing with the production API
 
-By default, dev and tests filter requests through the mock API in `tests/mock-api`. To test directly against the production API instead, update `prod.baseUrl` in `src/app.config.js` and run dev and test commands with the `PROD_API=true` environment variable.
+By default, dev and tests filter requests through [the mock API](#the-mock-api) in `tests/mock-api`. To test directly against a local/live API instead, run dev and test commands with the `API_BASE_URL` environment variable set. For example:
+
+```sh
+# To develop against a local backend server
+API_BASE_URL=http://localhost:3000 yarn dev
+
+# To test and develop against a production server
+API_BASE_URL=https://example.io yarn dev:e2e
+```
 
 ## Aliases
 
 To simplify referencing local modules and refactoring, you can set aliases to be shared between dev and unit tests in `aliases.config.js`. As a convention, this project uses an `@` prefix to denote aliases.
 
-## Base components
+## Globals
+
+### Base components
 
 [Base components](https://vuejs.org/v2/style-guide/#Base-component-names-strongly-recommended) (a.k.a. presentational, dumb, or pure components) that apply app-specific styling and conventions should all begin with the `_base-` prefix. Since these components are typically used in place of raw HTML element (and thus used as frequently), they're automatically globally registered for convenience. This means you don't have to import and locally register them to use them in templates.
