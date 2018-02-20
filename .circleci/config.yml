@@ -6,20 +6,19 @@ vm_settings: &vm_settings
     - image: circleci/node:latest-browsers
   working_directory: ~/repo
 
-# Restore cached dependencies
 install_restore_cache: &install_restore_cache
+  name: Restore cached dependencies
   keys:
     - dependencies-{{ checksum "yarn.lock" }}
     # Fall back to using the latest cache if no exact match is found
     - dependencies-
 
-# Install with Yarn
 install_run: &install_run
   name: Install dependencies with Yarn, purely from the lockfile
   command: yarn install --frozen-lockfile
 
-# Cache installed dependencies
 install_save_cache: &install_save_cache
+  name: Cache installed dependencies
   paths:
     - node_modules
   key: dependencies-{{ checksum "yarn.lock" }}
