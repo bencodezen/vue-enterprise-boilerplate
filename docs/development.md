@@ -60,8 +60,11 @@ API_BASE_URL=https://example.io yarn dev:e2e
 This project includes generators to speed up common development tasks. Commands include:
 
 ```sh
-# Generate a new Vue component with adjacent unit test
+# Generate a new component with adjacent unit test
 yarn new component
+
+# Generate a new view component with adjacent unit test
+yarn new view
 
 # Generate a new Vuex module with adjacent unit test
 yarn new module
