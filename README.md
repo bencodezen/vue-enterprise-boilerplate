@@ -6,18 +6,18 @@
 
 **:warning: This project uses Vue CLI 3, which is currently in beta so may not yet be appropriate for production projects.**
 
-## Using this boilerplate
+## Getting started
 
 ```sh
-# Clone the repository
+# 1. Clone the repository.
 git clone git@github.com:chrisvfritz/vue-enterprise-boilerplate.git my-new-project
 
-# Replace this README's CI badge with a note about when you started
+# 2. Replace this README's CI badge with a note about when you started
 # and a link to a compare URL, so that you can always get an overview
-# of new features added to the boilerplate since you did
+# of new features added to the boilerplate since you did.
 node _start.js
 
-# Delete the start script, as there can be only one beginning
+# 3. Delete the start script, as there can be only one beginning.
 rm _start.js
 ```
 
