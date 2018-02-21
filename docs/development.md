@@ -66,6 +66,9 @@ yarn new component
 # Generate a new view component with adjacent unit test
 yarn new view
 
+# Generate a new layout component with adjacent unit test
+yarn new layout
+
 # Generate a new Vuex module with adjacent unit test
 yarn new module
 
