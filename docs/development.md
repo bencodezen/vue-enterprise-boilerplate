@@ -72,6 +72,9 @@ yarn new layout
 # Generate a new Vuex module with adjacent unit test
 yarn new module
 
+# Generate a new utility function with adjacent unit test
+yarn new util
+
 # Generate a new end-to-end spec
 yarn new e2e
 ```
