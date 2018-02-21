@@ -4,6 +4,7 @@
 * [Installation](#installation)
 * [Dev server](#dev-server)
   * [Developing with the production API](#developing-with-the-production-api)
+* [Generators](#generators)
 * [Aliases](#aliases)
 * [Globals](#globals)
   * [Base components](#base-components)
@@ -59,8 +60,14 @@ API_BASE_URL=https://example.io yarn dev:e2e
 This project includes generators to speed up common development tasks. Commands include:
 
 ```sh
-# Generate a new Vuex module with accompanying unit test
+# Generate a new Vue component with adjacent unit test
+yarn new component
+
+# Generate a new Vuex module with adjacent unit test
 yarn new module
+
+# Generate a new end-to-end spec
+yarn new e2e
 ```
 
 Update existing or create new generators in the `_templates` folder, with help from the [Hygen docs](http://www.hygen.io/).
