@@ -12,12 +12,15 @@
 # 1. Clone the repository.
 git clone git@github.com:chrisvfritz/vue-enterprise-boilerplate.git my-new-project
 
-# 2. Replace this README's CI badge with a note about when you started
+# 2. Enter your newly-cloned folder
+cd my-new-project
+
+# 3. Replace this README's CI badge with a note about when you started
 # and a link to a compare URL, so that you can always get an overview
 # of new features added to the boilerplate since you did.
 node _start.js
 
-# 3. Delete the start script, as there can be only one beginning.
+# 4. Delete the start script, as there can be only one beginning.
 rm _start.js
 ```
 
