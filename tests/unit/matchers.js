@@ -4,6 +4,30 @@
 const _ = require('lodash')
 const customMatchers = {}
 
+customMatchers.toBeAComponent = function(options) {
+  if (isAComponent()) {
+    return {
+      message: () =>
+        `expected ${this.utils.printReceived(
+          options
+        )} not to be a Vue component`,
+      pass: true,
+    }
+  } else {
+    return {
+      message: () =>
+        `expected ${this.utils.printReceived(
+          options
+        )} to be a valid Vue component, exported from a .vue file`,
+      pass: false,
+    }
+  }
+
+  function isAComponent() {
+    return _.isPlainObject(options) && typeof options.render === 'function'
+  }
+}
+
 customMatchers.toBeAViewComponent = function(options, mockInstance) {
   if (usesALayout() && definesAPageTitleAndDescription()) {
     return {
@@ -61,7 +85,7 @@ customMatchers.toBeAVuexModule = function(options) {
       message: () =>
         `expected ${this.utils.printReceived(
           options
-        )} to a valid Vuex module, include state, getters, mutations, and actions`,
+        )} to be a valid Vuex module, include state, getters, mutations, and actions`,
       pass: false,
     }
   }
