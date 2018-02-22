@@ -2,12 +2,33 @@
 import vueTestUtils from '@vue/test-utils'
 import Vue from 'vue'
 import Vuex from 'vuex'
+import fs from 'fs'
+import path from 'path'
+
 import _ from 'lodash'
 _.mixin({ pascalCase: _.flow(_.camelCase, _.upperFirst) })
 
 // Don't warn about not using the production build of Vue, as
 // we care more about the quality of errors than performance.
 Vue.config.productionTip = false
+
+// ===
+// Register global components
+// ===
+
+const globalComponentFiles = fs
+  .readdirSync(path.join(__dirname, '../../src/components'))
+  .filter(fileName => /^_base-.+\.vue$/.test(fileName))
+
+for (const fileName of globalComponentFiles) {
+  const componentName = _.pascalCase(fileName.match(/^_(base-.+)\.vue$/)[1])
+  const componentConfig = require('../../src/components/' + fileName)
+  Vue.component(componentName, componentConfig.default || componentConfig)
+}
+
+// ===
+// Patch all components with a global mixin
+// ===
 
 Vue.mixin({
   created() {
@@ -17,11 +38,13 @@ Vue.mixin({
   },
 })
 
-// Mock window properties not handled by JSDOM
+// ===
+// Mock window properties not handled by jsdom
+// ===
+
 Object.defineProperty(window, 'localStorage', {
   value: (function() {
-    var store = {}
-
+    let store = {}
     return {
       getItem: function(key) {
         return store[key] || null
@@ -40,40 +63,12 @@ Object.defineProperty(window, 'localStorage', {
 // Global helpers
 // ===
 
-const fs = require('fs')
-const path = require('path')
-
-const globalComponentFiles = fs
-  .readdirSync(path.join(__dirname, '../../src/components'))
-  .filter(fileName => /^_base-.+\.vue$/.test(fileName))
-
-const globalComponentDeps = globalComponentFiles
-  .map(fileName => ({
-    [_.pascalCase(
-      fileName.match(/^_(base-.+)\.vue$/)[1]
-    )]: require('../../src/components/' + fileName).default,
-  }))
-  .reduce((optionA, optionB) => ({ ...optionA, ...optionB }), {})
-
-global.mount = (Component, options = {}) => {
-  Component = {
-    ...Component,
-    components: { ...globalComponentDeps, ...Component.components },
-  }
-  return vueTestUtils.mount(Component, options)
-}
-
-const globalComponentStubs = globalComponentFiles
-  .map(fileName => ({
-    [_.pascalCase(fileName.match(/^_(base-.+)\.vue$/)[1])]: true,
-  }))
-  .reduce((optionA, optionB) => ({ ...optionA, ...optionB }), {})
+// https://vue-test-utils.vuejs.org/en/api/mount.html
+global.mount = vueTestUtils.mount
 
 // Aliasing `shallow` to a more descriptive name
-global.mountShallow = (Component, options = {}) => {
-  options = { ...options, stubs: { ...globalComponentStubs, ...options.stubs } }
-  return vueTestUtils.shallow(Component, options)
-}
+// https://vue-test-utils.vuejs.org/en/api/shallow.html
+global.mountShallow = vueTestUtils.shallow
 
 // A special version of `mountShallow` for view components
 global.mountShallowView = (Component, options = {}) => {
@@ -95,10 +90,13 @@ global.mountShallowView = (Component, options = {}) => {
 global.createComponentMocks = ({ store, router, style, mocks, stubs }) => {
   // Use a local version of Vue, to avoid polluting the global
   // Vue and thereby affecting other tests.
+  // https://vue-test-utils.vuejs.org/en/api/createLocalVue.html
   const localVue = vueTestUtils.createLocalVue()
   const returnOptions = { localVue }
 
+  // https://vue-test-utils.vuejs.org/en/api/options.html#stubs
   returnOptions.stubs = mocks || {}
+  // https://vue-test-utils.vuejs.org/en/api/options.html#mocks
   returnOptions.mocks = stubs || {}
 
   if (store) {
