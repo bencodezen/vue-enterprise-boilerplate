@@ -1,15 +1,25 @@
-// https://vue-test-utils.vuejs.org/en/
-import vueTestUtils from '@vue/test-utils'
 import Vue from 'vue'
 import Vuex from 'vuex'
 import fs from 'fs'
 import path from 'path'
 
+// ===
+// Utility functions
+// ===
+
+// https://vue-test-utils.vuejs.org/en/
+import vueTestUtils from '@vue/test-utils'
+// https://lodash.com/
 import _ from 'lodash'
 _.mixin({ pascalCase: _.flow(_.camelCase, _.upperFirst) })
 
+// ===
+// Configure Vue
+// ===
+
 // Don't warn about not using the production build of Vue, as
-// we care more about the quality of errors than performance.
+// we care more about the quality of errors than performance
+// for tests.
 Vue.config.productionTip = false
 
 // ===
