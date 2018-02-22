@@ -5,9 +5,9 @@ export default {
   props: {
     source: {
       type: String,
+      // http://fontawesome.io/icons/
       default: 'font-awesome',
     },
-    // http://fontawesome.io/icons/
     name: {
       type: String,
       required: true,
