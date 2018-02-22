@@ -2,6 +2,8 @@
 import vueTestUtils from '@vue/test-utils'
 import Vue from 'vue'
 import Vuex from 'vuex'
+import _ from 'lodash'
+_.mixin({ pascalCase: _.flow(_.camelCase, _.upperFirst) })
 
 // Don't warn about not using the production build of Vue, as
 // we care more about the quality of errors than performance.
@@ -38,9 +40,40 @@ Object.defineProperty(window, 'localStorage', {
 // Global helpers
 // ===
 
-global.mount = vueTestUtils.mount
+const fs = require('fs')
+const path = require('path')
+
+const globalComponentFiles = fs
+  .readdirSync(path.join(__dirname, '../../src/components'))
+  .filter(fileName => /^_base-.+\.vue$/.test(fileName))
+
+const globalComponentDeps = globalComponentFiles
+  .map(fileName => ({
+    [_.pascalCase(
+      fileName.match(/^_(base-.+)\.vue$/)[1]
+    )]: require('../../src/components/' + fileName).default,
+  }))
+  .reduce((optionA, optionB) => ({ ...optionA, ...optionB }), {})
+
+global.mount = (Component, options = {}) => {
+  Component = {
+    ...Component,
+    components: { ...globalComponentDeps, ...Component.components },
+  }
+  return vueTestUtils.mount(Component, options)
+}
+
+const globalComponentStubs = globalComponentFiles
+  .map(fileName => ({
+    [_.pascalCase(fileName.match(/^_(base-.+)\.vue$/)[1])]: true,
+  }))
+  .reduce((optionA, optionB) => ({ ...optionA, ...optionB }), {})
+
 // Aliasing `shallow` to a more descriptive name
-global.mountShallow = vueTestUtils.shallow
+global.mountShallow = (Component, options = {}) => {
+  options = { ...options, stubs: { ...globalComponentStubs, ...options.stubs } }
+  return vueTestUtils.shallow(Component, options)
+}
 
 // A special version of `mountShallow` for view components
 global.mountShallowView = (Component, options = {}) => {
