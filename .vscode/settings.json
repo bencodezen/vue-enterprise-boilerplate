@@ -37,6 +37,8 @@
   // ===
   // JS(ON)
   // ===
+  "jest.autoEnable": false,
+  "jest.enableCodeLens": false,
   "eslint.validate": ["javascript", "javascriptreact", "vue"],
   "javascript.format.enable": false,
   "json.format.enable": false,

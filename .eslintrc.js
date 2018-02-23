@@ -1,11 +1,7 @@
 module.exports = {
   root: true,
   parserOptions: {
-    parser: 'babel-eslint',
-    sourceType: 'module',
-  },
-  env: {
-    browser: true,
+    sourceType: 'script',
   },
   extends: [
     // https://github.com/vuejs/eslint-plugin-vue#bulb-rules
@@ -22,6 +18,17 @@ module.exports = {
   },
   overrides: [
     {
+      files: ['src/**/*', 'tests/unit/**/*', 'tests/e2e/**/*'],
+      excludedFiles: 'app.config.js',
+      parserOptions: {
+        parser: 'babel-eslint',
+        sourceType: 'module',
+      },
+      env: {
+        browser: true,
+      },
+    },
+    {
       files: ['src/**/*'],
       rules: {
         // Only allow `console.log` in development
@@ -33,12 +40,17 @@ module.exports = {
     },
     {
       files: ['**/*.unit.js'],
+      parserOptions: {
+        parser: 'babel-eslint',
+        sourceType: 'module',
+      },
       env: { jest: true },
       globals: {
-        createComponentMocks: false,
         mount: false,
         mountShallow: false,
         mountShallowView: false,
+        createComponentMocks: false,
+        createModuleStore: false,
       },
     },
   ],

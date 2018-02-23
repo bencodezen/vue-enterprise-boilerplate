@@ -23,4 +23,8 @@ module.exports = {
     '!src/state/modules/index.js',
     '!src/components/_globals.js',
   ],
+  // https://facebook.github.io/jest/docs/en/configuration.html#testurl-string
+  // Set the `testURL` to a provided base URL if one exists, or the mock API base URL
+  // Solves: https://stackoverflow.com/questions/42677387/jest-returns-network-error-when-doing-an-authenticated-request-with-axios
+  testURL: process.env.API_BASE_URL || 'http://localhost:9090',
 }

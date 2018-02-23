@@ -12,7 +12,6 @@ This project is best developed in VS Code. With the [recommended extensions](htt
 * Intellisense for all files
 * Lint-on-save for all files
 * In-editor results on save for unit tests
-* Better icon
 
 ### Configuration
 

@@ -1,3 +1,4 @@
+import axios from 'axios'
 import * as authModule from './auth'
 
 describe('@state/modules/auth', () => {
@@ -5,85 +6,112 @@ describe('@state/modules/auth', () => {
     expect(authModule).toBeAVuexModule()
   })
 
-  it('Getter: loggedIn returns true when currentUser is an object', () => {
-    const loggedIn = authModule.getters.loggedIn
-    const loggedInValue = loggedIn({ currentUser: {} })
-    expect(loggedInValue).toEqual(true)
-  })
-
-  it('Getter: loggedIn returns false when currentUser is null', () => {
-    const loggedIn = authModule.getters.loggedIn
-    const loggedInValue = loggedIn({ currentUser: null })
-    expect(loggedInValue).toEqual(false)
-  })
-
-  it('Action: logIn returns a promise that resolves to the currentUser when already logged in', done => {
-    const logInPromise = authModule.actions.logIn(
-      {
-        state: {
-          currentUser: {
-            name: 'My Name',
-          },
-        },
-        getters: {
-          loggedIn: true,
-        },
-      },
-      {}
-    )
-
-    logInPromise.then(currentUser => {
-      expect(currentUser).toEqual({ name: 'My Name' })
-      done()
+  describe('in a store store', () => {
+    let store
+    beforeEach(() => {
+      store = createModuleStore(authModule)
+      window.localStorage.clear()
     })
-  })
 
-  it('Action: logIn commits the currentUser and returns a promise that resolves to the user when NOT already logged in and provided a correct username and password', () => {
-    const commitMock = jest.fn()
+    it('mutations.SET_CURRENT_USER correctly sets axios default authorization header', () => {
+      axios.defaults.headers.common.Authorization = ''
 
-    return authModule.actions
-      .logIn(
-        {
-          getters: {
-            loggedIn: false,
-          },
-          commit: commitMock,
-        },
-        {
-          username: 'admin',
-          password: 'password',
-        }
-      )
-      .then(currentUser => {
-        const expectedCurrentUser = {
-          id: 1,
-          username: 'admin',
-          name: 'Vue Master',
-          token: 'mock-token',
-        }
-        expect(currentUser).toEqual(expectedCurrentUser)
-        expect(commitMock).toHaveBeenCalledWith(
-          'SET_CURRENT_USER',
-          expectedCurrentUser
-        )
+      store.commit('SET_CURRENT_USER', { token: 'some-token' })
+      expect(axios.defaults.headers.common.Authorization).toEqual('some-token')
+
+      store.commit('SET_CURRENT_USER', null)
+      expect(axios.defaults.headers.common.Authorization).toEqual('')
+    })
+
+    it('mutations.SET_CURRENT_USER correctly saves auth in localStorage', () => {
+      let localStorageAuth = JSON.parse(window.localStorage.getItem('auth'))
+      expect(localStorageAuth).toEqual(null)
+
+      const expectedCurrentUser = { token: 'some-token' }
+      store.commit('SET_CURRENT_USER', expectedCurrentUser)
+
+      localStorageAuth = JSON.parse(window.localStorage.getItem('auth'))
+      expect(localStorageAuth).toEqual({ currentUser: expectedCurrentUser })
+    })
+
+    it('getters.loggedIn returns true when currentUser is an object', () => {
+      store.commit('SET_CURRENT_USER', {})
+      expect(store.getters.loggedIn).toEqual(true)
+    })
+
+    it('getters.loggedIn returns false when currentUser is null', () => {
+      store.commit('SET_CURRENT_USER', null)
+      expect(store.getters.loggedIn).toEqual(false)
+    })
+
+    it('actions.logIn resolves to a refreshed currentUser when already logged in', () => {
+      expect.assertions(2)
+
+      store.commit('SET_CURRENT_USER', { token: validUserExample.token })
+      return store.dispatch('logIn').then(user => {
+        expect(user).toEqual(validUserExample)
+        expect(store.state.currentUser).toEqual(validUserExample)
       })
-  })
+    })
 
-  it('Action: logIn returns a promise that throws when NOT already logged in and provided an incorrect username and password', () => {
-    return authModule.actions
-      .logIn(
-        {
-          getters: {
-            loggedIn: false,
-          },
-        },
-        {
+    it('actions.logIn commits the currentUser and resolves to the user when NOT already logged in and provided a correct username and password', () => {
+      expect.assertions(2)
+
+      return store
+        .dispatch('logIn', { username: 'admin', password: 'password' })
+        .then(user => {
+          expect(user).toEqual(validUserExample)
+          expect(store.state.currentUser).toEqual(validUserExample)
+        })
+    })
+
+    it('actions.logIn rejects with 401 when NOT already logged in and provided an incorrect username and password', () => {
+      expect.assertions(1)
+
+      return store
+        .dispatch('logIn', {
           username: 'bad username',
           password: 'bad password',
-        }
-      )
-      .catch(error => {
-        expect(error.message).toEqual('Request failed with status code 401')
+        })
+        .catch(error => {
+          expect(error.message).toEqual('Request failed with status code 401')
+        })
+    })
+
+    it('actions.validate resolves to null when currentUser is null', () => {
+      expect.assertions(1)
+
+      store.commit('SET_CURRENT_USER', null)
+      return store.dispatch('validate').then(user => {
+        expect(user).toEqual(null)
       })
+    })
+
+    it('actions.validate resolves to null when currentUser contains an invalid token', () => {
+      expect.assertions(2)
+
+      store.commit('SET_CURRENT_USER', { token: 'invalid-token' })
+      return store.dispatch('validate').then(user => {
+        expect(user).toEqual(null)
+        expect(store.state.currentUser).toEqual(null)
+      })
+    })
+
+    it('actions.validate resolves to a user when currentUser contains a valid token', () => {
+      expect.assertions(2)
+
+      store.commit('SET_CURRENT_USER', { token: validUserExample.token })
+      return store.dispatch('validate').then(user => {
+        expect(user).toEqual(validUserExample)
+        expect(store.state.currentUser).toEqual(validUserExample)
+      })
+    })
   })
 })
+
+const validUserExample = {
+  id: 1,
+  username: 'admin',
+  name: 'Vue Master',
+  token: 'valid-token-for-admin',
+}

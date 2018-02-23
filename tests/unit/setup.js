@@ -160,3 +160,12 @@ global.createComponentMocks = ({ store, router, style, mocks, stubs }) => {
 
   return returnOptions
 }
+
+global.createModuleStore = vuexModule => {
+  vueTestUtils.createLocalVue().use(Vuex)
+  const store = new Vuex.Store(_.cloneDeep(vuexModule))
+  if (vuexModule.actions.init) {
+    store.dispatch('init')
+  }
+  return store
+}
