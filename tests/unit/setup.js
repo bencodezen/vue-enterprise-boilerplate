@@ -109,23 +109,23 @@ global.createComponentMocks = ({ store, router, style, mocks, stubs }) => {
   // https://vue-test-utils.vuejs.org/en/api/options.html#mocks
   returnOptions.mocks = stubs || {}
 
+  // Converts a `store` option shaped like:
+  //
+  // store: {
+  //   someModuleName: {
+  //     state: { ... },
+  //     getters: { ... },
+  //     actions: { ... },
+  //   },
+  //   anotherModuleName: {
+  //     getters: { ... },
+  //   },
+  // },
+  //
+  // to a store instance, with each module namespaced by
+  // default, just like in our app.
   if (store) {
     localVue.use(Vuex)
-    // Converts a `store` option shaped like:
-    //
-    // store: {
-    //   someModuleName: {
-    //     state: { ... },
-    //     getters: { ... },
-    //     actions: { ... },
-    //   },
-    //   anotherModuleName: {
-    //     getters: { ... },
-    //   },
-    // },
-    //
-    // to a store instance, with each module namespaced by
-    // default, just like in our app.
     returnOptions.store = new Vuex.Store({
       modules: Object.keys(store)
         .map(moduleName => {
@@ -153,7 +153,7 @@ global.createComponentMocks = ({ store, router, style, mocks, stubs }) => {
     returnOptions.stubs['router-view'] = true
   }
 
-  // If a `style` object is provided
+  // If a `style` object is provided, mock some styles.
   if (style) {
     returnOptions.mocks.$style = style
   }
