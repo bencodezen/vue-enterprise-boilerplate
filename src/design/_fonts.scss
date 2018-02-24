@@ -8,13 +8,13 @@ $heading-font-weight: 600;
 $content-font-family: $system-default-font-family;
 $content-font-weight: 400;
 
-%heading-font {
+%font-heading {
   font-family: $heading-font-family;
   font-weight: $heading-font-weight;
   color: $color-heading-text;
 }
 
-%content-font {
+%font-content {
   font-family: $content-font-family;
   font-weight: $content-font-weight;
   color: $color-text;

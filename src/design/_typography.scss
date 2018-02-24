@@ -30,7 +30,7 @@
 // - kubic-bezier cannot parse negative values
 
 // stylelint-disable scss/dollar-variable-pattern
-@mixin interpolate($property, $min-screen, $min-value, $max-screen, $max-value, $easing: 'linear', $bending-points: 2) {
+@mixin typography-interpolate($property, $min-screen, $min-value, $max-screen, $max-value, $easing: 'linear', $bending-points: 2) {
   // Default Easing 'Linear'
   $p0: 0;
   $p1: 0;
@@ -43,15 +43,15 @@
     // TODO: Deal with different whitespace
     $i: str-index($easing, ')'); // Get index of closing bracket
     $values: str-slice($easing, 14, $i - 1); // Extract values between brackts
-    $list: explode($values, ', '); // Split the values into a list
+    $list: typography-explode($values, ', '); // Split the values into a list
 
     @debug ($list);
 
     // Cast values to numebrs
-    $p0: number(nth($list, 1));
-    $p1: number(nth($list, 2));
-    $p2: number(nth($list, 3));
-    $p3: number(nth($list, 4));
+    $p0: typography-number(nth($list, 1));
+    $p1: typography-number(nth($list, 2));
+    $p2: typography-number(nth($list, 3));
+    $p3: typography-number(nth($list, 4));
   }
 
   @if ($easing == 'ease') {
@@ -86,7 +86,7 @@
 
   @if ($easing == 'linear' or $bending-points < 1) {
     @media screen and (min-width: $min-screen) {
-      #{$property}: calc-interpolation(
+      #{$property}: typography-calc-interpolation(
         $min-screen,
         $min-value,
         $max-screen,
@@ -102,12 +102,12 @@
 
     @while $t * $i <= 1 {
       $bending-point: $t * $i;
-      $value: kubic-bezier($p0, $p1, $p2, $p3, $bending-point);
-      $screen-int: lerp($min-screen, $max-screen, $bending-point);
-      $value-int: lerp($min-value, $max-value, $value);
+      $value: typography-cubic-bezier($p0, $p1, $p2, $p3, $bending-point);
+      $screen-int: typography-lerp($min-screen, $max-screen, $bending-point);
+      $value-int: typography-lerp($min-value, $max-value, $value);
 
       @media screen and (min-width: $prev-screen) {
-        #{$property}: calc-interpolation(
+        #{$property}: typography-calc-interpolation(
           $prev-screen,
           $prev-value,
           $screen-int,
@@ -133,7 +133,7 @@
 // Linear interpolations in CSS as a Sass function
 // Author: Mike Riethmuller | https://madebymike.com.au/writing/precise-control-responsive-typography/ I
 
-@function calc-interpolation($min-screen, $min-value, $max-screen, $max-value) {
+@function typography-calc-interpolation($min-screen, $min-value, $max-screen, $max-value) {
   $a: ($max-value - $min-value) / ($max-screen - $min-screen);
   $b: $min-value - $a * $min-screen;
 
@@ -148,7 +148,7 @@
 }
 
 // This is a crude Sass port webkits cubic-bezier function. Looking to simplify this if you can help.
-@function solve-bexier-x($p1x, $p1y, $p2x, $p2y, $x) {
+@function typography-solve-bexier-x($p1x, $p1y, $p2x, $p2y, $x) {
   $cx: 3 * $p1x;
   $bx: 3 * ($p2x - $p1x) - $cx;
   $ax: 1 - $cx - $bx;
@@ -177,18 +177,18 @@
   @return $t2;
 }
 
-@function kubic-bezier($p1x, $p1y, $p2x, $p2y, $x) {
+@function typography-cubic-bezier($p1x, $p1y, $p2x, $p2y, $x) {
   $cy: 3 * $p1y;
   $by: 3 * ($p2y - $p1y) - $cy;
   $ay: 1 - $cy - $by;
-  $t: solve-bexier-x($p1x, $p1y, $p2x, $p2y, $x);
+  $t: typography-solve-bexier-x($p1x, $p1y, $p2x, $p2y, $x);
 
   @return (($ay * $t + $by) * $t + $cy) * $t;
 }
 
 // A stright up lerp
 // Credit: Ancient Greeks possibly Hipparchus of Rhodes
-@function lerp($a, $b, $t) {
+@function typography-lerp($a, $b, $t) {
   @return $a + ($b - $a) * $t;
 }
 
@@ -196,7 +196,7 @@
 
 // Cast string to number
 // Credit: Hugo Giraudel | https://www.sassmeister.com/gist/9fa19d254864f33d4a80
-@function number($value) {
+@function typography-number($value) {
   @if type-of($value) == 'number' {
     @return $value;
   } @else if type-of($value) != 'string' {
@@ -241,7 +241,7 @@
 
 // Explode a string by a delimiter
 // Credit: https://gist.github.com/danielpchen/3677421ea15dcf2579ff
-@function explode($string, $delimiter) {
+@function typography-explode($string, $delimiter) {
   $result: ();
 
   @if $delimiter == '' {
@@ -285,7 +285,7 @@ $typography-type-scale: (
   3: 1.424rem
 );
 
-@function type-scale($level) {
+@function typography-type-scale($level) {
   @if map-has-key($typography-type-scale, $level) {
     @return map-get($typography-type-scale, $level);
   }
@@ -303,7 +303,7 @@ $typography-type-scale-contrast: (
   3: 3.157rem
 );
 
-@function type-scale-contrast($level) {
+@function typography-type-scale-contrast($level) {
   @if map-has-key($typography-type-scale-contrast, $level) {
     @return map-get($typography-type-scale-contrast, $level);
   }
@@ -324,7 +324,7 @@ $typography-line-heights: (
   3: $typography-base-line-height * 1.5
 );
 
-@function line-height($level) {
+@function typography-line-height($level) {
   @if map-has-key($typography-line-heights, $level) {
     @return map-get($typography-line-heights, $level);
   }
@@ -344,7 +344,7 @@ $typography-line-heights-contrast: (
   3: $typography-base-line-height * 3
 );
 
-@function line-height-contrast($level) {
+@function typography-line-height-contrast($level) {
   @if map-has-key($typography-line-heights-contrast, $level) {
     @return map-get($typography-line-heights-contrast, $level);
   }
@@ -355,37 +355,37 @@ $typography-line-heights-contrast: (
 }
 
 // Mixing these two sets of mixins ala Rachel:
-@mixin got-rhythm($level: 0) {
-  @include interpolate('font-size', $size-content-width-min, type-scale($level), $size-content-width-max, type-scale-contrast($level));
-  @include interpolate('line-height', $size-content-width-min, line-height($level), $size-content-width-max, line-height-contrast($level));
+@mixin typography-got-rhythm($level: 0) {
+  @include typography-interpolate('font-size', $size-content-width-min, typography-type-scale($level), $size-content-width-max, typography-type-scale-contrast($level));
+  @include typography-interpolate('line-height', $size-content-width-min, typography-line-height($level), $size-content-width-max, typography-line-height-contrast($level));
 }
 
 %typography-xxlarge {
-  @include got-rhythm(3);
+  @include typography-got-rhythm(3);
 
-  @extend %heading-font;
+  @extend %font-heading;
 }
 
 %typography-xlarge {
-  @include got-rhythm(2);
+  @include typography-got-rhythm(2);
 
-  @extend %heading-font;
+  @extend %font-heading;
 }
 
 %typography-large {
-  @include got-rhythm(1);
+  @include typography-got-rhythm(1);
 
-  @extend %heading-font;
+  @extend %font-heading;
 }
 
 %typography-medium {
-  @include got-rhythm(0);
+  @include typography-got-rhythm(0);
 
-  @extend %content-font;
+  @extend %font-content;
 }
 
 %typography-small {
-  @include got-rhythm(-1);
+  @include typography-got-rhythm(-1);
 
-  @extend %content-font;
+  @extend %font-content;
 }
