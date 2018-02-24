@@ -1,7 +1,5 @@
-/**
- * The file enables `@state/store.js` to import all vuex modules
- * in a one-shot manner. There should not be any reason to edit this file.
- */
+// Register all Vuex module by a camelCase version of their filename.
+
 import camelCase from 'lodash/camelCase'
 
 const requireModule = require.context('.', false, /\.js$/)
