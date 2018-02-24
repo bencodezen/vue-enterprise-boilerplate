@@ -11,10 +11,7 @@ export default {
     },
   },
   // Render functions are an alternative to templates
-  render(h, { props, $style }) {
-    // Needed for unit tests not to break
-    $style = $style || {}
-
+  render(h, { props, $style = {} }) {
     function getRouteTitle(route) {
       return typeof route.title === 'function' ? route.title() : route.title
     }
@@ -24,8 +21,8 @@ export default {
     // root node.
     return props.routes.map(route => (
       <router-link
-        key={route.name}
         tag="li"
+        key={route.name}
         to={route}
         exact-active-class={$style.active}
       >
