@@ -148,7 +148,7 @@ For our styles, we're using SCSS and CSS modules, which you can activate by addi
 
 ### SCSS
 
-SCSS is a superset of CSS, meaning any valid CSS is _also_ valid SCSS. This allows you to easily copy properties from other sources, very much in the CodePilot.ai spirit. 😄 It also means you can stick to writing the CSS you're still comfortable with while you're learning to use more advanced SCSS features.
+SCSS is a superset of CSS, meaning any valid CSS is _also_ valid SCSS. This allows you to easily copy properties from other sources, without having to reformat it. It also means you can stick to writing the CSS you're still comfortable with while you're learning to use more advanced SCSS features.
 
 I specifically recommend reading about:
 
