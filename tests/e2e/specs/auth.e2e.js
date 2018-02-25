@@ -1,15 +1,4 @@
 describe('Login', () => {
-  // Allow localStorage to persist between the Login tests,
-  // so that we can test that the user session is correctly
-  // saved and restored.
-  const originalLocalStorageClear = Cypress.LocalStorage.clear
-  before(() => {
-    Cypress.LocalStorage.clear = () => {}
-  })
-  after(() => {
-    Cypress.LocalStorage.clear = originalLocalStorageClear
-  })
-
   it('link exists on the home page when logged out', () => {
     cy.visit('/')
     cy
@@ -29,11 +18,6 @@ describe('Login', () => {
 
   it('does not show login link when already logged in', () => {
     cy.get('a').should('not.contain', 'Log in')
-  })
-
-  it('persists after page refresh', () => {
-    cy.reload()
-    cy.get('a').contains('Log out')
   })
 })
 

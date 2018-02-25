@@ -6,7 +6,7 @@ describe('@state/modules/auth', () => {
     expect(authModule).toBeAVuexModule()
   })
 
-  describe('in a store store', () => {
+  describe('in a store', () => {
     let store
     beforeEach(() => {
       store = createModuleStore(authModule)
@@ -23,15 +23,19 @@ describe('@state/modules/auth', () => {
       expect(axios.defaults.headers.common.Authorization).toEqual('')
     })
 
-    it('mutations.SET_CURRENT_USER correctly saves auth in localStorage', () => {
-      let localStorageAuth = JSON.parse(window.localStorage.getItem('auth'))
-      expect(localStorageAuth).toEqual(null)
+    it('mutations.SET_CURRENT_USER correctly saves currentUser in localStorage', () => {
+      let savedCurrentUser = JSON.parse(
+        window.localStorage.getItem('auth.currentUser')
+      )
+      expect(savedCurrentUser).toEqual(null)
 
       const expectedCurrentUser = { token: 'some-token' }
       store.commit('SET_CURRENT_USER', expectedCurrentUser)
 
-      localStorageAuth = JSON.parse(window.localStorage.getItem('auth'))
-      expect(localStorageAuth).toEqual({ currentUser: expectedCurrentUser })
+      savedCurrentUser = JSON.parse(
+        window.localStorage.getItem('auth.currentUser')
+      )
+      expect(savedCurrentUser).toEqual(expectedCurrentUser)
     })
 
     it('getters.loggedIn returns true when currentUser is an object', () => {

@@ -1,22 +1,24 @@
 <script>
 import Layout from '@layouts/main'
-import { authComputed } from '@state/helpers'
 
 export default {
   page() {
     return {
-      title: this.currentUser.name,
+      title: this.user.name,
       meta: [
         {
           name: 'description',
-          content: `The user profile for ${this.currentUser.name}.`,
+          content: `The user profile for ${this.user.name}.`,
         },
       ],
     }
   },
   components: { Layout },
-  computed: {
-    ...authComputed,
+  props: {
+    user: {
+      type: Object,
+      required: true,
+    },
   },
 }
 </script>
@@ -25,9 +27,9 @@ export default {
   <Layout>
     <h1>
       <BaseIcon name="user"/>
-      {{ currentUser.name }}
+      {{ user.name }}
       Profile
     </h1>
-    <pre>{{ currentUser }}</pre>
+    <pre>{{ user }}</pre>
   </Layout>
 </template>

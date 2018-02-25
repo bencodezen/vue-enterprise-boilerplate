@@ -1,14 +1,13 @@
 import axios from 'axios'
 
 export const state = {
-  currentUser: null,
-  ...getSavedState('auth'),
+  currentUser: getSavedState('auth.currentUser'),
 }
 
 export const mutations = {
   SET_CURRENT_USER(state, newValue) {
     state.currentUser = newValue
-    saveState('auth', state)
+    saveState('auth.currentUser', newValue)
     setDefaultAuthHeaders(state)
   },
 }
@@ -69,7 +68,7 @@ export const actions = {
 // ===
 
 function getSavedState(key) {
-  return JSON.parse(window.localStorage.getItem(key)) || {}
+  return JSON.parse(window.localStorage.getItem(key))
 }
 
 function saveState(key, state) {

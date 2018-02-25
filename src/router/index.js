@@ -1,8 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+// https://github.com/declandewet/vue-meta
 import VueMeta from 'vue-meta'
-import routes from './routes'
+// Adds a loading bar at the top during page loads.
+import NProgress from 'nprogress/nprogress'
 import store from '@state/store'
+import routes from './routes'
 
 Vue.use(VueRouter)
 Vue.use(VueMeta, {
@@ -11,8 +14,12 @@ Vue.use(VueMeta, {
 })
 
 const router = new VueRouter({
-  mode: 'history',
   routes,
+  // Use the HTML5 history API (i.e. normal-looking routes)
+  // instead of routes with hashes (e.g. example.com/#/about).
+  // This may require some server configuration in production:
+  // https://router.vuejs.org/en/essentials/history-mode.html#example-server-configurations
+  mode: 'history',
   // Simulate native-like scroll behavior when navigating to a new
   // route and using back/forward buttons.
   scrollBehavior(to, from, savedPosition) {
@@ -24,7 +31,14 @@ const router = new VueRouter({
   },
 })
 
+// Before each route evaluates...
 router.beforeEach((routeTo, routeFrom, next) => {
+  // If this isn't an initial page load.
+  if (routeFrom.name) {
+    // Start the route progress bar.
+    NProgress.start()
+  }
+
   // Check if auth is required on this route
   // (including nested routes).
   const authRequired = routeTo.matched.some(route => route.meta.authRequired)
@@ -49,6 +63,12 @@ router.beforeEach((routeTo, routeFrom, next) => {
   function redirectToLogin() {
     next({ name: 'login' })
   }
+})
+
+// When each route is finished evaluating...
+router.afterEach((routeTo, routeFrom) => {
+  // Complete the animation of the route progress bar.
+  NProgress.done()
 })
 
 export default router

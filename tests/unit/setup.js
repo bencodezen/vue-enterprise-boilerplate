@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import fs from 'fs'
 import path from 'path'
+import axios from 'axios'
 
 // ===
 // Utility functions
@@ -161,9 +162,22 @@ global.createComponentMocks = ({ store, router, style, mocks, stubs }) => {
   return returnOptions
 }
 
-global.createModuleStore = vuexModule => {
+global.createModuleStore = (vuexModule, options = {}) => {
   vueTestUtils.createLocalVue().use(Vuex)
-  const store = new Vuex.Store(_.cloneDeep(vuexModule))
+  const store = new Vuex.Store({
+    ..._.cloneDeep(vuexModule),
+    modules: {
+      auth: {
+        namespaced: true,
+        state: {
+          currentUser: options.currentUser,
+        },
+      },
+    },
+  })
+  axios.defaults.headers.common.Authorization = options.currentUser
+    ? options.currentUser.token
+    : ''
   if (vuexModule.actions.init) {
     store.dispatch('init')
   }

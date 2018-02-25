@@ -51,6 +51,7 @@
     "lint-staged": "^7.0.0",
     "markdownlint-cli": "^0.7.1",
     "node-sass": "^4.7.2",
+    "nprogress": "^0.2.0",
     "sass-loader": "^6.0.6",
     "stylelint": "^9.1.1",
     "stylelint-config-css-modules": "^1.2.0",

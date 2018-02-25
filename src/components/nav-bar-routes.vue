@@ -40,5 +40,6 @@ export default {
   font-weight: 600;
   color: $color-link-text-active;
   text-decoration: none;
+  cursor: default;
 }
 </style>
