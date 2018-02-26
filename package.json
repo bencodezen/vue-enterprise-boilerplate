@@ -46,7 +46,7 @@
     "babel-core": "^7.0.0-0",
     "babel-jest": "^22.4.1",
     "express": "^4.16.2",
-    "hygen": "^1.4.11",
+    "hygen": "^1.4.14",
     "imagemin-lint-staged": "^0.3.0",
     "lint-staged": "^7.0.0",
     "markdownlint-cli": "^0.7.1",

@@ -4777,9 +4777,9 @@ https-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
 
-hygen@^1.4.11:
-  version "1.4.11"
-  resolved "https://registry.yarnpkg.com/hygen/-/hygen-1.4.11.tgz#e6b2f51b0888651e2823f53dbb78fc54b920c45b"
+hygen@^1.4.14:
+  version "1.4.14"
+  resolved "https://registry.yarnpkg.com/hygen/-/hygen-1.4.14.tgz#26d064c41f63a482a118efbe0e04ad0967acb2bc"
   dependencies:
     chalk "^2.1.0"
     ejs "^2.5.7"
