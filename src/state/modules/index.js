@@ -15,7 +15,7 @@ const getNamespace = (subtree, path) => {
     ...subtree.modules[namespace],
   }
   return getNamespace(subtree.modules[namespace], path)
-};
+}
 
 context.keys().forEach(fileName => {
   let name = fileName.replace(/^\.\/|\.js$/g, '')
