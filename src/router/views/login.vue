@@ -58,8 +58,8 @@ export default {
         type="password"
       />
       <BaseButton
-        type="submit"
         :disabled="tryingToLogIn"
+        type="submit"
       >
         <BaseIcon
           v-if="tryingToLogIn"
