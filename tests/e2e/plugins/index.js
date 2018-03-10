@@ -9,6 +9,13 @@ module.exports = (on, config) => {
     // ===
     watchForFileChanges: true,
     // ===
+    // Environment variables
+    // https://docs.cypress.io/guides/guides/environment-variables.html#Option-1-cypress-json
+    // ===
+    env: {
+      CI: process.env.CI,
+    },
+    // ===
     // Viewport
     // https://docs.cypress.io/guides/references/configuration.html#Viewport
     // ===
