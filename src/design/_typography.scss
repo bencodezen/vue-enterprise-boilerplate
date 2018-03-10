@@ -30,7 +30,15 @@
 // - kubic-bezier cannot parse negative values
 
 // stylelint-disable scss/dollar-variable-pattern
-@mixin typography-interpolate($property, $min-screen, $min-value, $max-screen, $max-value, $easing: 'linear', $bending-points: 2) {
+@mixin typography-interpolate(
+  $property,
+  $min-screen,
+  $min-value,
+  $max-screen,
+  $max-value,
+  $easing: 'linear',
+  $bending-points: 2
+) {
   // Default Easing 'Linear'
   $p0: 0;
   $p1: 0;
@@ -133,7 +141,12 @@
 // Linear interpolations in CSS as a Sass function
 // Author: Mike Riethmuller | https://madebymike.com.au/writing/precise-control-responsive-typography/ I
 
-@function typography-calc-interpolation($min-screen, $min-value, $max-screen, $max-value) {
+@function typography-calc-interpolation(
+  $min-screen,
+  $min-value,
+  $max-screen,
+  $max-value
+) {
   $a: ($max-value - $min-value) / ($max-screen - $min-screen);
   $b: $min-value - $a * $min-screen;
 
@@ -222,7 +235,7 @@
   @for $i from if($minus, 2, 1) through str-length($value) {
     $character: str-slice($value, $i, $i);
 
-    @if not (index(map-keys($numbers), $character) or $character == '.') {
+    @if not(index(map-keys($numbers), $character) or $character == '.') {
       @return to-length(if($minus, -$result, $result), str-slice($value, $i));
     }
 
@@ -290,7 +303,7 @@ $typography-type-scale: (
     @return map-get($typography-type-scale, $level);
   }
 
-  @warn "Unknown `#{$level}` in $typography-type-scale.";
+  @warn 'Unknown `#{$level}` in $typography-type-scale.';
 
   @return null;
 }
@@ -308,7 +321,7 @@ $typography-type-scale-contrast: (
     @return map-get($typography-type-scale-contrast, $level);
   }
 
-  @warn "Unknown `#{$level}` in $typography-type-scale-contrast.";
+  @warn 'Unknown `#{$level}` in $typography-type-scale-contrast.';
 
   @return null;
 }
@@ -329,7 +342,7 @@ $typography-line-heights: (
     @return map-get($typography-line-heights, $level);
   }
 
-  @warn "Unknown `#{$level}` in $line-height.";
+  @warn 'Unknown `#{$level}` in $line-height.';
 
   @return null;
 }
@@ -349,15 +362,27 @@ $typography-line-heights-contrast: (
     @return map-get($typography-line-heights-contrast, $level);
   }
 
-  @warn "Unknown `#{$level}` in $typography-line-heights-contrast.";
+  @warn 'Unknown `#{$level}` in $typography-line-heights-contrast.';
 
   @return null;
 }
 
 // Mixing these two sets of mixins ala Rachel:
 @mixin typography-got-rhythm($level: 0) {
-  @include typography-interpolate('font-size', $size-content-width-min, typography-type-scale($level), $size-content-width-max, typography-type-scale-contrast($level));
-  @include typography-interpolate('line-height', $size-content-width-min, typography-line-height($level), $size-content-width-max, typography-line-height-contrast($level));
+  @include typography-interpolate(
+    'font-size',
+    $size-content-width-min,
+    typography-type-scale($level),
+    $size-content-width-max,
+    typography-type-scale-contrast($level)
+  );
+  @include typography-interpolate(
+    'line-height',
+    $size-content-width-min,
+    typography-line-height($level),
+    $size-content-width-max,
+    typography-line-height-contrast($level)
+  );
 }
 
 %typography-xxlarge {
