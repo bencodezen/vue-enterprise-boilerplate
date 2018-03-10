@@ -70,7 +70,7 @@ export default [
         route => route.meta.authRequired
       )
       // Navigate back to previous page, or home as a fallback
-      next(authRequiredOnPreviousRoute ? next({ name: 'home' }) : routeFrom)
+      next(authRequiredOnPreviousRoute ? { name: 'home' } : { ...routeFrom })
     },
   },
   {
