@@ -7,9 +7,6 @@ module.exports = (on, config) => {
     // General
     // https://docs.cypress.io/guides/references/configuration.html#Global
     // ===
-    // HACK: Only necessary until we correctly set the baseURL
-    // when opening Cypress
-    baseUrl: config.env.VUE_DEV_SERVER_URL,
     watchForFileChanges: true,
     // ===
     // Viewport
