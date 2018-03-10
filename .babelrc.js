@@ -15,6 +15,8 @@ module.exports = {
         [
           '@vue/app',
           {
+            // Enable Babel's polyfills for Jest tests
+            useBuiltIns: 'usage',
             // Use CommonJS modules for Jest tests
             modules: 'commonjs',
           },

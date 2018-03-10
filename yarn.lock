@@ -8,7 +8,7 @@
   dependencies:
     "@babel/highlight" "7.0.0-beta.40"
 
-"@babel/core@^7.0.0-0":
+"@babel/core@7.0.0-beta.40", "@babel/core@^7.0.0-0":
   version "7.0.0-beta.40"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.0.0-beta.40.tgz#455464dd81d499fd97d32b473f0331f74379a33f"
   dependencies:
