@@ -10,7 +10,10 @@ module.exports = {
     ],
   ],
   plugins: [
-    // async/await support (regenerator-runtime).
+    // Support async/await
+    // NOTE: Using async/await at least once will increase
+    // the size of your app bundle by almost 10KB gzipped.
+    // https://babeljs.io/docs/plugins/transform-runtime/
     [
       '@babel/transform-runtime',
       { helpers: false, polyfill: false, regenerator: true },
