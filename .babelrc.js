@@ -9,6 +9,13 @@ module.exports = {
       },
     ],
   ],
+  plugins: [
+    // async/await support (regenerator-runtime).
+    [
+      '@babel/transform-runtime',
+      { helpers: false, polyfill: false, regenerator: true },
+    ],
+  ],
   env: {
     test: {
       presets: [
