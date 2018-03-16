@@ -16,7 +16,7 @@ module.exports = {
     // https://babeljs.io/docs/plugins/transform-runtime/
     [
       '@babel/transform-runtime',
-      { helpers: false, polyfill: false, regenerator: true },
+      { helpers: true, polyfill: false, regenerator: true },
     ],
   ],
   env: {
