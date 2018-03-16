@@ -60,6 +60,7 @@
     "stylelint-config-recess-order": "1.2.x",
     "stylelint-config-standard": "18.2.x",
     "stylelint-scss": "2.5.x",
-    "vue-template-compiler": "2.5.14"
+    "vue-template-compiler": "2.5.14",
+    "webpack-bundle-analyzer": "^2.11.1"
   }
 }
