@@ -1,5 +1,7 @@
 const appConfig = require('./src/app.config')
 
+console.log('NODE_ENV:', process.env.npm_lifecycle_event)
+
 module.exports = {
   configureWebpack: {
     // We provide the app's title in Webpack's name field, so that
@@ -17,9 +19,11 @@ module.exports = {
     // This option does not affect *.vue files.
     modules: true,
   },
-  // Split dependencies into their own bundle.
+  // Cache dependencies during build, except in production
   // https://github.com/vuejs/vue-cli/blob/dev/docs/cli-service.md#dll-mode
-  dll: true,
+  // HACK: We can just set this to `true` once Vue CLI automatically
+  // disables this in production mode.
+  dll: process.env.npm_lifecycle_event !== 'build',
   // Configure Webpack's dev server.
   // https://github.com/vuejs/vue-cli/blob/dev/docs/cli-service.md
   devServer: {
