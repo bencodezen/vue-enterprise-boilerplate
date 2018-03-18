@@ -24,7 +24,7 @@ cd my-new-project
 
 # 3. Replace this README's CI badge with a note about when you started
 # and a link to a compare URL, so that you can always get an overview
-# of new features added to the boilerplate since you did.
+# of new features added to the boilerplate since you cloned.
 node _start.js
 
 # 4. Delete the start script, as there can be only one beginning.
