@@ -21,6 +21,8 @@ module.exports = {
   // - https://stylelint.io/user-guide/rules/
   // - https://github.com/kristerkari/stylelint-scss#list-of-rules
   rules: {
+    // Allow newlines inside class attribute values
+    'string-no-newline': null,
     // Enforce camelCase for classes and ids, to work better
     // with CSS modules
     'selector-class-pattern': /^[a-z][a-zA-Z]+$/,
