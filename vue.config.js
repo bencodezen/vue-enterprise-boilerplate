@@ -19,11 +19,6 @@ module.exports = {
     // This option does not affect *.vue files.
     modules: true,
   },
-  // Cache dependencies during build, except in production
-  // https://github.com/vuejs/vue-cli/blob/dev/docs/cli-service.md#dll-mode
-  // HACK: We can just set this to `true` once Vue CLI automatically
-  // disables this in production mode.
-  dll: process.env.npm_lifecycle_event !== 'build',
   // Configure Webpack's dev server.
   // https://github.com/vuejs/vue-cli/blob/dev/docs/cli-service.md
   devServer: {
