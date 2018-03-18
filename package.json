@@ -30,13 +30,13 @@
     "lodash": "4.17.5",
     "normalize.css": "8.0.0",
     "nprogress": "0.2.0",
-    "vue": "2.5.14",
-    "vue-meta": "1.4.3",
+    "vue": "2.5.16",
+    "vue-meta": "1.4.4",
     "vue-router": "3.0.1",
     "vuex": "3.0.1"
   },
   "devDependencies": {
-    "@babel/core": "7.0.0-beta.40",
+    "@babel/core": "7.0.0-beta.42",
     "@vue/cli-plugin-babel": "3.0.0-beta.6",
     "@vue/cli-plugin-e2e-cypress": "3.0.0-beta.6",
     "@vue/cli-plugin-eslint": "3.0.0-beta.6",
@@ -48,7 +48,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "22.4.x",
     "express": "4.16.x",
-    "hygen": "1.4.x",
+    "hygen": "1.5.x",
     "imagemin-lint-staged": "0.3.x",
     "lint-staged": "7.0.x",
     "markdownlint-cli": "0.7.x",
@@ -56,10 +56,11 @@
     "sass-loader": "6.0.x",
     "stylelint": "9.1.x",
     "stylelint-config-css-modules": "1.2.x",
-    "stylelint-config-prettier": "2.1.x",
+    "stylelint-config-prettier": "3.0.x",
     "stylelint-config-recess-order": "1.2.x",
     "stylelint-config-standard": "18.2.x",
     "stylelint-scss": "2.5.x",
-    "vue-template-compiler": "2.5.14"
+    "vue-jest": "2.1.x",
+    "vue-template-compiler": "2.5.16"
   }
 }
