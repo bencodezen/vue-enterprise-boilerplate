@@ -12,7 +12,7 @@ module.exports = {
   testMatch: ['**/(*.)unit.js'],
   moduleFileExtensions: ['js', 'jsx', 'json', 'vue'],
   transform: {
-    '^.+\\.vue$': 'vue-jest',
+    '.*\\.(vue)$': 'vue-jest',
     '^.+\\.jsx?$': 'babel-jest',
   },
   moduleNameMapper: require('./aliases.config').jest,
