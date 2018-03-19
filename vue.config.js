@@ -1,7 +1,5 @@
 const appConfig = require('./src/app.config')
 
-console.log('NODE_ENV:', process.env.npm_lifecycle_event)
-
 module.exports = {
   configureWebpack: {
     // We provide the app's title in Webpack's name field, so that
