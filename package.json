@@ -17,7 +17,7 @@
     "new": "hygen new"
   },
   "gitHooks": {
-    "pre-commit": "lint-staged"
+    "pre-commit": "NODE_ENV=production lint-staged"
   },
   "engines": {
     "node": ">=8.9.0",
@@ -47,6 +47,7 @@
     "@vue/test-utils": "1.0.0-beta.12",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "22.4.x",
+    "cross-env": "^5.1.4",
     "express": "4.16.x",
     "hygen": "1.5.x",
     "imagemin-lint-staged": "0.3.x",
