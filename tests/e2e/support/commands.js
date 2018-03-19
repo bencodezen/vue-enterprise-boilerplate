@@ -10,10 +10,7 @@ Cypress.Commands.add('logIn', ({ username, password } = {}) => {
   cy.get('input[name="password"]').type(password || 'password')
 
   // Submit the login form
-  cy
-    .get('button')
-    .contains('Log in')
-    .click()
+  cy.contains('button', 'Log in').click()
 
   // If the user did not provide a custom username or password,
   // then assume success and wait for a redirect to the homepage.

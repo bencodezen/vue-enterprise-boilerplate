@@ -1,10 +1,9 @@
 describe('Authentication', () => {
   it('login link exists on the home page when logged out', () => {
     cy.visit('/')
-    cy
-      .get('a')
-      .contains('Log in')
-      .click()
+    cy.contains('a', 'Log in').click()
+    cy.location('pathname').should('equal', '/login')
+    cy.get('input[type="password"]')
   })
 
   it('login form shows an error on failure', () => {
@@ -12,24 +11,9 @@ describe('Authentication', () => {
     cy.contains('error logging in')
   })
 
-  it('login form redirects to the home page on success', () => {
+  it('login and logout work correctly', () => {
     cy.logIn()
+    cy.contains('a', 'Log out').click()
+    cy.contains('a', 'Log in')
   })
-
-  it('does not show login link when already logged in', () => {
-    cy.get('a').should('not.contain', 'Log in')
-  })
-
-  // HACK: This test frequently fails, but only on CI. Disabling it during
-  // CI until the source of the problem can be found.
-  if (!Cypress.env('CI')) {
-    it('logs the user out when clicking on the "Log out" link', () => {
-      cy
-        .get('a')
-        .contains('Log out')
-        .click()
-
-      cy.get('a').contains('Log in')
-    })
-  }
 })

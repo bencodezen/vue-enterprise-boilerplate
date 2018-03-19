@@ -1,13 +1,7 @@
 describe('Home Page', () => {
-  before(() => {
+  it('has the correct title and heading', () => {
     cy.visit('/')
-  })
-
-  it('has the correct title', () => {
     cy.title().should('equal', 'Home | My Project')
-  })
-
-  it('has the correct heading', () => {
-    cy.get('h1').contains('Home Page')
+    cy.contains('h1', 'Home Page')
   })
 })
