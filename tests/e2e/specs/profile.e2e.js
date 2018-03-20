@@ -12,7 +12,8 @@ describe('Profile Page', () => {
   })
 
   it('shows the current user profile when logged in', () => {
-    cy.logIn({ to: '/profile' })
+    cy.logIn()
+    cy.visit('/profile')
     cy.contains('h1', 'Vue Master')
   })
 })
