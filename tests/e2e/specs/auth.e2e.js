@@ -1,19 +1,47 @@
 describe('Authentication', () => {
   it('login link exists on the home page when logged out', () => {
     cy.visit('/')
-    cy.contains('a', 'Log in').click()
-    cy.location('pathname').should('equal', '/login')
-    cy.get('input[type="password"]')
+    cy.contains('a', 'Log in').should('have.attr', 'href', '/login')
   })
 
   it('login form shows an error on failure', () => {
-    cy.logIn({ username: 'badUsername', password: 'badPassword' })
+    cy.visit('/login')
+
+    // Enter bad login info
+    cy.get('input[name="username"]').type('badUsername')
+    cy.get('input[name="password"]').type('badPassword')
+
+    // Submit the login form
+    cy.contains('button', 'Log in').click()
+
+    // Ensure that an error displays
     cy.contains('error logging in')
   })
 
-  it('login and logout work correctly', () => {
+  it('successful login works redirects to the home page', () => {
+    cy.visit('/login')
+
+    // Enter the user-supplied username and password
+    cy.get('input[name="username"]').type('admin')
+    cy.get('input[name="password"]').type('password')
+
+    // Submit the login form
+    cy.contains('button', 'Log in').click()
+
+    // Confirm redirection to the homepage
+    cy.location('pathname').should('equal', '/')
+
+    // Confirm a logout link exists
+    cy.contains('a', 'Log out')
+  })
+
+  it('logout link logs the user out when logged in', () => {
     cy.logIn()
+
+    // Click the logout link
     cy.contains('a', 'Log out').click()
+
+    // Confirm that the user is logged out
     cy.contains('a', 'Log in')
   })
 })

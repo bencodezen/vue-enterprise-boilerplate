@@ -14,11 +14,11 @@ module.exports = {
   ],
   rules: {
     // Only allow debugger in development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-console':
-      process.env.NODE_ENV === 'production'
-        ? ['error', { allow: ['warn', 'error'] }]
-        : 'off',
+    'no-debugger': process.env.PRE_COMMIT ? 'error' : 'off',
+    // Only allow `console.log` in development
+    'no-console': process.env.PRE_COMMIT
+      ? ['error', { allow: ['warn', 'error'] }]
+      : 'off',
   },
   overrides: [
     {
@@ -30,16 +30,6 @@ module.exports = {
       },
       env: {
         browser: true,
-      },
-    },
-    {
-      files: ['src/**/*'],
-      rules: {
-        // Only allow `console.log` in development
-        'no-console':
-          process.env.NODE_ENV === 'production'
-            ? ['error', { allow: ['warn', 'error'] }]
-            : 'off',
       },
     },
     {
