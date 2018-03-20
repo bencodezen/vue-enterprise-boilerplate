@@ -82,16 +82,6 @@ h6 {
 }
 
 // ===
-// Animations
-// ===
-
-@keyframes spin {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-// ===
 // Vendor
 // ===
 

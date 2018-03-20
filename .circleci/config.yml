@@ -48,6 +48,24 @@ jobs:
       - store_artifacts:
           path: tests/e2e/screenshots
 
+  build:
+    <<: *vm_settings
+    steps:
+      - checkout
+
+      # Install dependencies
+      - restore_cache: *install_restore_cache
+      - run: *install_run
+      - save_cache: *install_save_cache
+
+      - run:
+          name: Build for production
+          command: yarn build:ci
+
+      # Store build artifacts
+      - store_artifacts:
+          path: dist
+
   # deploy:
   #   <<: *vm_settings
   #   steps:
@@ -67,6 +85,7 @@ workflows:
   test_and_deploy:
     jobs:
       - test
+      - build
       # - deploy:
       #     # Only deploy if tests pass
       #     requires:

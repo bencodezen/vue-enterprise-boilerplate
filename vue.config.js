@@ -1,3 +1,4 @@
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const appConfig = require('./src/app.config')
 
 module.exports = {
@@ -9,6 +10,13 @@ module.exports = {
     resolve: {
       alias: require('./aliases.config').webpack,
     },
+    plugins: [
+      // Optionally produce a bundle analysis
+      // TODO: Remove once this feature is built into Vue CLI
+      new BundleAnalyzerPlugin({
+        analyzerMode: process.env.ANALYZE ? 'static' : 'disabled',
+      }),
+    ],
   },
   css: {
     // Enable CSS source maps.

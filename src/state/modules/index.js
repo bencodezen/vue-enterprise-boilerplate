@@ -1,15 +1,22 @@
-// Register each file as a corresponding Vuex module -- module nesting will
-// mirror [sub-]directory hierarchy. (Modules are namespaced as the camelCase
-// equivalent of their file name.)
+// Register each file as a corresponding Vuex module. Module nesting will
+// mirror [sub-]directory hierarchy and modules are namespaced as the camelCase
+// equivalent of their file name.
 
 import camelCase from 'lodash/camelCase'
 
-const requireModule = require.context('.', true, /\.js$/)
+const requireModule = require.context(
+  // Search for files in the current directory
+  '.',
+  // Search for files in subdirectories
+  true,
+  // Include any `.js` files that are not unit tests
+  /^((?!\.unit\.).)*\.js$/
+)
 const root = { modules: {} }
 
 requireModule.keys().forEach(fileName => {
-  // Skip files that aren't modules
-  if (fileName === './index.js' || /\.unit\.js$/.test(fileName)) return
+  // Skip this file, as it's not a module
+  if (fileName === './index.js') return
 
   // Get the module path as an array
   const modulePath = fileName

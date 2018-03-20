@@ -63,8 +63,8 @@ export default {
       >
         <BaseIcon
           v-if="tryingToLogIn"
-          source="custom"
-          name="loading"
+          name="sync"
+          spin
         />
         <span v-else>Log in</span>
       </BaseButton>

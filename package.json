@@ -6,6 +6,7 @@
     "dev": "vue-cli-service serve",
     "dev:e2e": "vue-cli-service e2e:open --mode=development",
     "build": "vue-cli-service build",
+    "build:ci": "ANALYZE=true yarn build",
     "lint":
       "eslint --ext .js,.vue --fix . && stylelint --fix \"src/**/*.vue\" \"src/**/*.scss\" && markdownlint docs/*.md *.md && prettier --list-different --write \"**/*.{js,jsx,json,css,scss,vue,md}\"",
     "unit": "jest",
@@ -25,8 +26,10 @@
   },
   "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"],
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.4",
+    "@fortawesome/fontawesome-free-solid": "^5.0.8",
+    "@fortawesome/vue-fontawesome": "^0.0.22",
     "axios": "0.18.0",
-    "font-awesome": "4.7.0",
     "lodash": "4.17.5",
     "normalize.css": "8.0.0",
     "nprogress": "0.2.0",
@@ -62,6 +65,7 @@
     "stylelint-config-standard": "18.2.x",
     "stylelint-scss": "2.5.x",
     "vue-jest": "2.1.x",
-    "vue-template-compiler": "2.5.16"
+    "vue-template-compiler": "2.5.16",
+    "webpack-bundle-analyzer": "2.11.x"
   }
 }

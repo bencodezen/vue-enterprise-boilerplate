@@ -2,26 +2,21 @@ import BaseIcon from './_base-icon'
 
 describe('@components/base-icon', () => {
   it('renders a font-awesome icon', () => {
-    const { element } = mountShallow(BaseIcon, {
-      ...createComponentMocks({
-        style: {
-          fa: 'fa',
-          'fa-some-icon': 'fa-some-icon',
-        },
-      }),
+    const { element } = mount(BaseIcon, {
       propsData: {
-        name: 'some-icon',
+        name: 'sync',
       },
     })
 
-    expect(element.className).toEqual('fa fa-some-icon')
+    expect(element.tagName).toEqual('svg')
+    expect(element.classList).toContain('svg-inline--fa', 'fa-sync', 'fa-w-16')
   })
 
   it('renders a custom icon', () => {
     const { element } = mountShallow(BaseIcon, {
       ...createComponentMocks({
         style: {
-          iconCustomSomeIcon: 'icon-custom-some-icon',
+          iconCustomSomeIcon: 'generated-class-name',
         },
       }),
       propsData: {
@@ -30,6 +25,6 @@ describe('@components/base-icon', () => {
       },
     })
 
-    expect(element.className).toEqual('icon-custom-some-icon')
+    expect(element.className).toEqual('generated-class-name')
   })
 })

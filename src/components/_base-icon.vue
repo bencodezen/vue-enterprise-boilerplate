@@ -1,11 +1,14 @@
 <script>
+import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import camelCase from 'lodash/camelCase'
 
 export default {
+  components: {
+    FontAwesomeIcon,
+  },
   props: {
     source: {
       type: String,
-      // http://fontawesome.io/icons/
       default: 'font-awesome',
     },
     name: {
@@ -14,6 +17,15 @@ export default {
     },
   },
   computed: {
+    // https://fontawesome.com/icons
+    fontAwesomeIcon() {
+      return {
+        // Add new icons to this list as you need them
+        sync: require('@fortawesome/fontawesome-free-solid/faSync'),
+        user: require('@fortawesome/fontawesome-free-solid/faUser'),
+      }[this.name]
+    },
+    // Gets a CSS module class, e.g. iconCustomLogo
     customIconClass() {
       return this.$style[camelCase('icon-custom-' + this.name)]
     },
@@ -22,30 +34,13 @@ export default {
 </script>
 
 <template>
-  <span
+  <FontAwesomeIcon
     v-if="source === 'font-awesome'"
-    :class="[
-      $style.fa,
-      $style['fa-' + name],
-    ]"
+    :icon="fontAwesomeIcon"
+    v-bind="$attrs"
   />
   <span
     v-else-if="source === 'custom'"
     :class="customIconClass"
   />
 </template>
-
-<style lang="scss" module>
-$fa-font-path: 'font-awesome/fonts';
-
-@import '~font-awesome/scss/font-awesome';
-
-.iconCustomLoading {
-  @extend .fa;
-  @extend .fa-refresh;
-
-  :global {
-    animation: spin 2s linear infinite;
-  }
-}
-</style>
