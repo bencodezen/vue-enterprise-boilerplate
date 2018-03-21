@@ -15,6 +15,7 @@ module.exports = {
       // TODO: Remove once this feature is built into Vue CLI
       new BundleAnalyzerPlugin({
         analyzerMode: process.env.ANALYZE ? 'static' : 'disabled',
+        openAnalyzer: process.env.CI !== 'true',
       }),
     ],
   },
