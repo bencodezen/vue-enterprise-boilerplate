@@ -1,6 +1,6 @@
 import BaseButton from './_base-button'
 
-describe('@components/base-button', () => {
+describe('@components/_base-button', () => {
   it('renders its content', () => {
     const slotContent = '<span>foo</span>'
     const { element } = mountShallow(BaseButton, {

@@ -1,6 +1,6 @@
 import BaseIcon from './_base-icon'
 
-describe('@components/base-icon', () => {
+describe('@components/_base-icon', () => {
   it('renders a font-awesome icon', () => {
     const { element } = mount(BaseIcon, {
       propsData: {

@@ -47,7 +47,6 @@
   // CSS
   // ===
   "stylelint.enable": true,
-  "stylelint.additionalDocumentSelectors": ["vue"],
   "css.validate": false,
   "scss.validate": false,
   "vetur.validation.style": false,

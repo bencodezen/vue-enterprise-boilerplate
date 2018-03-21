@@ -21,7 +21,7 @@ const mountRoutes = options => {
     },
     {
       stubs: {
-        'router-link': {
+        BaseLink: {
           functional: true,
           render(h, { slots }) {
             return <a>{slots().default}</a>
