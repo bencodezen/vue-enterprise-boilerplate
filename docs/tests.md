@@ -74,7 +74,7 @@ yarn dev:e2e
 
 ### Introduction to Cypress
 
-Cypress has offers many advantages over other test frameworks, including the abilities to:
+Cypress offers many advantages over other test frameworks, including the abilities to:
 
 * Travel through time to dissect the source of a problem when a test fails
 * Automatically record video and screenshots of your tests
