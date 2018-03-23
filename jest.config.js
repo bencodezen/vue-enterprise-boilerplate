@@ -37,9 +37,8 @@ module.exports = {
     process.env.API_BASE_URL || `http://localhost:${process.env.MOCK_API_PORT}`,
   globals: {
     'vue-jest': {
-      resources: {
-        scss: ['./src/design/index.scss'],
-      },
+      // Disable CSS compilation until it's more stable
+      experimentalCSSCompile: false,
     },
   },
 }

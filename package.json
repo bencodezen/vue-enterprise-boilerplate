@@ -6,7 +6,7 @@
     "dev": "vue-cli-service serve",
     "dev:e2e": "vue-cli-service e2e:open --mode=development",
     "build": "vue-cli-service build",
-    "build:ci": "ANALYZE=true yarn build",
+    "build:ci": "cross-env ANALYZE=true yarn build",
     "lint":
       "eslint --ext .js,.vue --fix . && stylelint --fix \"src/**/*.vue\" \"src/**/*.scss\" && markdownlint docs/*.md *.md && prettier --list-different --write \"**/*.{js,jsx,json,css,scss,vue,md}\"",
     "unit": "jest",
@@ -34,7 +34,7 @@
     "normalize.css": "8.0.0",
     "nprogress": "0.2.0",
     "vue": "2.5.16",
-    "vue-meta": "1.4.4",
+    "vue-meta": "1.5.0",
     "vue-router": "3.0.1",
     "vuex": "3.0.1"
   },
@@ -55,16 +55,16 @@
     "hygen": "1.5.x",
     "imagemin-lint-staged": "0.3.x",
     "lint-staged": "7.0.x",
-    "markdownlint-cli": "0.7.x",
+    "markdownlint-cli": "0.8.x",
     "node-sass": "4.7.x",
     "sass-loader": "6.0.x",
     "stylelint": "9.1.x",
     "stylelint-config-css-modules": "1.2.x",
     "stylelint-config-prettier": "3.0.x",
-    "stylelint-config-recess-order": "1.2.x",
+    "stylelint-config-recess-order": "2.0.x",
     "stylelint-config-standard": "18.2.x",
     "stylelint-scss": "2.5.x",
-    "vue-jest": "2.1.x",
+    "vue-jest": "2.3.x",
     "vue-template-compiler": "2.5.16",
     "webpack-bundle-analyzer": "2.11.x"
   }
