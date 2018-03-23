@@ -106,9 +106,9 @@ global.createComponentMocks = ({ store, router, style, mocks, stubs }) => {
   const returnOptions = { localVue }
 
   // https://vue-test-utils.vuejs.org/en/api/options.html#stubs
-  returnOptions.stubs = mocks || {}
+  returnOptions.stubs = stubs || {}
   // https://vue-test-utils.vuejs.org/en/api/options.html#mocks
-  returnOptions.mocks = stubs || {}
+  returnOptions.mocks = mocks || {}
 
   // Converts a `store` option shaped like:
   //
