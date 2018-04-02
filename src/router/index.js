@@ -51,7 +51,7 @@ router.beforeEach((routeTo, routeFrom, next) => {
   }
 
   // If auth is required and the user is NOT currently logged in,
-  // redirect to login
+  // redirect to login.
   redirectToLogin()
 
   function redirectToLogin() {
@@ -61,7 +61,7 @@ router.beforeEach((routeTo, routeFrom, next) => {
 
 // After navigation is confirmed, but before resolving...
 router.beforeResolve((routeTo, routeFrom, next) => {
-  // If this isn't an initial page load.
+  // If this isn't an initial page load...
   if (routeFrom.name) {
     // Start the route progress bar.
     NProgress.start()

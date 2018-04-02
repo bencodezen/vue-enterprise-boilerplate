@@ -15,7 +15,7 @@
     "esbenp.prettier-vscode",
     // SCSS intellisense
     "mrmlnc.vscode-scss",
-    // Test `.spec.js` files on save with Jest
+    // Test `.unit.js` files on save with Jest
     "Orta.vscode-jest",
     // Lint markdown in README files
     "DavidAnson.vscode-markdownlint"

@@ -4,12 +4,12 @@ export default [
   {
     path: '/',
     name: 'home',
-    component: require('@views/home').default,
+    component: () => lazyLoadView(import('@views/home')),
   },
   {
     path: '/login',
     name: 'login',
-    component: require('@views/login').default,
+    component: () => lazyLoadView(import('@views/login')),
     beforeEnter(routeTo, routeFrom, next) {
       // If the user is already logged in
       if (store.getters['auth/loggedIn']) {
@@ -24,7 +24,7 @@ export default [
   {
     path: '/profile',
     name: 'profile',
-    component: require('@views/profile').default,
+    component: () => lazyLoadView(import('@views/profile')),
     meta: {
       authRequired: true,
     },
@@ -33,7 +33,7 @@ export default [
   {
     path: '/profile/:username',
     name: 'username-profile',
-    component: require('@views/profile').default,
+    component: () => lazyLoadView(import('@views/profile')),
     meta: {
       authRequired: true,
     },
@@ -89,3 +89,26 @@ export default [
     redirect: '404',
   },
 ]
+
+function lazyLoadView(AsyncView) {
+  const AsyncHandler = () => ({
+    component: AsyncView,
+    // A component to use while the component is loading.
+    loading: require('@views/loading').default,
+    // A fallback component in case the timeout is exceeded
+    // in loading the component.
+    error: require('@views/timeout').default,
+    // Delay before showing the loading component. Default: 200ms.
+    delay: 200,
+    // The error component will be displayed if a timeout is
+    // provided and exceeded. Default: Infinity.
+    timeout: 5000,
+  })
+
+  return Promise.resolve({
+    functional: true,
+    render(h, { data, children }) {
+      return h(AsyncHandler, data, children)
+    },
+  })
+}
