@@ -14,6 +14,14 @@ export default {
 
 <template>
   <Layout>
-    <h1>The page timed out while loading</h1>
+    <h1 :class="$style.title">
+      The page timed out while loading
+    </h1>
   </Layout>
 </template>
+
+<style lang="scss" module>
+.title {
+  text-align: center;
+}
+</style>

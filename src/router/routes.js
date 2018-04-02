@@ -102,7 +102,7 @@ function lazyLoadView(AsyncView) {
     delay: 200,
     // The error component will be displayed if a timeout is
     // provided and exceeded. Default: Infinity.
-    timeout: 5000,
+    timeout: 10000,
   })
 
   return Promise.resolve({
