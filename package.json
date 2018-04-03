@@ -9,12 +9,11 @@
     "build:ci": "cross-env ANALYZE=true yarn build",
     "lint":
       "eslint --ext .js,.vue --fix . && stylelint --fix \"src/**/*.vue\" \"src/**/*.scss\" && markdownlint docs/*.md *.md && prettier --list-different --write \"**/*.{js,jsx,json,css,scss,vue,md}\"",
-    "unit": "jest",
-    "unit:watch": "jest --watch --notify --notifyMode change",
+    "unit": "vue-cli-service test \\.unit\\.js$",
+    "unit:watch": "yarn unit --watch --notify --notifyMode change",
     "e2e": "vue-cli-service e2e",
     "test": "yarn unit && yarn e2e",
-    "test:ci":
-      "yarn lint && jest --no-cache --coverage --ci && vue-cli-service e2e",
+    "test:ci": "yarn lint && yarn unit --coverage --ci && yarn e2e",
     "new": "hygen new"
   },
   "gitHooks": {
@@ -26,9 +25,9 @@
   },
   "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"],
   "dependencies": {
-    "@fortawesome/fontawesome": "^1.1.4",
-    "@fortawesome/fontawesome-free-solid": "^5.0.8",
-    "@fortawesome/vue-fontawesome": "^0.0.22",
+    "@fortawesome/fontawesome": "1.1.4",
+    "@fortawesome/fontawesome-free-solid": "5.0.8",
+    "@fortawesome/vue-fontawesome": "0.0.22",
     "axios": "0.18.0",
     "lodash": "4.17.5",
     "normalize.css": "8.0.0",

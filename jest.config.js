@@ -34,7 +34,8 @@ module.exports = {
   // Set the `testURL` to a provided base URL if one exists, or the mock API base URL
   // Solves: https://stackoverflow.com/questions/42677387/jest-returns-network-error-when-doing-an-authenticated-request-with-axios
   testURL:
-    process.env.API_BASE_URL || `http://localhost:${process.env.MOCK_API_PORT}`,
+    process.env.VUE_APP_API_BASE_URL ||
+    `http://localhost:${process.env.MOCK_API_PORT}`,
   globals: {
     'vue-jest': {
       // Disable CSS compilation until it's more stable
