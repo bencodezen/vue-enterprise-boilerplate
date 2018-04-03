@@ -29,6 +29,8 @@ node _start.js
 
 # 4. Delete the start script, as there can be only one beginning.
 rm _start.js
+
+# 5. Read the documentation linked below for "Setup and development".
 ```
 
 ## Documentation
