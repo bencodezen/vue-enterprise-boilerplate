@@ -1,6 +1,5 @@
 const path = require('path')
 const fs = require('fs')
-const formatDate = require('date-fns/format')
 
 const headRef = fs
   .readFileSync(path.join(__dirname, '.git/HEAD'))
@@ -15,7 +14,7 @@ const headSha = fs
 
 const ciBadge =
   '[![CircleCI](https://circleci.com/gh/chrisvfritz/vue-enterprise-boilerplate/tree/master.svg?style=svg)](https://circleci.com/gh/chrisvfritz/vue-enterprise-boilerplate/tree/master)'
-const divergeDate = formatDate(new Date(), 'MMMM Do, YYYY')
+const divergeDate = new Date().toString().slice(4, 15)
 const compareUrl = `https://github.com/chrisvfritz/vue-enterprise-boilerplate/compare/${headSha}...master`
 const startNote = `**You diverged from the boilerplate on ${divergeDate}. See [what's been added](${compareUrl}) since then.**`
 
