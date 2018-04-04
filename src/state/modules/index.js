@@ -1,15 +1,16 @@
-// Register each file as a corresponding Vuex module. Module nesting will
-// mirror [sub-]directory hierarchy and modules are namespaced as the camelCase
-// equivalent of their file name.
+// Register each file as a corresponding Vuex module. Module nesting
+// will mirror [sub-]directory hierarchy and modules are namespaced
+// as the camelCase equivalent of their filename.
 
 import camelCase from 'lodash/camelCase'
 
+// https://webpack.js.org/guides/dependency-management/#require-context
 const requireModule = require.context(
   // Search for files in the current directory
   '.',
   // Search for files in subdirectories
   true,
-  // Include any `.js` files that are not unit tests
+  // Include any .js files that are not unit tests
   /^((?!\.unit\.).)*\.js$/
 )
 const root = { modules: {} }
@@ -20,8 +21,10 @@ requireModule.keys().forEach(fileName => {
 
   // Get the module path as an array
   const modulePath = fileName
-    // Strip the current directory and file extension
-    .replace(/^\.\/|\.js$/g, '')
+    // Remove the "./" from the beginning
+    .replace(/^\.\//, '')
+    // Remove the file extension from the end
+    .replace(/\.\w+$/, '')
     // Split nested modules into an array path
     .split(/\//)
     // camelCase all module namespaces and names
@@ -37,7 +40,7 @@ requireModule.keys().forEach(fileName => {
     ...requireModule(fileName),
   }
 
-  // Get the namespace of the module, even if nested
+  // Recursively get the namespace of the module, even if nested
   function getNamespace(subtree, path) {
     if (path.length === 1) return subtree
 
