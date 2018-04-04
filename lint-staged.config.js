@@ -1,5 +1,5 @@
 module.exports = {
-  '*.{js,jsx}': [
+  '*.js': [
     'eslint --fix',
     'prettier --write',
     'git add',
