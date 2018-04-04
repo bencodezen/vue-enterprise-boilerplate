@@ -45,14 +45,14 @@ yarn dev:e2e
 
 ### Developing with the production API
 
-By default, dev and tests filter requests through [the mock API](#the-mock-api) in `tests/mock-api`. To test directly against a local/live API instead, run dev and test commands with the `VUE_APP_API_BASE_URL` environment variable set. For example:
+By default, dev and tests filter requests through [the mock API](#the-mock-api) in `tests/mock-api`. To test directly against a local/live API instead, run dev and test commands with the `API_BASE_URL` environment variable set. For example:
 
 ```sh
 # To develop against a local backend server
-VUE_APP_API_BASE_URL=http://localhost:3000 yarn dev
+API_BASE_URL=http://localhost:3000 yarn dev
 
 # To test and develop against a production server
-VUE_APP_API_BASE_URL=https://example.io yarn dev:e2e
+API_BASE_URL=https://example.io yarn dev:e2e
 ```
 
 ## Generators

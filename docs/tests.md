@@ -58,7 +58,7 @@ Jest offers many tools for mocks, including:
 
 * [For a function](https://facebook.github.io/jest/docs/en/mock-functions.html), use `jest.fn()`.
 * [For a source file](https://facebook.github.io/jest/docs/en/manual-mocks.html#mocking-user-modules), add the mock to a `__mocks__` directory adjacent to the file.
-* [For a dependency in `node_modules`](https://facebook.github.io/jest/docs/en/manual-mocks.html#mocking-node-modules), add the mock to `tests/unit/__mocks__`. You can see an example of this with the `axios` mock, which intercepts requests with relative URLs to either [our mock API](#the-mock-api) or a local/live API if the `VUE_APP_API_BASE_URL` environment variable is set.
+* [For a dependency in `node_modules`](https://facebook.github.io/jest/docs/en/manual-mocks.html#mocking-node-modules), add the mock to `tests/unit/__mocks__`. You can see an example of this with the `axios` mock, which intercepts requests with relative URLs to either [our mock API](#the-mock-api) or a local/live API if the `API_BASE_URL` environment variable is set.
 
 ## End-to-end tests with Cypress
 
@@ -106,14 +106,14 @@ The mock API is an [Express](https://expressjs.com/) server in `tests/mock-api` 
 
 ### Testing/developing against a real server
 
-In some situations, you might prefer to test against a local server while developing, or maybe just during continuous integration. To do so, you can run any development or test command with the `VUE_APP_API_BASE_URL` environment variable. For example:
+In some situations, you might prefer to test against a local server while developing, or maybe just during continuous integration. To do so, you can run any development or test command with the `API_BASE_URL` environment variable. For example:
 
 ```sh
-VUE_APP_API_BASE_URL=http://localhost:3000 yarn test
+API_BASE_URL=http://localhost:3000 yarn test
 ```
 
 Or similarly, with a live server:
 
 ```sh
-VUE_APP_API_BASE_URL=https://staging.example.io yarn test
+API_BASE_URL=https://staging.example.io yarn test
 ```
