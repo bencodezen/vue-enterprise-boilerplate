@@ -56,7 +56,7 @@ Where most of the components in our app will live, including our [global base co
 
 ### `design`
 
-Where we keep our [design variables and tooling](#design-variables-and-tooling).
+Where we keep our [design variables and tooling](tech.md#design-variables-and-tooling).
 
 ### `router`
 
