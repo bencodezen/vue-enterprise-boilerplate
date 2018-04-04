@@ -8,7 +8,7 @@
     "build": "vue-cli-service build",
     "build:ci": "cross-env ANALYZE=true yarn build",
     "lint":
-      "eslint --ext .js,.vue --fix . && stylelint --fix \"src/**/*.vue\" \"src/**/*.scss\" && markdownlint docs/*.md *.md && prettier --list-different --write \"**/*.{js,jsx,json,css,scss,vue,md}\"",
+      "eslint --ext .js,.vue --fix . && stylelint --fix \"src/**/*.vue\" \"src/**/*.scss\" && markdownlint docs/*.md *.md && prettier --list-different --write \"**/*.{js,js,json,css,scss,vue,md}\"",
     "unit": "vue-cli-service test \\.unit\\.js$",
     "unit:watch": "yarn unit --watch --notify --notifyMode change",
     "e2e": "vue-cli-service e2e",
