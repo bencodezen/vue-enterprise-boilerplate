@@ -1,6 +1,6 @@
 // Register each file as a corresponding Vuex module. Module nesting
 // will mirror [sub-]directory hierarchy and modules are namespaced
-// as the camelCase equivalent of their filename.
+// as the camelCase equivalent of their file name.
 
 import camelCase from 'lodash/camelCase'
 
