@@ -1,6 +1,8 @@
 // Create custom Cypress commands and overwrite existing ones.
 // https://on.cypress.io/custom-commands
 
+import { getStore } from './utils'
+
 Cypress.Commands.add(
   'logIn',
   ({ username = 'admin', password = 'password' } = {}) => {
@@ -10,11 +12,8 @@ Cypress.Commands.add(
         cy.visit('/')
       }
     })
-    cy.window().then(window => {
-      return window.__app__.$store.dispatch('auth/logIn', {
-        username,
-        password,
-      })
-    })
+    getStore().then(store =>
+      store.dispatch('auth/logIn', { username, password })
+    )
   }
 )
