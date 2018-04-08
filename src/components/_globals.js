@@ -1,6 +1,6 @@
 // Globally register all base components for convenience, because they
 // will be used very frequently. Components are registered using the
-// PascalCased version of their filename.
+// PascalCased version of their file name.
 
 import Vue from 'vue'
 import upperFirst from 'lodash/upperFirst'
@@ -16,7 +16,7 @@ const requireComponent = require.context(
   /_base-[\w-]+\.vue$/
 )
 
-// For each matching filename...
+// For each matching file name...
 requireComponent.keys().forEach(fileName => {
   // Get the component config
   const componentConfig = requireComponent(fileName)

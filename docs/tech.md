@@ -205,7 +205,7 @@ $style: {
 
 These values contain automatically generated classes with:
 
-* the filename of the component
+* the file name of the component
 * the name of the class
 * a random hash
 
