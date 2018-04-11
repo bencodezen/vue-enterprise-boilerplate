@@ -49,7 +49,7 @@
     "@vue/test-utils": "1.0.0-beta.12",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "22.4.x",
-    "cross-env": "^5.1.4",
+    "cross-env": "5.1.x",
     "express": "4.16.x",
     "hygen": "1.5.x",
     "imagemin-lint-staged": "0.3.x",
