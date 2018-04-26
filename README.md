@@ -17,7 +17,7 @@
 
 ```sh
 # 1. Clone the repository.
-git clone https://github.com/chrisvfritz/vue-enterprise-boilerplate.git my-new-project --depth 1
+git clone https://github.com/chrisvfritz/vue-enterprise-boilerplate.git my-new-project
 
 # 2. Enter your newly-cloned folder
 cd my-new-project
