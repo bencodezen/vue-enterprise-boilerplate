@@ -38,7 +38,8 @@ jobs:
 
       - run:
           name: Run tests
-          command: yarn test:ci
+          # Install libgconf, needed by Cypress' Electron, then run tests
+          command: sudo apt-get install libgconf-2-4 && yarn test:ci
 
       # Store test artifacts
       - store_artifacts:
