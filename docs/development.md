@@ -30,6 +30,8 @@ yarn install
 
 ## Dev server
 
+> Note: If you're on Linux and see an `ENOSPC` error when running the commands below, you must [increase the number of available file watchers](https://stackoverflow.com/questions/22475849/node-js-error-enospc#answer-32600959).
+
 ```sh
 # Launch the dev server
 yarn dev
