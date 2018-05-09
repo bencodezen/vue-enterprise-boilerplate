@@ -13,7 +13,7 @@ const store = new Vuex.Store({
 // Automatically run the `init` action for every module,
 // if one exists.
 for (const moduleName of Object.keys(modules)) {
-  if (modules[moduleName].actions.init) {
+  if (modules[moduleName].actions && modules[moduleName].actions.init) {
     store.dispatch(`${moduleName}/init`)
   }
 }
