@@ -51,7 +51,7 @@ export default {
 </template>
 
 <style lang="scss" module>
-@import '~@design';
+@import '@design';
 
 .container {
   padding: 0;

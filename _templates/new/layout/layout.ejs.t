@@ -8,7 +8,7 @@ to: "src/router/layouts/<%= h.inflection.dasherize(name) %>.vue"
 </template>
 
 <style lang="scss" module>
-@import '~@design';
+@import '@design';
 
 .container {
   min-width: $size-content-width-min;

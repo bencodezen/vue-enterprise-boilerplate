@@ -171,7 +171,7 @@ To import files from `node_modules` using aliases, Webpack's [css-loader](https:
 All our [variables](https://sass-lang.com/guide#topic-2), [placeholder classes](https://sass-lang.com/guide#topic-7), [mixins](https://sass-lang.com/guide#topic-6), and other design tooling are in the `src/design` folder. Each of these files define variables, prefixed with the name of the file, then combined in `src/design/index.scss`. This combined file is aliased as `@design` for convenience and can be imported into SCSS using:
 
 ```scss
-@import '~@design';
+@import '@design';
 ```
 
 This makes all our design variables available in your component or SCSS file.
@@ -223,7 +223,7 @@ You could import our design tooling, then use CSS modules' `:export` it:
 
 ```html
 <style lang="scss" module>
-@import '~@design';
+@import '@design';
 
 :export {
   grid-padding: $size-grid-padding;

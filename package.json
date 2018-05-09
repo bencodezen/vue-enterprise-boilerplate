@@ -56,7 +56,7 @@
     "lint-staged": "7.1.x",
     "markdownlint-cli": "0.8.x",
     "node-sass": "4.9.x",
-    "sass-loader": "6.0.x",
+    "sass-loader": "7.0.x",
     "stylelint": "9.2.x",
     "stylelint-config-css-modules": "1.2.x",
     "stylelint-config-prettier": "3.2.x",

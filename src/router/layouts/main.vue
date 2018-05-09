@@ -14,7 +14,7 @@ export default {
 </template>
 
 <style lang="scss" module>
-@import '~@design';
+@import '@design';
 
 .container {
   min-width: $size-content-width-min;

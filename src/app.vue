@@ -35,7 +35,7 @@ export default {
 @import '~nprogress/nprogress.css';
 
 // Design variables and utilities from src/design.
-@import '~@design';
+@import '@design';
 
 *,
 *::before,

@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style lang="scss" module>
-@import '~@design';
+@import '@design';
 
 .active a {
   font-weight: 600;

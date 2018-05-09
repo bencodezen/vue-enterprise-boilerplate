@@ -76,7 +76,7 @@ export default {
 </template>
 
 <style lang="scss" module>
-@import '~@design';
+@import '@design';
 
 .form {
   text-align: center;
