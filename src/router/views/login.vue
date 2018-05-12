@@ -31,7 +31,14 @@ export default {
       })
         .then(token => {
           this.tryingToLogIn = false
-          this.$router.push({ name: 'home' })
+
+          // Redirect to the originally requested page
+          let query = { name: 'home' }
+          let routeQuery = this.$route && this.$route.query
+          if (routeQuery && Object.keys(routeQuery).length !== 0) {
+            query = routeQuery
+          }
+          this.$router.push( query )
         })
         .catch(error => {
           this.tryingToLogIn = false
