@@ -38,7 +38,7 @@ export default {
           if (routeQuery && Object.keys(routeQuery).length !== 0) {
             query = routeQuery
           }
-          this.$router.push( query )
+          this.$router.push(query)
         })
         .catch(error => {
           this.tryingToLogIn = false
