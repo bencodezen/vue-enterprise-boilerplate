@@ -9,7 +9,7 @@ These are some troubleshooting tips for more common issues people might run into
 
 Make sure you've followed the instructions for [Setup and development](development.md). If you already have, try deleting the `node_modules` folder and installing fresh:
 
-```sh
+```bash
 # 1. Delete all previously-installed dependencies.
 rm -rf node_modules
 
@@ -19,7 +19,7 @@ yarn install
 
 If that doesn't work, it's possible that a newer version of a dependency is creating a problem. If this is the problem, you can work around it by installing dependencies from the `yarn.lock` file of a previously working branch or commit.
 
-```sh
+```bash
 # 1. Delete all previously-installed dependencies.
 rm -rf node_modules
 

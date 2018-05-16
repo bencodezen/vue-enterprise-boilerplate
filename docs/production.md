@@ -5,7 +5,7 @@
 
 ## From the terminal
 
-```sh
+```bash
 # Build for production with minification
 yarn build
 ```

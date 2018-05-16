@@ -15,7 +15,7 @@
 
 ## Getting started
 
-```sh
+```bash
 # 1. Clone the repository.
 git clone https://github.com/chrisvfritz/vue-enterprise-boilerplate.git my-new-project
 
