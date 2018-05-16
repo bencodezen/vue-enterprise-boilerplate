@@ -22,9 +22,6 @@ module.exports = {
   css: {
     // Enable CSS source maps.
     sourceMap: true,
-    // Enable CSS modules for all CSS/pre-processor files.
-    // This option does not affect *.vue files.
-    modules: true,
   },
   // Configure Webpack's dev server.
   // https://github.com/vuejs/vue-cli/blob/dev/docs/cli-service.md
