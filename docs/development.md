@@ -23,7 +23,7 @@ Then update the following files to suit your application:
 
 ## Installation
 
-```sh
+```bash
 # Install dependencies from package.json
 yarn install
 ```
@@ -32,7 +32,7 @@ yarn install
 
 > Note: If you're on Linux and see an `ENOSPC` error when running the commands below, you must [increase the number of available file watchers](https://stackoverflow.com/questions/22475849/node-js-error-enospc#answer-32600959).
 
-```sh
+```bash
 # Launch the dev server
 yarn dev
 
@@ -49,7 +49,7 @@ yarn dev:e2e
 
 By default, dev and tests filter requests through [the mock API](#the-mock-api) in `tests/mock-api`. To test directly against a local/live API instead, run dev and test commands with the `API_BASE_URL` environment variable set. For example:
 
-```sh
+```bash
 # To develop against a local backend server
 API_BASE_URL=http://localhost:3000 yarn dev
 
@@ -61,7 +61,7 @@ API_BASE_URL=https://example.io yarn dev:e2e
 
 This project includes generators to speed up common development tasks. Commands include:
 
-```sh
+```bash
 # Generate a new component with adjacent unit test
 yarn new component
 

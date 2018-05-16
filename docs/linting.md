@@ -25,7 +25,7 @@ There are a few different contexts in which the linters run.
 
 ### Terminal
 
-```sh
+```bash
 # Lint all files, fixing many violations automatically
 yarn lint
 ```

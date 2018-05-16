@@ -14,10 +14,11 @@
     "e2e": "vue-cli-service e2e",
     "test": "yarn unit && yarn e2e",
     "test:ci": "yarn lint && yarn unit --coverage --ci && yarn e2e",
-    "new": "hygen new"
+    "new": "hygen new",
+    "docs": "vuepress dev"
   },
   "gitHooks": {
-    "pre-commit": "PRE_COMMIT=true lint-staged"
+    "pre-commit": "cross-env PRE_COMMIT=true lint-staged"
   },
   "engines": {
     "node": ">=8.9.0",
@@ -65,6 +66,7 @@
     "stylelint-scss": "3.1.x",
     "vue-jest": "2.5.x",
     "vue-template-compiler": "2.5.16",
+    "vuepress": "0.8.x",
     "webpack-bundle-analyzer": "2.11.x"
   }
 }

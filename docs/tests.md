@@ -15,7 +15,7 @@
 
 ## Running all tests
 
-```sh
+```bash
 # Run all tests
 yarn test
 ```
@@ -24,7 +24,7 @@ yarn test
 
 ### Running unit tests
 
-```sh
+```bash
 # Run unit tests
 yarn unit
 
@@ -64,7 +64,7 @@ Jest offers many tools for mocks, including:
 
 ### Running end-to-end tests
 
-```sh
+```bash
 # Run end to end tests
 yarn e2e
 
@@ -108,12 +108,12 @@ The mock API is an [Express](https://expressjs.com/) server in `tests/mock-api` 
 
 In some situations, you might prefer to test against a local server while developing, or maybe just during continuous integration. To do so, you can run any development or test command with the `API_BASE_URL` environment variable. For example:
 
-```sh
+```bash
 API_BASE_URL=http://localhost:3000 yarn test
 ```
 
 Or similarly, with a live server:
 
-```sh
+```bash
 API_BASE_URL=https://staging.example.io yarn test
 ```
