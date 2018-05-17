@@ -35,6 +35,27 @@ describe('Authentication', () => {
     cy.contains('a', 'Log out')
   })
 
+  it('login after attempting to visit authenticated route redirects to that route after login', () => {
+    cy.visit('/profile?someQuery')
+
+    // Confirm redirection to the login page
+    cy.location('pathname').should('equal', '/login')
+
+    // Enter the user-supplied username and password
+    cy.get('input[name="username"]').type('admin')
+    cy.get('input[name="password"]').type('password')
+
+    // Submit the login form
+    cy.contains('button', 'Log in').click()
+
+    // Confirm redirection to the homepage
+    cy.location('pathname').should('equal', '/profile')
+    cy.location('search').should('equal', '?someQuery')
+
+    // Confirm a logout link exists
+    cy.contains('a', 'Log out')
+  })
+
   it('logout link logs the user out when logged in', () => {
     cy.logIn()
 
