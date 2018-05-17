@@ -6,7 +6,7 @@ describe('@views/profile', () => {
   })
 
   it(`includes the provided user's name`, () => {
-    const { element } = mountShallowView(Profile, {
+    const { element } = shallowMountView(Profile, {
       propsData: {
         user: { name: 'My Name' },
       },

@@ -9,7 +9,7 @@ to: "src/router/layouts/<%= h.inflection.dasherize(name) %>.unit.js"
 describe('@layouts/<%= fileName %>', () => {
   it('renders its content', () => {
     const slotContent = '<p>Hello!</p>'
-    const { element } = mountShallow(<%= importName %>, {
+    const { element } = shallowMount(<%= importName %>, {
       slots: {
         default: slotContent,
       },

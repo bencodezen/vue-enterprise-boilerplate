@@ -13,7 +13,7 @@ describe('@components/_base-icon', () => {
   })
 
   it('renders a custom icon', () => {
-    const { element } = mountShallow(BaseIcon, {
+    const { element } = shallowMount(BaseIcon, {
       ...createComponentMocks({
         style: {
           iconCustomSomeIcon: 'generated-class-name',

@@ -41,8 +41,8 @@ module.exports = {
       env: { jest: true },
       globals: {
         mount: false,
-        mountShallow: false,
-        mountShallowView: false,
+        shallowMount: false,
+        shallowMountView: false,
         createComponentMocks: false,
         createModuleStore: false,
       },

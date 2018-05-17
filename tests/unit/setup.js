@@ -77,13 +77,12 @@ Object.defineProperty(window, 'localStorage', {
 // https://vue-test-utils.vuejs.org/en/api/mount.html
 global.mount = vueTestUtils.mount
 
-// Aliasing `shallow` to a more descriptive name
-// https://vue-test-utils.vuejs.org/en/api/shallow.html
-global.mountShallow = vueTestUtils.shallow
+// https://vue-test-utils.vuejs.org/en/api/shallowMount.html
+global.shallowMount = vueTestUtils.shallowMount
 
-// A special version of `mountShallow` for view components
-global.mountShallowView = (Component, options = {}) => {
-  return global.mountShallow(Component, {
+// A special version of `shallowMount` for view components
+global.shallowMountView = (Component, options = {}) => {
+  return global.shallowMount(Component, {
     ...options,
     stubs: {
       Layout: {

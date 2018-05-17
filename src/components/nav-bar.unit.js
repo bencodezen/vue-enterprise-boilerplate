@@ -2,7 +2,7 @@ import NavBar from './nav-bar'
 
 describe('@components/nav-bar', () => {
   it(`displays the user's name in the profile link`, () => {
-    const { vm } = mountShallow(
+    const { vm } = shallowMount(
       NavBar,
       createComponentMocks({
         store: {
