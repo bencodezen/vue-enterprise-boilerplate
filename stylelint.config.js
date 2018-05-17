@@ -25,8 +25,8 @@ module.exports = {
     'string-no-newline': null,
     // Enforce camelCase for classes and ids, to work better
     // with CSS modules
-    'selector-class-pattern': /^[a-z][a-zA-Z]+$/,
-    'selector-id-pattern': /^[a-z][a-zA-Z]+$/,
+    'selector-class-pattern': /^[a-z][a-zA-Z]*(-(enter|leave)(-(active|to))?)?$/,
+    'selector-id-pattern': /^[a-z][a-zA-Z]*$/,
     // Limit the number of universal selectors in a selector,
     // to avoid very slow selectors
     'selector-max-universal': 1,
