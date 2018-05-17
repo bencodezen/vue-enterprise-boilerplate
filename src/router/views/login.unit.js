@@ -13,11 +13,31 @@ describe('@views/login', () => {
 
     const routerPush = jest.fn()
     vm.$router = { push: routerPush }
+    vm.$route = { query: {} }
 
     expect.assertions(2)
     return vm.tryToLogIn().then(() => {
       expect(vm.authError).toEqual(null)
       expect(routerPush).toHaveBeenCalledWith({ name: 'home' })
+    })
+  })
+
+  it('redirects to redirectFrom query, if it exists, after successful login', () => {
+    const { vm } = mountLogin()
+
+    vm.username = 'correctUsername'
+    vm.password = 'correctPassword'
+
+    const routerPush = jest.fn()
+    vm.$router = { push: routerPush }
+
+    const redirectFrom = '/profile?someQuery'
+    vm.$route = { query: { redirectFrom } }
+
+    expect.assertions(2)
+    return vm.tryToLogIn().then(() => {
+      expect(vm.authError).toEqual(null)
+      expect(routerPush).toHaveBeenCalledWith(redirectFrom)
     })
   })
 

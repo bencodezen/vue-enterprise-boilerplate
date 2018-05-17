@@ -31,7 +31,9 @@ export default {
       })
         .then(token => {
           this.tryingToLogIn = false
-          this.$router.push({ name: 'home' })
+
+          // Redirect to the originally requested page, or to the home page
+          this.$router.push(this.$route.query.redirectFrom || { name: 'home' })
         })
         .catch(error => {
           this.tryingToLogIn = false
