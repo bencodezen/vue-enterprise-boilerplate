@@ -4,14 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "vue-cli-service serve",
-    "dev:e2e": "vue-cli-service e2e:open --mode=development",
+    "dev:e2e": "vue-cli-service e2e --mode=development",
     "build": "vue-cli-service build",
     "build:ci": "cross-env ANALYZE=true yarn build",
     "lint":
       "eslint --ext .js,.vue --fix . && stylelint --fix \"src/**/*.vue\" \"src/**/*.scss\" && markdownlint docs/*.md *.md && prettier --list-different --write \"**/*.{js,json,css,scss,vue,md}\"",
     "unit": "vue-cli-service test:unit \\.unit\\.js$",
     "unit:watch": "yarn unit --watch --notify --notifyMode change",
-    "e2e": "vue-cli-service e2e",
+    "e2e": "vue-cli-service test:e2e --headless",
     "test": "yarn unit && yarn e2e",
     "test:ci": "yarn lint && yarn unit --coverage --ci && yarn e2e",
     "new": "hygen new",
