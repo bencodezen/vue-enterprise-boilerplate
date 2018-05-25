@@ -27,6 +27,11 @@
   "editor.formatOnSave": true,
   "eslint.autoFixOnSave": true,
   "eslint.run": "onSave",
+  "eslint.validate": [
+    { "language": "javascript", "autoFix": true },
+    { "language": "javascriptreact", "autoFix": true },
+    { "language": "vue", "autoFix": true }
+  ],
   // ===
   // HTML
   // ===
@@ -39,7 +44,6 @@
   // ===
   "jest.autoEnable": false,
   "jest.enableCodeLens": false,
-  "eslint.validate": ["javascript", "javascriptreact", "vue"],
   "javascript.format.enable": false,
   "json.format.enable": false,
   "vetur.validation.script": false,
