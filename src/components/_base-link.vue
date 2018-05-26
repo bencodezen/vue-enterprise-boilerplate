@@ -46,7 +46,7 @@ export default {
           return console.warn(
             `Invalid <BaseLink> href: ${
               this.href
-            }.\nIf you're trying to link to a local URL, specify provide at least a name or to`
+            }.\nIf you're trying to link to a local URL, provide at least a name or to`
           )
         }
         // Check for insecure URL in href.
