@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vue-cli-service serve",
-    "dev:e2e": "vue-cli-service e2e --mode=development",
+    "dev:e2e": "vue-cli-service test:e2e --mode=development",
     "build": "vue-cli-service build",
     "build:ci": "cross-env ANALYZE=true yarn build",
     "lint":
