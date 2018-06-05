@@ -6,9 +6,11 @@ describe('Profile Page', () => {
 
   it('nav link exists when logged in', () => {
     cy.logIn()
-    cy
-      .contains('a', 'Logged in as Vue Master')
-      .should('have.attr', 'href', '/profile')
+    cy.contains('a', 'Logged in as Vue Master').should(
+      'have.attr',
+      'href',
+      '/profile'
+    )
   })
 
   it('shows the current user profile when logged in', () => {

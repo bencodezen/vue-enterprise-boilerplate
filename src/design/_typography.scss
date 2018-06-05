@@ -229,7 +229,7 @@
     '6': 6,
     '7': 7,
     '8': 8,
-    '9': 9
+    '9': 9,
   );
 
   @for $i from if($minus, 2, 1) through str-length($value) {

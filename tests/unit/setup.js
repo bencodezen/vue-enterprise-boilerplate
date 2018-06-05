@@ -12,7 +12,12 @@ import axios from 'axios'
 import vueTestUtils from '@vue/test-utils'
 // https://lodash.com/
 import _ from 'lodash'
-_.mixin({ pascalCase: _.flow(_.camelCase, _.upperFirst) })
+_.mixin({
+  pascalCase: _.flow(
+    _.camelCase,
+    _.upperFirst
+  ),
+})
 
 // ===
 // Configure Vue

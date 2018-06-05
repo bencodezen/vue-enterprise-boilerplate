@@ -1,8 +1,8 @@
 # Routing, layouts, and views
 
-* [Overview](#overview)
-* [Layouts](#layouts)
-* [Views](#views)
+- [Overview](#overview)
+- [Layouts](#layouts)
+- [Views](#views)
 
 ## Overview
 

@@ -2,8 +2,8 @@
 
 These are some troubleshooting tips for more common issues people might run into while developing, including more information on what might be happening and how to fix the problem.
 
-* [Errors running scripts (e.g. `yarn dev`)](#errors-running-scripts-eg-yarn-dev)
-* [Visual Studio (VS) Code formatting issues](#visual-studio-vs-code-formatting-issues)
+- [Errors running scripts (e.g. `yarn dev`)](#errors-running-scripts-eg-yarn-dev)
+- [Visual Studio (VS) Code formatting issues](#visual-studio-vs-code-formatting-issues)
 
 ## Errors running scripts (e.g. `yarn dev`)
 
@@ -41,4 +41,4 @@ If you're using VS Code and notice that some files are being formatted incorrect
 
 Extensions with known issues include:
 
-* [Visual Studio Code Format](https://marketplace.visualstudio.com/items?itemName=ryannaddy.vscode-format#review-details)
+- [Visual Studio Code Format](https://marketplace.visualstudio.com/items?itemName=ryannaddy.vscode-format#review-details)

@@ -1,23 +1,23 @@
 # Languages and technologies
 
-* [JavaScript](#javascript)
-  * [Polyfills](#polyfills)
-  * [Vue](#vue)
-  * [Vue Router](#vue-router)
-  * [Vuex (state management)](#vuex-state-management)
-  * [JavaScript FAQ](#javascript-faq)
-* [HTML](#html)
-  * [Templates](#templates)
-  * [Render functions](#render-functions)
-  * [HTML FAQ](#html-faq)
-* [CSS](#css)
-  * [SCSS](#scss)
-  * [Importing global modules](#importing-global-modules)
-  * [Design variables and tooling](#design-variables-and-tooling)
-  * [CSS modules](#css-modules)
-    * [Sharing SCSS variables with JavaScript](#sharing-scss-variables-with-javascript)
-  * [Global CSS](#global-css)
-  * [CSS FAQ](#css-faq)
+- [JavaScript](#javascript)
+  - [Polyfills](#polyfills)
+  - [Vue](#vue)
+  - [Vue Router](#vue-router)
+  - [Vuex (state management)](#vuex-state-management)
+  - [JavaScript FAQ](#javascript-faq)
+- [HTML](#html)
+  - [Templates](#templates)
+  - [Render functions](#render-functions)
+  - [HTML FAQ](#html-faq)
+- [CSS](#css)
+  - [SCSS](#scss)
+  - [Importing global modules](#importing-global-modules)
+  - [Design variables and tooling](#design-variables-and-tooling)
+  - [CSS modules](#css-modules)
+    - [Sharing SCSS variables with JavaScript](#sharing-scss-variables-with-javascript)
+  - [Global CSS](#global-css)
+  - [CSS FAQ](#css-faq)
 
 ## JavaScript
 
@@ -25,12 +25,12 @@ Our JavaScript is compiled by Babel, using the [`@vue/babel-preset-app`](https:/
 
 If you're new to features such as `const`, `let`, and `=>` (arrow functions), take some time to read about the following features in Babel's ES2015 guide:
 
-* [Arrow functions](https://babeljs.io/learn-es2015/#ecmascript-2015-features-arrows-and-lexical-this)
-* [Template literals](https://babeljs.io/learn-es2015/#ecmascript-2015-features-template-strings)
-* [Destructuring](https://babeljs.io/learn-es2015/#ecmascript-2015-features-destructuring)
-* [Spread operator](https://babeljs.io/learn-es2015/#ecmascript-2015-features-default-rest-spread)
-* [`let`/`const`](https://babeljs.io/learn-es2015/#ecmascript-2015-features-let-const)
-* [`for`...`of`](https://babeljs.io/learn-es2015/#ecmascript-2015-features-iterators-for-of)
+- [Arrow functions](https://babeljs.io/learn-es2015/#ecmascript-2015-features-arrows-and-lexical-this)
+- [Template literals](https://babeljs.io/learn-es2015/#ecmascript-2015-features-template-strings)
+- [Destructuring](https://babeljs.io/learn-es2015/#ecmascript-2015-features-destructuring)
+- [Spread operator](https://babeljs.io/learn-es2015/#ecmascript-2015-features-default-rest-spread)
+- [`let`/`const`](https://babeljs.io/learn-es2015/#ecmascript-2015-features-let-const)
+- [`for`...`of`](https://babeljs.io/learn-es2015/#ecmascript-2015-features-iterators-for-of)
 
 Reading these sections alone will get you 99% of the way to mastering Babel code. It's also a good idea to read about Promises, if you don't yet feel comfortable with them. Here's a [good intro](https://developers.google.com/web/fundamentals/getting-started/primers/promises).
 
@@ -56,15 +56,15 @@ To wrap your head around our state management, I recommend reading through [thos
 
 At its current rate of development, I think TypeScript will eventually _become_ the standard, but I don't think it's there yet. First, I don't believe the advantages are currently that significant:
 
-* The vast majority of bugs I encounter are _not_ due to type violations. The most powerful tools against bugs remain linting, tests, and code reviews - none of which are made easier by TypeScript.
-* TypeScript doesn't guarantee type safety - that still requires discipline. You can still use hundreds of `any` annotations and libraries without any type definitions.
-* In Visual Studio Code, users can already get a lot of useful intellisense (including type information) without having to use TypeScript.
-* You can get type checks without static types. Just not at compile time. Between Vue's type checks for props, `typeof`, and `instanceof`, developers can still get warnings about type violations during development and tests.
+- The vast majority of bugs I encounter are _not_ due to type violations. The most powerful tools against bugs remain linting, tests, and code reviews - none of which are made easier by TypeScript.
+- TypeScript doesn't guarantee type safety - that still requires discipline. You can still use hundreds of `any` annotations and libraries without any type definitions.
+- In Visual Studio Code, users can already get a lot of useful intellisense (including type information) without having to use TypeScript.
+- You can get type checks without static types. Just not at compile time. Between Vue's type checks for props, `typeof`, and `instanceof`, developers can still get warnings about type violations during development and tests.
 
 There are also a few disadvantages I've seen in practice:
 
-* Despite most bugs having nothing to do with type violations, developers can spend _a lot_ of time working towards full type safety. As I mentioned earlier, I think that time would be better spent on tests and code reviews.
-* ESLint remains a much more versatile linter than TSLint and [its TypeScript parser](https://github.com/eslint/typescript-eslint-parser) is still experimental, so may waste time with false positives - or worse, simply miss clear violations.
+- Despite most bugs having nothing to do with type violations, developers can spend _a lot_ of time working towards full type safety. As I mentioned earlier, I think that time would be better spent on tests and code reviews.
+- ESLint remains a much more versatile linter than TSLint and [its TypeScript parser](https://github.com/eslint/typescript-eslint-parser) is still experimental, so may waste time with false positives - or worse, simply miss clear violations.
 
 **Why use Polyfill.io instead of Babel's built-in polyfills?**
 
@@ -76,16 +76,16 @@ There's also an issue with the feature to only include polyfills you know you'll
 
 Polyfill.io solves these problems by:
 
-* ensuring that every browser has any polyfills it might need
-* uses `User-Agent` detection to only serve the polyfills necessary per browser
-* separates polyfills from the app build, so they can be cached
+- ensuring that every browser has any polyfills it might need
+- uses `User-Agent` detection to only serve the polyfills necessary per browser
+- separates polyfills from the app build, so they can be cached
 
 ## HTML
 
 All HTML will exist within [`.vue` files](https://vuejs.org/v2/guide/single-file-components.html), either:
 
-* in a `<template>`, or
-* in a [`render` function](https://vuejs.org/v2/guide/render-function.html), optionally using [JSX](https://vuejs.org/v2/guide/render-function.html#JSX).
+- in a `<template>`, or
+- in a [`render` function](https://vuejs.org/v2/guide/render-function.html), optionally using [JSX](https://vuejs.org/v2/guide/render-function.html#JSX).
 
 ### [Templates](https://vuejs.org/v2/guide/syntax.html)
 
@@ -117,8 +117,8 @@ This feature is especially useful when writing components with long names, but n
 
 Render functions are _alternatives_ to templates. Components using render functions will be relatively rare, written only when we need either:
 
-* the full expressive power of JavaScript, or
-* better rendering performance through stateless, [functional components](https://vuejs.org/v2/guide/render-function.html#Functional-Components)
+- the full expressive power of JavaScript, or
+- better rendering performance through stateless, [functional components](https://vuejs.org/v2/guide/render-function.html#Functional-Components)
 
 These components can optionally be written using an HTML-like syntax within JavaScript called [JSX](https://vuejs.org/v2/guide/render-function.html#JSX), including support for [some template features](https://github.com/vuejs/babel-preset-vue#supports-event-modifiers).
 
@@ -132,9 +132,9 @@ Jade offers too little convenience (no new features we'd want, just simpler synt
 
 There are no advantages to using a JS(X) file, other than not having to use a `<script>` tag. By sticking to `.vue` files, you can:
 
-* leave out components' `name` property, because `vue-loader` adds a `__filename` property to exported objects as a fallback for Vue's devtools
-* easily add styles if you later decide to
-* easily refactor to a template if you later decide to
+- leave out components' `name` property, because `vue-loader` adds a `__filename` property to exported objects as a fallback for Vue's devtools
+- easily add styles if you later decide to
+- easily refactor to a template if you later decide to
 
 ## CSS
 
@@ -152,9 +152,9 @@ SCSS is a superset of CSS, meaning any valid CSS is _also_ valid SCSS. This allo
 
 I specifically recommend reading about:
 
-* [Variables](http://sass-lang.com/guide#topic-2)
-* [Nesting](http://sass-lang.com/guide#topic-3)
-* [Operators](http://sass-lang.com/guide#topic-8)
+- [Variables](http://sass-lang.com/guide#topic-2)
+- [Nesting](http://sass-lang.com/guide#topic-3)
+- [Operators](http://sass-lang.com/guide#topic-8)
 
 Just those features cover at least 95% of use cases.
 
@@ -205,9 +205,9 @@ $style: {
 
 These values contain automatically generated classes with:
 
-* the file name of the component
-* the name of the class
-* a random hash
+- the file name of the component
+- the name of the class
+- a random hash
 
 Do you know what that means?! You can _never_ accidentally write styles that interfere with another component. You also don't have to come up with clever class names, unique across the entire project. You can use class names like `.input`, `.container`, `.checkbox`, or whatever else makes sense within the isolated scope of the component - just like you would with JavaScript variables.
 
@@ -245,16 +245,16 @@ Typically, only [`src/app.vue`](src/app.vue) should ever contain global CSS and 
 
 CSS preprocessors offer a lot of additional power - just having a browser-independent way to use variables is invaluable. But SCSS has some other advantages over competing preprocessors:
 
-* SCSS it a superset of CSS, which means:
-  * You can copy and paste valid CSS into SCSS and it will always be valid.
-  * There's a gentler learning curve, as devs can write the same CSS they're used to, gradually incorporating more SCSS features as they're needed.
-* It's well-supported by both Stylelint and Prettier, eliminating nearly all arguments over code style.
+- SCSS it a superset of CSS, which means:
+  - You can copy and paste valid CSS into SCSS and it will always be valid.
+  - There's a gentler learning curve, as devs can write the same CSS they're used to, gradually incorporating more SCSS features as they're needed.
+- It's well-supported by both Stylelint and Prettier, eliminating nearly all arguments over code style.
 
 **Why use CSS modules for scoping, instead of [Vue's `scoped` attribute](https://vue-loader.vuejs.org/en/features/scoped-css.html)?**
 
 While a little more complex to begin with, CSS modules offer:
 
-* Universality. The same scoping strategy can be used anywhere in our app, regardless of whether it's in a `.vue` file or `.scss` file.
-* True protection from collisions. Using the `scoped` attribute, vendor CSS could still affect your own classes, if you both use the same names.
-* Improved performance. Generated class selectors like `.base-input_inputLabel__3EAebB_0` are faster than attribute selectors, especially on an element selector like `input[data-v-3EAebB]`.
-* Increased versatility. There are cases the `scoped` attribute just can't handle, such as passing a scoped class to a child component that does _not_ render HTML directly. This is fairly common for component wrappers of views driven by WebGL or Canvas, that often inject HTML overlays such as tooltips at the root of the `<body>`.
+- Universality. The same scoping strategy can be used anywhere in our app, regardless of whether it's in a `.vue` file or `.scss` file.
+- True protection from collisions. Using the `scoped` attribute, vendor CSS could still affect your own classes, if you both use the same names.
+- Improved performance. Generated class selectors like `.base-input_inputLabel__3EAebB_0` are faster than attribute selectors, especially on an element selector like `input[data-v-3EAebB]`.
+- Increased versatility. There are cases the `scoped` attribute just can't handle, such as passing a scoped class to a child component that does _not_ render HTML directly. This is fairly common for component wrappers of views driven by WebGL or Canvas, that often inject HTML overlays such as tooltips at the root of the `<body>`.

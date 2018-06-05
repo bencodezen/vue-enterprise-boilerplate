@@ -1,7 +1,7 @@
 # State management
 
-* [Modules](#modules)
-* [Helpers](#helpers)
+- [Modules](#modules)
+- [Helpers](#helpers)
 
 ## Modules
 

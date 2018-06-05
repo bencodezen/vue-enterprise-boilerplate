@@ -1,7 +1,7 @@
 # Building and deploying to production
 
-* [From the terminal](#from-the-terminal)
-* [From Circle CI](#from-circle-ci)
+- [From the terminal](#from-the-terminal)
+- [From Circle CI](#from-circle-ci)
 
 ## From the terminal
 
