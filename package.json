@@ -6,7 +6,7 @@
     "dev": "vue-cli-service serve",
     "dev:e2e": "vue-cli-service test:e2e --mode=development",
     "build": "vue-cli-service build",
-    "build:ci": "cross-env ANALYZE=true yarn build",
+    "build:ci": "yarn build --report",
     "lint": "eslint --ext .js,.vue --fix . && stylelint --fix \"src/**/*.vue\" \"src/**/*.scss\" && markdownlint docs/*.md *.md && prettier --list-different --write \"**/*.{js,json,css,scss,vue,md}\"",
     "unit": "vue-cli-service test:unit \\.unit\\.js$",
     "unit:watch": "yarn unit --watch --notify --notifyMode change",
@@ -31,7 +31,7 @@
   "dependencies": {
     "@fortawesome/fontawesome": "1.1.8",
     "@fortawesome/fontawesome-free-solid": "5.0.13",
-    "@fortawesome/vue-fontawesome": "0.0.22",
+    "@fortawesome/vue-fontawesome": "0.0.23",
     "axios": "0.18.0",
     "lodash": "4.17.10",
     "normalize.css": "8.0.0",
@@ -43,18 +43,18 @@
   },
   "devDependencies": {
     "@babel/core": "7.0.0-beta.51",
-    "@vue/cli-plugin-babel": "3.0.0-beta.16",
-    "@vue/cli-plugin-e2e-cypress": "3.0.0-beta.16",
-    "@vue/cli-plugin-eslint": "3.0.0-beta.16",
-    "@vue/cli-plugin-unit-jest": "3.0.0-beta.16",
-    "@vue/cli-service": "3.0.0-beta.16",
-    "@vue/eslint-config-prettier": "3.0.0-beta.16",
-    "@vue/eslint-config-standard": "3.0.0-beta.16",
+    "@vue/cli-plugin-babel": "3.0.0-rc.1",
+    "@vue/cli-plugin-e2e-cypress": "3.0.0-rc.1",
+    "@vue/cli-plugin-eslint": "3.0.0-rc.1",
+    "@vue/cli-plugin-unit-jest": "3.0.0-rc.1",
+    "@vue/cli-service": "3.0.0-rc.1",
+    "@vue/eslint-config-prettier": "3.0.0-rc.1",
+    "@vue/eslint-config-standard": "3.0.0-rc.1",
     "@vue/test-utils": "1.0.0-beta.17",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "23.0.x",
     "babel-loader": "8.0.0-beta.2",
-    "cross-env": "5.1.x",
+    "cross-env": "5.2.x",
     "express": "4.16.x",
     "hygen": "1.6.x",
     "imagemin-lint-staged": "0.3.x",
@@ -70,7 +70,6 @@
     "stylelint-scss": "3.1.x",
     "vue-jest": "2.6.x",
     "vue-template-compiler": "2.5.16",
-    "vuepress": "0.10.x",
-    "webpack-bundle-analyzer": "2.13.x"
+    "vuepress": "0.10.x"
   }
 }
