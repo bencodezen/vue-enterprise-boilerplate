@@ -1,6 +1,6 @@
 # Architecture
 
-- [`_templates`](#templates)
+- [`_templates`](#_templates)
 - [`.circleci`](#circleci)
 - [`.vscode`](#vscode)
 - [`docs`](#docs)
