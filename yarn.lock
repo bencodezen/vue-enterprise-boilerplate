@@ -842,25 +842,25 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@fortawesome/fontawesome-common-types@^0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.1.7.tgz#4336c4b06d0b5608ff1215464b66fcf9f4795284"
+"@fortawesome/fontawesome-common-types@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.0.tgz#6bcf6481030f59e7ffd1a40a67cd464d47780f6a"
 
-"@fortawesome/fontawesome-free-solid@5.0.13":
-  version "5.0.13"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free-solid/-/fontawesome-free-solid-5.0.13.tgz#24b61aaf471a9d34a5364b052d64a516285ba894"
+"@fortawesome/fontawesome-svg-core@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.0.tgz#b0ec14af25cdc11d38ede7d8c94b89b478ab67ab"
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.1.7"
+    "@fortawesome/fontawesome-common-types" "^0.2.0"
 
-"@fortawesome/fontawesome@1.1.8":
-  version "1.1.8"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome/-/fontawesome-1.1.8.tgz#75fe66a60f95508160bb16bd781ad7d89b280f5b"
+"@fortawesome/free-solid-svg-icons@5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.1.0.tgz#1a4b43027104d63c7862fd39333f6ed6d8bb2c9a"
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.1.7"
+    "@fortawesome/fontawesome-common-types" "^0.2.0"
 
-"@fortawesome/vue-fontawesome@0.0.23":
-  version "0.0.23"
-  resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-0.0.23.tgz#e70e3a9c30840e7ef437f99879254245c27c1b76"
+"@fortawesome/vue-fontawesome@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-0.1.0.tgz#ff45bb6efe2f585f5faebf174a10b1887c06547b"
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"

@@ -1,5 +1,6 @@
 <script>
-import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faSync, faUser } from '@fortawesome/free-solid-svg-icons'
 import camelCase from 'lodash/camelCase'
 
 export default {
@@ -21,8 +22,8 @@ export default {
     fontAwesomeIcon() {
       return {
         // Add new icons to this list as you need them
-        sync: require('@fortawesome/fontawesome-free-solid/faSync'),
-        user: require('@fortawesome/fontawesome-free-solid/faUser'),
+        sync: faSync,
+        user: faUser,
       }[this.name]
     },
     // Gets a CSS module class, e.g. iconCustomLogo
