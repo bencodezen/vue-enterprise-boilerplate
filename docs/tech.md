@@ -237,7 +237,7 @@ If you need access from outside a Vue component (e.g. in a Vuex module), you can
 
 ### Global CSS
 
-Typically, only [`src/app.vue`](src/app.vue) should ever contain global CSS and even that should only include base element styles and utility classes (e.g. for grid management).
+Typically, only [`src/app.vue`](../src/app.vue) should ever contain global CSS and even that should only include base element styles and utility classes (e.g. for grid management).
 
 ### CSS FAQ
 
