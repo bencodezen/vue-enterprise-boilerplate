@@ -48,7 +48,7 @@ To understand how to manage pages with Vue Router, I recommend reading through t
 
 ### Vuex (state management)
 
-To wrap your head around our state management, I recommend reading through [those docs](https://vuex.vuejs.org/en/intro.html), starting at _What is Vuex?_ and stopping before _Application Architecture_. Then skip down and read [_Form Handling_](https://vuex.vuejs.org/en/forms.html) and [_Testing_](https://vuex.vuejs.org/en/testing.html). Finally, read about [state management in this application](state.md).
+To wrap your head around our state management, I recommend reading through [those docs](https://vuex.vuejs.org/guide), starting at _What is Vuex?_ and stopping before _Application Architecture_. Then skip down and read [_Form Handling_](https://vuex.vuejs.org/en/forms.html) and [_Testing_](https://vuex.vuejs.org/en/testing.html). Finally, read about [state management in this application](state.md).
 
 ### JavaScript FAQ
 
