@@ -87,19 +87,6 @@ describe('@components/_base-link', () => {
     expect(vm.routerLinkTo).toEqual({ name: routeName, params: {} })
   })
 
-  it('renders a router-link when passed a `name` prop', () => {
-    const routeName = 'home'
-    const { element, vm } = mountBaseLink({
-      propsData: {
-        name: routeName,
-      },
-    })
-    expect(console.warn).not.toHaveBeenCalled()
-    expect(element.dataset.routerLink).toEqual('true')
-    expect(element.textContent).toEqual('hello')
-    expect(vm.routerLinkTo).toEqual({ name: routeName, params: {} })
-  })
-
   it('renders a router-link when passed `name` and `params` props', () => {
     const routeName = 'home'
     const routeParams = { foo: 'bar' }
