@@ -12,5 +12,6 @@
       "@state/*": ["src/state/*"],
       "@design": ["src/design/index.scss"]
     }
-  }
+  },
+  "include": ["src/**/*", "tests/**/*"]
 }
