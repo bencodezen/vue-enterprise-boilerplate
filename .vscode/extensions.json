@@ -32,6 +32,10 @@
 
     // Lint markdown in README files
     // https://github.com/DavidAnson/vscode-markdownlint
-    "DavidAnson.vscode-markdownlint"
+    "DavidAnson.vscode-markdownlint",
+
+    // Define snippets specific to the project
+    // https://github.com/rebornix/vscode-project-snippet
+    "rebornix.project-snippets"
   ]
 }

@@ -3,7 +3,7 @@
     :class="$style.button"
     v-on="$listeners"
   >
-    <slot/>
+    <slot />
   </button>
 </template>
 

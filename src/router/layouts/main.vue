@@ -8,8 +8,8 @@ export default {
 
 <template>
   <div :class="$style.container">
-    <NavBar/>
-    <slot/>
+    <NavBar />
+    <slot />
   </div>
 </template>
 

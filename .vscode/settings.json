@@ -19,7 +19,8 @@
     "**/coverage": true
   },
   "files.associations": {
-    ".markdownlintrc": "jsonc"
+    ".markdownlintrc": "jsonc",
+    "**/snippets/*.json": "jsonc"
   },
   // ===
   // Event Triggers
@@ -28,9 +29,11 @@
   "eslint.autoFixOnSave": true,
   "eslint.run": "onSave",
   "eslint.validate": [
-    { "language": "javascript", "autoFix": true },
-    { "language": "javascriptreact", "autoFix": true },
-    { "language": "vue", "autoFix": true }
+    { "language": "javascript", "autofix": true },
+    { "language": "javascriptreact", "autofix": true },
+    { "language": "vue", "autofix": true },
+    { "language": "vue-html", "autofix": true },
+    { "language": "html", "autofix": true }
   ],
   // ===
   // HTML
@@ -39,6 +42,10 @@
   "html.suggest.angular1": false,
   "html.suggest.ionic": false,
   "vetur.validation.template": false,
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.includeLanguages": {
+    "vue-html": "html"
+  },
   // ===
   // JS(ON)
   // ===
