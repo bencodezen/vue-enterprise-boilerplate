@@ -15,7 +15,12 @@ module.exports = {
     '^.+\\.vue$': 'vue-jest',
     '^.+\\.js$': 'babel-jest',
   },
-  moduleNameMapper: require('./aliases.config').jest,
+  moduleNameMapper: {
+    ...require('./aliases.config').jest,
+    // Transform any static assets to empty strings
+    '\\.(jpe?g|png|gif|webp|svg|mp4|webm|ogg|mp3|wav|flac|aac|woff2?|eot|ttf|otf)$':
+      '<rootDir>/tests/unit/fixtures/empty-string.js',
+  },
   snapshotSerializers: ['jest-serializer-vue'],
   coverageDirectory: '<rootDir>/tests/unit/coverage',
   collectCoverageFrom: [
