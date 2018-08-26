@@ -10,7 +10,7 @@ This project uses [Vue Router](tech.md#vue-router), which we initialize in `src/
 
 ## Layouts
 
-Every view component must have use layout component as its base and register it as `Layout`, as this convention helps us mock out layout components when testing views. Layouts usually aren't very complex, often containing only shared HTML like headers, footers, and navigation to surround the main content in the view.
+Every view component must use a layout component as its base and register it as `Layout`, as this convention helps us mock out layout components when testing views. Layouts usually aren't very complex, often containing only shared HTML like headers, footers, and navigation to surround the main content in the view.
 
 ## Views
 
