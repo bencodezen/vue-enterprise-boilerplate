@@ -71,20 +71,6 @@ There are also a few disadvantages I've seen in practice:
 - Despite most bugs having nothing to do with type violations, developers can spend _a lot_ of time working towards full type safety. As I mentioned earlier, I think that time would be better spent on tests and code reviews.
 - ESLint remains a much more versatile linter than TSLint and [its TypeScript parser](https://github.com/eslint/typescript-eslint-parser) is still experimental, so may waste time with false positives - or worse, simply miss clear violations.
 
-**Why use Polyfill.io instead of Babel's built-in polyfills?**
-
-With `babel-preset-env`, Babel can only bundle polyfills for features you actually use in your app and only for the lowest common denominator in the list of browsers you've chosen to support in `browserslist` from `package.json`.
-
-That might _sound_ great, but it's not ideal for many applications. Let's say 90% of your users are on Chrome and Firefox and need almost no polyfills at all (~0.2KB gzipped). But if you support IE9, you might need to bundle almost 15KB gzipped into your app, _just in case_ the visitor is using that browser.
-
-There's also an issue with the feature to only include polyfills you know you'll need - Babel doesn't compile vendor modules. So for example, if you use Vuex (which requires promise support), but don't use any promises in your app, then you'll be missing a polyfill without knowing it.
-
-Polyfill.io solves these problems by:
-
-- ensuring that every browser has any polyfills it might need
-- uses `User-Agent` detection to only serve the polyfills necessary per browser
-- separates polyfills from the app build, so they can be cached
-
 ## HTML
 
 All HTML will exist within [`.vue` files](https://vuejs.org/v2/guide/single-file-components.html), either:
