@@ -14,6 +14,7 @@
   - [CSS](#css)
     - [SCSS](#scss)
     - [Importing global modules](#importing-global-modules)
+    - [Referencing aliased asset URLs](#referencing-aliased-asset-urls)
     - [Design variables and tooling](#design-variables-and-tooling)
     - [CSS modules](#css-modules)
       - [Styling subcomponents](#styling-subcomponents)
@@ -164,10 +165,18 @@ Just those features cover at least 95% of use cases.
 
 ### Importing global modules
 
-To import files from `node_modules` using aliases, Webpack's [css-loader](https://github.com/webpack-contrib/css-loader) requires adding `~` to the beginning of a module name to denote that it's an global (not relative) file reference. For example:
+To import files from `node_modules`, Webpack's [css-loader](https://github.com/webpack-contrib/css-loader) requires adding `~` to the beginning of a module name to denote that it's a global (not relative) file reference. For example:
 
 ```scss
-@import '~font-awesome/scss/font-awesome';
+@import '~nprogress/nprogress.css';
+```
+
+### Referencing aliased asset URLs
+
+Similarly to importing global modules, referencing aliased assets also requires the `~` at the beginning of the name. For example:
+
+```scss
+background: url('~@assets/images/background.png');
 ```
 
 ### Design variables and tooling
