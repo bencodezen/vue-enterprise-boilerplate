@@ -68,7 +68,9 @@ export default {
           name="sync"
           spin
         />
-        <span v-else>Log in</span>
+        <span v-else>
+          Log in
+        </span>
       </BaseButton>
       <p v-if="authError">
         There was an error logging in to your account.

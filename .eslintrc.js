@@ -19,6 +19,17 @@ module.exports = {
     'no-console': process.env.PRE_COMMIT
       ? ['error', { allow: ['warn', 'error'] }]
       : 'off',
+    'vue/component-name-in-template-casing': [
+      'error',
+      'PascalCase',
+      {
+        ignores: ['router-view', 'router-link'],
+      },
+    ],
+    'vue/multiline-html-element-content-newline': 'error',
+    'vue/singleline-html-element-content-newline': 'error',
+    'vue/no-spaces-around-equal-signs-in-attribute': 'error',
+    'vue/script-indent': ['error', 2, { baseIndent: 0 }],
   },
   overrides: [
     {

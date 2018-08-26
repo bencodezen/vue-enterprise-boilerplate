@@ -80,10 +80,14 @@ export default {
     v-bind="$attrs"
     :href="href"
     target="_blank"
-  ><slot /></a>
+  >
+    <slot />
+  </a>
   <router-link
     v-else
     v-bind="$attrs"
     :to="routerLinkTo"
-  ><slot /></router-link>
+  >
+    <slot />
+  </router-link>
 </template>
