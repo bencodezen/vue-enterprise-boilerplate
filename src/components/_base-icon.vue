@@ -1,6 +1,13 @@
 <script>
-import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { library as fontAwesomeIconLibrary } from '@fortawesome/fontawesome-svg-core'
 import camelCase from 'lodash/camelCase'
+
+// https://fontawesome.com/icons
+fontAwesomeIconLibrary.add(
+  require('@fortawesome/free-solid-svg-icons/faSync').definition,
+  require('@fortawesome/free-solid-svg-icons/faUser').definition
+)
 
 export default {
   components: {
@@ -17,14 +24,6 @@ export default {
     },
   },
   computed: {
-    // https://fontawesome.com/icons
-    fontAwesomeIcon() {
-      return {
-        // Add new icons to this list as you need them
-        sync: require('@fortawesome/fontawesome-free-solid/faSync'),
-        user: require('@fortawesome/fontawesome-free-solid/faUser'),
-      }[this.name]
-    },
     // Gets a CSS module class, e.g. iconCustomLogo
     customIconClass() {
       return this.$style[camelCase('icon-custom-' + this.name)]
@@ -36,7 +35,7 @@ export default {
 <template>
   <FontAwesomeIcon
     v-if="source === 'font-awesome'"
-    :icon="fontAwesomeIcon"
+    :icon="name"
     v-bind="$attrs"
   />
   <span
