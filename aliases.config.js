@@ -3,6 +3,7 @@ const fs = require('fs')
 const prettier = require('prettier')
 
 const aliases = {
+  '@': '.',
   '@src': 'src',
   '@router': 'src/router',
   '@views': 'src/router/views',

@@ -8,6 +8,14 @@
     "target": "es6",
     "module": "es6",
     "paths": {
+      "@/*": ["/*"],
+      "@": [
+        "/index.js",
+        "/index.json",
+        "/index.vue",
+        "/index.scss",
+        "/index.css"
+      ],
       "@src/*": ["src/*"],
       "@src": [
         "src/index.js",
