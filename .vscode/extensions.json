@@ -18,6 +18,8 @@
     // Test `.unit.js` files on save with Jest
     "Orta.vscode-jest",
     // Lint markdown in README files
-    "DavidAnson.vscode-markdownlint"
+    "DavidAnson.vscode-markdownlint",
+    // Navigate to vue file using F12
+    "dariofuzinato.vue-peek"
   ]
 }
