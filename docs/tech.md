@@ -1,23 +1,25 @@
 # Languages and technologies
 
-- [JavaScript](#javascript)
-  - [Polyfills](#polyfills)
-  - [Vue](#vue)
-  - [Vue Router](#vue-router)
-  - [Vuex (state management)](#vuex-state-management)
-  - [JavaScript FAQ](#javascript-faq)
-- [HTML](#html)
-  - [Templates](#templates)
-  - [Render functions](#render-functions)
-  - [HTML FAQ](#html-faq)
-- [CSS](#css)
-  - [SCSS](#scss)
-  - [Importing global modules](#importing-global-modules)
-  - [Design variables and tooling](#design-variables-and-tooling)
-  - [CSS modules](#css-modules)
-    - [Sharing SCSS variables with JavaScript](#sharing-scss-variables-with-javascript)
-  - [Global CSS](#global-css)
-  - [CSS FAQ](#css-faq)
+- [Languages and technologies](#languages-and-technologies)
+  - [JavaScript](#javascript)
+    - [Polyfills](#polyfills)
+    - [Vue](#vue)
+    - [Vue Router](#vue-router)
+    - [Vuex (state management)](#vuex-state-management)
+    - [JavaScript FAQ](#javascript-faq)
+  - [HTML](#html)
+    - [Templates](#templates)
+    - [Render functions](#render-functions)
+    - [HTML FAQ](#html-faq)
+  - [CSS](#css)
+    - [SCSS](#scss)
+    - [Importing global modules](#importing-global-modules)
+    - [Design variables and tooling](#design-variables-and-tooling)
+    - [CSS modules](#css-modules)
+      - [Styling subcomponents](#styling-subcomponents)
+      - [Sharing SCSS variables with JavaScript](#sharing-scss-variables-with-javascript)
+    - [Global CSS](#global-css)
+    - [CSS FAQ](#css-faq)
 
 ## JavaScript
 
@@ -198,8 +200,8 @@ You're actually defining values on a `$style` property of the Vue instance such 
 
 ```js
 $style: {
-  inputLabel: 'base-input_inputLabel__3EAebB_0',
-  input: 'base-input_input__3EAebB_1'
+  inputLabel: 'base-input_inputLabel_dsRsJ',
+  input: 'base-input_input_dsRsJ'
 }
 ```
 
@@ -210,6 +212,42 @@ These values contain automatically generated classes with:
 - a random hash
 
 Do you know what that means?! You can _never_ accidentally write styles that interfere with another component. You also don't have to come up with clever class names, unique across the entire project. You can use class names like `.input`, `.container`, `.checkbox`, or whatever else makes sense within the isolated scope of the component - just like you would with JavaScript variables.
+
+#### Styling subcomponents
+
+To pass a class to a child component, it's usually best to do so as a prop:
+
+```vue
+<template>
+  <BaseInput :labelClass="$style.label">
+</template>
+
+<style lang="scss" module>
+.label {
+  /* ... */
+}
+</style>
+```
+
+In some cases however, you may want to style a component arbitrarily deep. This should generally be avoided, because overuse can make your CSS very brittle and difficult to maintain, but sometimes it's unavoidable.
+
+In these cases, you can use an [attribute selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) to take advantage of the fact that generated class names will always _start_ with the same characters:
+
+```vue
+<template>
+  <div :class="$style.container">
+    <SomeOtherComponentContainingAnInput/>
+  </div>
+</template>
+
+<style lang="scss" module>
+.container [class^='base-input_inputLabel'] {
+  /* ... */
+}
+</style>
+```
+
+In the above example, we're applying styles to the `inputLabel` class inside a `base-input` component, but only when inside the element with the `container` class.
 
 #### Sharing SCSS variables with JavaScript
 
