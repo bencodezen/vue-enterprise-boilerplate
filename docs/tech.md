@@ -38,7 +38,9 @@ Reading these sections alone will get you 99% of the way to mastering Babel code
 
 ### Polyfills
 
-Instead of using Babel's polyfills with [babel-plugin-transform-runtime](https://www.npmjs.com/package/babel-plugin-transform-runtime), we use the [Polyfill.io](https://polyfill.io/v2/docs/) service. This serves browser-specific polyfills, so that each visitor downloads the minimum code necessary to use the latest, polyfillable browser features.
+This project uses Vue CLI's [modern mode](https://cli.vuejs.org/guide/browser-compatibility.html#modern-mode), which creates two bundles: one modern bundle targeting modern browsers that support [ES modules](https://jakearchibald.com/2017/es-modules-in-browsers/), and one legacy bundle targeting older browsers that do not.
+
+For each bundle, polyfills for any JavaScript features you use are included based on the target bundle and supported browsers defined by `browserslist` in `package.json`.
 
 ### Vue
 
