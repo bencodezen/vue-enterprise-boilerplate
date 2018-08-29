@@ -37,18 +37,16 @@ for (const alias in aliases) {
       ]
 }
 
+const jsconfigTemplate = require('./jsconfig.template') || {}
 const jsconfigPath = path.resolve(__dirname, 'jsconfig.json')
 
 fs.writeFile(
   jsconfigPath,
   prettier.format(
     JSON.stringify({
-      baseUrl: '.',
-      include: ['src/**/*', 'tests/**/*'],
+      ...jsconfigTemplate,
       compilerOptions: {
-        baseUrl: '.',
-        target: 'es6',
-        module: 'es6',
+        ...(jsconfigTemplate.compilerOptions || {}),
         paths: module.exports.jsconfig,
       },
     }),
