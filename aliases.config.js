@@ -44,9 +44,7 @@ fs.writeFile(
   prettier.format(
     JSON.stringify({
       baseUrl: '.',
-      checkJs: true,
       include: ['src/**/*', 'tests/**/*'],
-      exclude: ['node_modules'],
       compilerOptions: {
         baseUrl: '.',
         target: 'es6',
