@@ -3,7 +3,7 @@ to: "src/router/layouts/<%= h.inflection.dasherize(name) %>.vue"
 ---
 <template>
   <div :class="$style.container">
-    <slot/>
+    <slot />
   </div>
 </template>
 
