@@ -33,6 +33,12 @@ const router = new VueRouter({
 
 // Before each route evaluates...
 router.beforeEach((routeTo, routeFrom, next) => {
+  // If this isn't an initial page load...
+  if (routeFrom.name) {
+    // Start the route progress bar.
+    NProgress.start()
+  }
+
   // Check if auth is required on this route
   // (including nested routes).
   const authRequired = routeTo.matched.some(route => route.meta.authRequired)
@@ -58,16 +64,6 @@ router.beforeEach((routeTo, routeFrom, next) => {
     // Pass the original route to the login component
     next({ name: 'login', query: { redirectFrom: routeTo.fullPath } })
   }
-})
-
-// After navigation is confirmed, but before resolving...
-router.beforeResolve((routeTo, routeFrom, next) => {
-  // If this isn't an initial page load...
-  if (routeFrom.name) {
-    // Start the route progress bar.
-    NProgress.start()
-  }
-  next()
 })
 
 // When each route is finished evaluating...
