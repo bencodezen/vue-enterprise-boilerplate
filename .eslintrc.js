@@ -23,7 +23,16 @@ module.exports = {
       'error',
       'PascalCase',
       {
-        ignores: ['router-view', 'router-link'],
+        ignores: [
+          'component',
+          'template',
+          'transition',
+          'transition-group',
+          'keep-alive',
+          'slot',
+          'router-view',
+          'router-link',
+        ],
       },
     ],
     'vue/multiline-html-element-content-newline': 'error',
