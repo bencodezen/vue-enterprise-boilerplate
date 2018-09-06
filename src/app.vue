@@ -13,7 +13,7 @@ export default {
 </script>
 
 <template>
-  <div id="app">
+  <div class="app">
     <!--
     Even when routes use the same component, treat them
     as distinct and create the component again.
@@ -47,7 +47,7 @@ body {
   background: $color-body-bg;
 }
 
-#app {
+.app {
   @extend %typography-small;
 }
 
