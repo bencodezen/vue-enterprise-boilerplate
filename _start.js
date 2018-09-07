@@ -24,3 +24,5 @@ const newReadmeContent = fs
   .replace(ciBadge, startNote)
 
 fs.writeFileSync(path.join(__dirname, 'README.md'), newReadmeContent)
+
+require('./aliases.config')
