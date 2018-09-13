@@ -48,7 +48,7 @@ Where we keep all our source files.
 
 ### `assets`
 
-This project manages assets via Vue CLI. Learn more about [its asset handling here](https://github.com/vuejs/vue-cli/blob/dev/docs/assets.md).
+This project manages assets via Vue CLI. Learn more about [its asset handling here](https://cli.vuejs.org/guide/html-and-static-assets.html).
 
 ### `components`
 
