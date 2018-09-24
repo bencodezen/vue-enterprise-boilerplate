@@ -34,7 +34,7 @@ const router = new VueRouter({
 // Before each route evaluates...
 router.beforeEach((routeTo, routeFrom, next) => {
   // If this isn't an initial page load...
-  if (routeFrom.name) {
+  if (routeFrom.name !== null) {
     // Start the route progress bar.
     NProgress.start()
   }
