@@ -1,0 +1,30 @@
+{
+  "BaseButton": {
+    "scope": "vue-html",
+    "prefix": "BaseButton",
+    "body": ["<BaseButton>", "\t${3}", "</BaseButton>"],
+    "description": "<BaseButton>"
+  },
+  "BaseIcon": {
+    "scope": "vue-html",
+    "prefix": "BaseIcon",
+    "body": ["<BaseIcon name=\"${1}\">", "\t${2}", "</BaseIcon>"],
+    "description": "<BaseIcon>"
+  },
+  "BaseInput": {
+    "scope": "vue-html",
+    "prefix": "BaseInput",
+    "body": ["<BaseInput ${1}/>"],
+    "description": "<BaseInput>"
+  },
+  "BaseLink": {
+    "scope": "vue-html",
+    "prefix": "BaseLink",
+    "body": [
+      "<BaseLink ${1|name,:to,href|}=\"${2:route}\">",
+      "\t${3}",
+      "</BaseLink>"
+    ],
+    "description": "<BaseLink>"
+  }
+}

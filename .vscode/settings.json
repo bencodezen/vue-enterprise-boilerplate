@@ -2,6 +2,7 @@
   // ===
   // Spacing
   // ===
+
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
   "editor.trimAutoWhitespace": true,
@@ -9,9 +10,11 @@
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
+
   // ===
   // Files
   // ===
+
   "files.exclude": {
     "**/*.log": true,
     "**/*.log*": true,
@@ -19,12 +22,13 @@
     "**/coverage": true
   },
   "files.associations": {
-    ".markdownlintrc": "jsonc",
-    "**/snippets/*.json": "jsonc"
+    ".markdownlintrc": "jsonc"
   },
+
   // ===
   // Event Triggers
   // ===
+
   "editor.formatOnSave": true,
   "eslint.autoFixOnSave": true,
   "eslint.run": "onSave",
@@ -35,9 +39,12 @@
     { "language": "vue-html", "autoFix": true },
     { "language": "html", "autoFix": true }
   ],
+  "vetur.completion.useScaffoldSnippets": false,
+
   // ===
   // HTML
   // ===
+
   "html.format.enable": false,
   "html.suggest.angular1": false,
   "html.suggest.ionic": false,
@@ -46,24 +53,30 @@
   "emmet.includeLanguages": {
     "vue-html": "html"
   },
+
   // ===
   // JS(ON)
   // ===
+
   "jest.autoEnable": false,
   "jest.enableCodeLens": false,
   "javascript.format.enable": false,
   "json.format.enable": false,
   "vetur.validation.script": false,
+
   // ===
   // CSS
   // ===
+
   "stylelint.enable": true,
   "css.validate": false,
   "scss.validate": false,
   "vetur.validation.style": false,
+
   // ===
   // MARKDOWN
   // ===
+
   "[markdown]": {
     "editor.wordWrap": "wordWrapColumn",
     "editor.wordWrapColumn": 80
