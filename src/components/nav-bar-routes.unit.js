@@ -7,17 +7,11 @@ const mountRoutes = options => {
       render(h) {
         return (
           <ul>
-            <NavBarRoutes
-              routes={[
-                {
-                  name: 'aaa',
-                  title: 'bbb',
-                },
-              ]}
-            />
+            <NavBarRoutes routes={this.routes} />
           </ul>
         )
       },
+      props: ['routes'],
     },
     {
       stubs: {
