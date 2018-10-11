@@ -3,15 +3,13 @@ import NavBarRoutes from './nav-bar-routes'
 const mountRoutes = options => {
   return mount(
     {
-      components: { NavBarRoutes },
       render(h) {
         return (
           <ul>
-            <NavBarRoutes routes={this.routes} />
+            <NavBarRoutes {...{ props: options.propsData }} />
           </ul>
         )
       },
-      props: ['routes'],
     },
     {
       stubs: {
