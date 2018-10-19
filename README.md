@@ -20,7 +20,7 @@ git clone https://github.com/chrisvfritz/vue-enterprise-boilerplate.git my-new-p
 # 2. Enter your newly-cloned folder.
 cd my-new-project
 
-# 3. Install dependencies.
+# 3. Install dependencies. Make sure yarn is installed: https://yarnpkg.com/lang/en/docs/install
 yarn
 
 # 4. Replace this README's CI badge with a note about when you started
