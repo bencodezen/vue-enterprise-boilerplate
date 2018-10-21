@@ -28,7 +28,7 @@ export const actions = {
 
     // 3. Fetch the user from the API and cache it in case
     //    we need it again in the future.
-    return axios.get(`/users/${username}`).then(response => {
+    return axios.get(`/api/users/${username}`).then(response => {
       const user = response.data
       commit('CACHE_USER', user)
       return user

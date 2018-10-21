@@ -1,7 +1,7 @@
 const Users = require('../resources/users')
 
 module.exports = app => {
-  app.get('/users/:username', (request, response) => {
+  app.get('/api/users/:username', (request, response) => {
     const currentUser = Users.findBy('token', request.headers.authorization)
 
     if (!currentUser) {
