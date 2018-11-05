@@ -46,7 +46,6 @@ export default {
 body {
   background: $color-body-bg;
 }
-
 #app {
   @extend %typography-small;
 }

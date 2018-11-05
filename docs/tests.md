@@ -13,6 +13,7 @@
     - [Introduction to Cypress](#introduction-to-cypress)
     - [Accessibility-driven end-to-end tests](#accessibility-driven-end-to-end-tests)
   - [The mock API](#the-mock-api)
+    - [Mock authentication](#mock-authentication)
     - [Testing/developing against a real server](#testingdeveloping-against-a-real-server)
 
 ## Running all tests
@@ -204,6 +205,10 @@ Working against the production API can be useful sometimes, but it also has some
 - To work on a frontend feature, the backend for it must already be complete.
 
 The mock API is an [Express](https://expressjs.com/) server in `tests/mock-api` you can extend to - you guessed it - mock what the real API would do, solving all the problems listed above. This solution is also backend-agnostic, making it ideal for a wide variety of projects.
+
+### Mock authentication
+
+See the [`users` resource](../tests/mock-api/resources/users.js) in the mock API for a list of usernames and passwords you can use in development.
 
 ### Testing/developing against a real server
 

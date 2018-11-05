@@ -17,6 +17,16 @@ export default {
       tryingToLogIn: false,
     }
   },
+  computed: {
+    placeholders() {
+      return process.env.NODE_ENV === 'production'
+        ? {}
+        : {
+            username: 'Use "admin" to log in with the mock API',
+            password: 'Use "password" to log in with the mock API',
+          }
+    },
+  },
   methods: {
     ...authMethods,
     // Try to log the user in with the username
@@ -53,11 +63,13 @@ export default {
       <BaseInput
         v-model="username"
         name="username"
+        :placeholder="placeholders.username"
       />
       <BaseInput
         v-model="password"
         name="password"
         type="password"
+        :placeholder="placeholders.password"
       />
       <BaseButton
         :disabled="tryingToLogIn"
