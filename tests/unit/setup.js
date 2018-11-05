@@ -43,18 +43,6 @@ for (const fileName of globalComponentFiles) {
 }
 
 // ===
-// Patch all components with a global mixin
-// ===
-
-Vue.mixin({
-  created() {
-    // HACK: Set a fallback for the `$style` until vue-jest
-    // includes better support for CSS modules.
-    this.$style = this.$style || {}
-  },
-})
-
-// ===
 // Mock window properties not handled by jsdom
 // ===
 
