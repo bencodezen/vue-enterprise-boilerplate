@@ -29,10 +29,10 @@ yarn test
 
 ```bash
 # Run unit tests
-yarn unit
+yarn test:unit
 
 # Run unit tests in watch mode
-yarn unit:watch
+yarn test:unit:watch
 ```
 
 ### Introduction to Jest
@@ -69,7 +69,7 @@ Jest offers many tools for mocks, including:
 
 ```bash
 # Run end to end tests
-yarn e2e
+yarn test:e2e
 
 # Run the dev server with the Cypress client
 yarn dev:e2e

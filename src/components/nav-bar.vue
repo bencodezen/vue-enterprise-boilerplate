@@ -1,6 +1,6 @@
 <script>
 import { authComputed } from '@state/helpers'
-import NavBarRoutes from './nav-bar-routes.vue'
+import NavBarRoutes from './nav-bar-routes'
 
 export default {
   components: { NavBarRoutes },

@@ -24,7 +24,6 @@ install_save_cache: &install_save_cache
   key: dependencies-{{ checksum "yarn.lock" }}
 
 jobs:
-
   test:
     <<: *vm_settings
     steps:
@@ -73,10 +72,8 @@ jobs:
   #     - restore_cache: *install_restore_cache
   #     - run: *install_run
   #     - save_cache: *install_save_cache
-
   #     # Build the app for production
   #     - run: yarn build
-
   #     ADD YOUR DEPLOYMENT PROCESS HERE
   #     https://circleci.com/docs/2.0/deployment-integrations/
 
