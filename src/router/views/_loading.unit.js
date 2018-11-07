@@ -1,4 +1,4 @@
-import Loading from './loading'
+import Loading from './_loading'
 
 describe('@views/loading', () => {
   it('is a valid view', () => {

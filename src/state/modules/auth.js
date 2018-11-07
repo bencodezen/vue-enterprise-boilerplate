@@ -56,7 +56,7 @@ export const actions = {
         return user
       })
       .catch(error => {
-        if (error.response.status === 401) {
+        if (error.response && error.response.status === 401) {
           commit('SET_CURRENT_USER', null)
         }
         return null

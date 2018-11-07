@@ -3,27 +3,19 @@ import Layout from '@layouts/main'
 
 export default {
   page: {
-    title: '404',
-    meta: [{ name: 'description', content: '404' }],
+    title: 'Page timeout',
+    meta: [
+      { name: 'description', content: 'The page timed out while loading.' },
+    ],
   },
   components: { Layout },
-  props: {
-    resource: {
-      type: String,
-      default: '',
-    },
-  },
 }
 </script>
 
 <template>
   <Layout>
     <h1 :class="$style.title">
-      404
-      <span v-if="resource">
-        {{ resource }}
-      </span>
-      Not Found
+      The page timed out while loading. Are you sure you're still connected to the Internet?
     </h1>
   </Layout>
 </template>
