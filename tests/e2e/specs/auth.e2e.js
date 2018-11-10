@@ -18,7 +18,7 @@ describe('Authentication', () => {
     cy.contains('error logging in')
   })
 
-  it('successful login works redirects to the home page', () => {
+  it('successful login works redirects to the home page and logging out works', () => {
     cy.visit('/login')
 
     // Enter the user-supplied username and password
@@ -61,6 +61,20 @@ describe('Authentication', () => {
 
     // Click the logout link
     cy.contains('a', 'Log out').click()
+
+    // Confirm that the user is logged out
+    cy.contains('a', 'Log in')
+  })
+
+  it('logout from an authenticated route redirects to home', () => {
+    cy.logIn()
+    cy.visit('/profile')
+
+    // Click the logout link
+    cy.contains('a', 'Log out').click()
+
+    // Confirm we're on the correct page
+    cy.location('pathname').should('equal', '/')
 
     // Confirm that the user is logged out
     cy.contains('a', 'Log in')

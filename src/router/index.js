@@ -81,7 +81,14 @@ router.beforeResolve(async (routeTo, routeFrom, next) => {
         // the same arguments as the `beforeEnter` hook.
         if (route.meta && route.meta.beforeResolve) {
           route.meta.beforeResolve(routeTo, routeFrom, (...args) => {
+            // If the user chose to redirect...
             if (args.length) {
+              // If redirecting to the same route we're coming from...
+              if (routeFrom.name === args[0].name) {
+                // Complete the animation of the route progress bar.
+                NProgress.done()
+              }
+              // Complete the redirect.
               next(...args)
               reject(new Error('Redirected'))
             } else {

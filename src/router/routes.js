@@ -30,7 +30,7 @@ export default [
     meta: {
       authRequired: true,
     },
-    props: route => ({ user: store.state.auth.currentUser }),
+    props: route => ({ user: store.state.auth.currentUser || {} }),
   },
   {
     path: '/profile/:username',
