@@ -36,7 +36,6 @@ export default {
   <FontAwesomeIcon
     v-if="source === 'font-awesome'"
     :icon="name"
-    v-bind="$attrs"
   />
   <span
     v-else-if="source === 'custom'"
