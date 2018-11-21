@@ -13,7 +13,7 @@
     "lint:prettier": "prettier --write --loglevel warn",
     "lint:all:eslint": "yarn lint:eslint --ext .js,.vue .",
     "lint:all:stylelint": "yarn lint:stylelint \"src/**/*.{vue,scss}\"",
-    "lint:all:markdownlint": "yarn lint:markdownlint docs/*.md *.md",
+    "lint:all:markdownlint": "yarn lint:markdownlint \"docs/*.md\" \"*.md\"",
     "lint:all:prettier": "yarn lint:prettier \"**/*.{js,json,css,scss,vue,md}\"",
     "lint": "run-s lint:all:*",
     "test:unit": "vue-cli-service test:unit",
