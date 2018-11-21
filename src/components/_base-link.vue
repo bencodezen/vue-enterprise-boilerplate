@@ -77,6 +77,7 @@ export default {
 <template>
   <a
     v-if="href"
+    v-bind="$attrs"
     :href="href"
     target="_blank"
   >
@@ -84,6 +85,7 @@ export default {
   </a>
   <router-link
     v-else
+    v-bind="$attrs"
     :to="routerLinkTo"
   >
     <slot />
