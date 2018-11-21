@@ -1,5 +1,6 @@
 <script>
 export default {
+  inheritAttrs: false,
   props: {
     href: {
       type: String,
@@ -77,16 +78,16 @@ export default {
 <template>
   <a
     v-if="href"
-    v-bind="$attrs"
     :href="href"
     target="_blank"
+    v-bind="$attrs"
   >
     <slot />
   </a>
   <router-link
     v-else
-    v-bind="$attrs"
     :to="routerLinkTo"
+    v-bind="$attrs"
   >
     <slot />
   </router-link>
