@@ -6,8 +6,8 @@ module.exports = {
   include: ['src/**/*', 'tests/**/*'],
   compilerOptions: {
     baseUrl: '.',
-    target: 'es6',
-    module: 'es6',
+    target: 'esnext',
+    module: 'es2015',
     // ...
     // `paths` will be automatically generated using aliases.config.js
     // ...
