@@ -14,7 +14,7 @@ module.exports = {
       password: 'password',
       name: 'User One',
     },
-  ].map(user => {
+  ].map((user) => {
     return {
       ...user,
       token: `valid-token-for-${user.username}`,
@@ -23,7 +23,7 @@ module.exports = {
   authenticate({ username, password }) {
     return new Promise((resolve, reject) => {
       const matchedUser = this.all.find(
-        user => user.username === username && user.password === password
+        (user) => user.username === username && user.password === password
       )
       if (matchedUser) {
         resolve(this.json(matchedUser))
@@ -33,7 +33,7 @@ module.exports = {
     })
   },
   findBy(propertyName, value) {
-    const matchedUser = this.all.find(user => user[propertyName] === value)
+    const matchedUser = this.all.find((user) => user[propertyName] === value)
     return this.json(matchedUser)
   },
   json(user) {

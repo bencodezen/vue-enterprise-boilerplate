@@ -22,7 +22,7 @@ describe('@components/_base-link', () => {
   let warning
   beforeEach(() => {
     warning = undefined
-    global.console.warn = jest.fn(text => {
+    global.console.warn = jest.fn((text) => {
       warning = text
     })
   })

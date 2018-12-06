@@ -22,7 +22,7 @@ export default {
     // Functional components are the only components allowed
     // to return an array of children, rather than a single
     // root node.
-    return props.routes.map(route => (
+    return props.routes.map((route) => (
       <BaseLink
         tag="li"
         key={route.name}

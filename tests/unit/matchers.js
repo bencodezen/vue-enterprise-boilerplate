@@ -60,7 +60,7 @@ customMatchers.toBeAViewComponent = function(options, mockInstance) {
     if (!pageObject.hasOwnProperty('title')) return false
     if (!pageObject.meta) return false
     const hasMetaDescription = pageObject.meta.some(
-      metaProperty =>
+      (metaProperty) =>
         metaProperty.name === 'description' &&
         metaProperty.hasOwnProperty('content')
     )

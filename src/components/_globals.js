@@ -17,7 +17,7 @@ const requireComponent = require.context(
 )
 
 // For each matching file name...
-requireComponent.keys().forEach(fileName => {
+requireComponent.keys().forEach((fileName) => {
   // Get the component config
   const componentConfig = requireComponent(fileName)
   // Get the PascalCase version of the component name

@@ -39,13 +39,13 @@ export default {
         username: this.username,
         password: this.password,
       })
-        .then(token => {
+        .then((token) => {
           this.tryingToLogIn = false
 
           // Redirect to the originally requested page, or to the home page
           this.$router.push(this.$route.query.redirectFrom || { name: 'home' })
         })
-        .catch(error => {
+        .catch((error) => {
           this.tryingToLogIn = false
           this.authError = error
         })
@@ -56,10 +56,7 @@ export default {
 
 <template>
   <Layout>
-    <form
-      :class="$style.form"
-      @submit.prevent="tryToLogIn"
-    >
+    <form :class="$style.form" @submit.prevent="tryToLogIn">
       <BaseInput
         v-model="username"
         name="username"
@@ -71,15 +68,8 @@ export default {
         type="password"
         :placeholder="placeholders.password"
       />
-      <BaseButton
-        :disabled="tryingToLogIn"
-        type="submit"
-      >
-        <BaseIcon
-          v-if="tryingToLogIn"
-          name="sync"
-          spin
-        />
+      <BaseButton :disabled="tryingToLogIn" type="submit">
+        <BaseIcon v-if="tryingToLogIn" name="sync" spin />
         <span v-else>
           Log in
         </span>

@@ -23,7 +23,7 @@ export default {
     :value="value"
     @input="$emit('update', $event.target.value)"
     v-on="$listeners"
-  >
+  />
 </template>
 
 <style lang="scss" module>

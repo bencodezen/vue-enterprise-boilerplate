@@ -21,14 +21,14 @@ export const actions = {
     }
 
     // 2. Check if we've already fetched and cached the user.
-    const matchedUser = state.cached.find(user => user.name === username)
+    const matchedUser = state.cached.find((user) => user.name === username)
     if (matchedUser) {
       return Promise.resolve(currentUser)
     }
 
     // 3. Fetch the user from the API and cache it in case
     //    we need it again in the future.
-    return axios.get(`/api/users/${username}`).then(response => {
+    return axios.get(`/api/users/${username}`).then((response) => {
       const user = response.data
       commit('CACHE_USER', user)
       return user

@@ -11,6 +11,7 @@ module.exports = {
     // https://github.com/prettier/eslint-config-prettier
     'prettier',
     'prettier/standard',
+    'prettier/vue',
   ],
   rules: {
     // Only allow debugger in development
@@ -33,10 +34,6 @@ module.exports = {
         ],
       },
     ],
-    'vue/multiline-html-element-content-newline': 'error',
-    'vue/singleline-html-element-content-newline': 'error',
-    'vue/no-spaces-around-equal-signs-in-attribute': 'error',
-    'vue/script-indent': ['off', null, { baseIndent: 0 }],
   },
   overrides: [
     {

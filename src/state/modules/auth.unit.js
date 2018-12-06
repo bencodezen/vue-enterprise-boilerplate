@@ -52,7 +52,7 @@ describe('@state/modules/auth', () => {
       expect.assertions(2)
 
       store.commit('SET_CURRENT_USER', { token: validUserExample.token })
-      return store.dispatch('logIn').then(user => {
+      return store.dispatch('logIn').then((user) => {
         expect(user).toEqual(validUserExample)
         expect(store.state.currentUser).toEqual(validUserExample)
       })
@@ -63,7 +63,7 @@ describe('@state/modules/auth', () => {
 
       return store
         .dispatch('logIn', { username: 'admin', password: 'password' })
-        .then(user => {
+        .then((user) => {
           expect(user).toEqual(validUserExample)
           expect(store.state.currentUser).toEqual(validUserExample)
         })
@@ -77,7 +77,7 @@ describe('@state/modules/auth', () => {
           username: 'bad username',
           password: 'bad password',
         })
-        .catch(error => {
+        .catch((error) => {
           expect(error.message).toEqual('Request failed with status code 401')
         })
     })
@@ -86,7 +86,7 @@ describe('@state/modules/auth', () => {
       expect.assertions(1)
 
       store.commit('SET_CURRENT_USER', null)
-      return store.dispatch('validate').then(user => {
+      return store.dispatch('validate').then((user) => {
         expect(user).toEqual(null)
       })
     })
@@ -95,7 +95,7 @@ describe('@state/modules/auth', () => {
       expect.assertions(2)
 
       store.commit('SET_CURRENT_USER', { token: 'invalid-token' })
-      return store.dispatch('validate').then(user => {
+      return store.dispatch('validate').then((user) => {
         expect(user).toEqual(null)
         expect(store.state.currentUser).toEqual(null)
       })
@@ -105,7 +105,7 @@ describe('@state/modules/auth', () => {
       expect.assertions(2)
 
       store.commit('SET_CURRENT_USER', { token: validUserExample.token })
-      return store.dispatch('validate').then(user => {
+      return store.dispatch('validate').then((user) => {
         expect(user).toEqual(validUserExample)
         expect(store.state.currentUser).toEqual(validUserExample)
       })

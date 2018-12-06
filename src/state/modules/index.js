@@ -19,7 +19,7 @@ const root = { modules: {} }
   )
 
   // For every Vuex module...
-  requireModule.keys().forEach(fileName => {
+  requireModule.keys().forEach((fileName) => {
     const moduleDefinition = requireModule(fileName)
 
     // Skip the module during hot reload if it refers to the

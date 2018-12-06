@@ -21,7 +21,7 @@ describe('@components/nav-bar', () => {
     )
 
     const profileRoute = vm.loggedInNavRoutes.find(
-      route => route.name === 'profile'
+      (route) => route.name === 'profile'
     )
     expect(profileRoute.title()).toEqual('Logged in as My Name')
   })

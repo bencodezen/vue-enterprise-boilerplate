@@ -1,6 +1,6 @@
 import NavBarRoutes from './nav-bar-routes'
 
-const mountRoutes = options => {
+const mountRoutes = (options) => {
   return mount(
     {
       render(h) {

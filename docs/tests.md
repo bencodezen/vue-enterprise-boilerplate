@@ -91,7 +91,7 @@ And much more! I recommend checking out our Cypress tests in `tests/e2e/specs`, 
 Beyond that, also know that you can access our app in Cypress on the `window`. For example, to dispatch a Vuex action that sets up some state:
 
 ```js
-cy.window().then(window => {
+cy.window().then((window) => {
   return window.__app__.$store.dispatch('someModule/someAction')
 })
 ```
@@ -170,14 +170,8 @@ But when you're trying to find a login link as a user, you don't just inspect th
 Instead, thinking from a user's perspective forces you to stay accessible, perhaps updating your generated HTML to:
 
 ```html
-<a
-  aria-label="Log in"
-  href="/login"
->
-  <span
-    aria-hidden="true"
-    class="icon icon-login"
-  ></span>
+<a aria-label="Log in" href="/login">
+  <span aria-hidden="true" class="icon icon-login"></span>
 </a>
 ```
 

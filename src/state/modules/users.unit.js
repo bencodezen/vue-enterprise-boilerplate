@@ -20,7 +20,7 @@ describe('@state/modules/users', () => {
       const originalAxiosGet = axios.get
       axios.get = jest.fn()
 
-      return store.dispatch('fetchUser', { username: 'admin' }).then(user => {
+      return store.dispatch('fetchUser', { username: 'admin' }).then((user) => {
         expect(user).toEqual(validUserExample)
         expect(axios.get).not.toHaveBeenCalled()
         axios.get = originalAxiosGet
@@ -32,7 +32,7 @@ describe('@state/modules/users', () => {
 
       return store
         .dispatch('fetchUser', { username: 'bad-username' })
-        .catch(error => {
+        .catch((error) => {
           expect(error.response.status).toEqual(400)
         })
     })
@@ -47,9 +47,11 @@ describe('@state/modules/users', () => {
     it('actions.fetchUser rejects with 401', () => {
       expect.assertions(1)
 
-      return store.dispatch('fetchUser', { username: 'admin' }).catch(error => {
-        expect(error.response.status).toEqual(401)
-      })
+      return store
+        .dispatch('fetchUser', { username: 'admin' })
+        .catch((error) => {
+          expect(error.response.status).toEqual(401)
+        })
     })
   })
 })

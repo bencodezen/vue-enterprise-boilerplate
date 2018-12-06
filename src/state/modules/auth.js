@@ -31,11 +31,13 @@ export const actions = {
   logIn({ commit, dispatch, getters }, { username, password } = {}) {
     if (getters.loggedIn) return dispatch('validate')
 
-    return axios.post('/api/session', { username, password }).then(response => {
-      const user = response.data
-      commit('SET_CURRENT_USER', user)
-      return user
-    })
+    return axios
+      .post('/api/session', { username, password })
+      .then((response) => {
+        const user = response.data
+        commit('SET_CURRENT_USER', user)
+        return user
+      })
   },
 
   // Logs out the current user.
@@ -50,12 +52,12 @@ export const actions = {
 
     return axios
       .get('/api/session')
-      .then(response => {
+      .then((response) => {
         const user = response.data
         commit('SET_CURRENT_USER', user)
         return user
       })
-      .catch(error => {
+      .catch((error) => {
         if (error.response && error.response.status === 401) {
           commit('SET_CURRENT_USER', null)
         }

@@ -1,6 +1,6 @@
 const Users = require('../resources/users')
 
-module.exports = app => {
+module.exports = (app) => {
   app.get('/api/users/:username', (request, response) => {
     const currentUser = Users.findBy('token', request.headers.authorization)
 

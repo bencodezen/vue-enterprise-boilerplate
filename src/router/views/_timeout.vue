@@ -15,7 +15,8 @@ export default {
 <template>
   <Layout>
     <h1 :class="$style.title">
-      The page timed out while loading. Are you sure you're still connected to the Internet?
+      The page timed out while loading. Are you sure you're still connected to
+      the Internet?
     </h1>
   </Layout>
 </template>
