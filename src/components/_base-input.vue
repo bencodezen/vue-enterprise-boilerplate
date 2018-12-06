@@ -1,5 +1,8 @@
 <script>
 export default {
+  model: {
+    event: 'update',
+  },
   props: {
     type: {
       type: String,
@@ -10,23 +13,16 @@ export default {
       default: '',
     },
   },
-  computed: {
-    listeners() {
-      return {
-        ...this.$listeners,
-        input: event => this.$emit('input', event.target.value),
-      }
-    },
-  },
 }
 </script>
 
 <template>
   <input
     :type="type"
-    :value="value"
     :class="$style.input"
-    v-on="listeners"
+    :value="value"
+    @input="$emit('update', $event.target.value)"
+    v-on="$listeners"
   >
 </template>
 
