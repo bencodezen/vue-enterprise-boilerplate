@@ -53,6 +53,7 @@
   "emmet.includeLanguages": {
     "vue-html": "html"
   },
+  "vetur.format.defaultFormatter.html": "none",
 
   // ===
   // JS(ON)

@@ -39,7 +39,7 @@
     "nprogress": "0.2.0",
     "vue": "2.5.17",
     "vue-meta": "1.5.5",
-    "vue-router": "3.0.1",
+    "vue-router": "3.0.2",
     "vuex": "3.0.1"
   },
   "devDependencies": {
@@ -54,7 +54,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "23.6.x",
     "cross-env": "5.2.x",
-    "eslint-plugin-vue": "5.0.0-beta.3",
+    "eslint-plugin-vue": "5.0.x",
     "express": "4.16.x",
     "hygen": "1.6.x",
     "imagemin-lint-staged": "0.3.x",

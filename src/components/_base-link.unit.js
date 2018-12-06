@@ -3,7 +3,7 @@ import BaseLink from './_base-link'
 const mountBaseLink = (options = {}) => {
   return mount(BaseLink, {
     stubs: {
-      'router-link': {
+      RouterLink: {
         functional: true,
         render(h, { slots, data }) {
           return <a data-router-link="true">{slots().default}</a>
@@ -74,7 +74,7 @@ describe('@components/_base-link', () => {
     expect(element.textContent).toEqual('hello')
   })
 
-  it('renders a router-link when passed a `name` prop', () => {
+  it('renders a RouterLink when passed a `name` prop', () => {
     const routeName = 'home'
     const { element, vm } = mountBaseLink({
       propsData: {
@@ -87,7 +87,7 @@ describe('@components/_base-link', () => {
     expect(vm.routerLinkTo).toEqual({ name: routeName, params: {} })
   })
 
-  it('renders a router-link when passed `name` and `params` props', () => {
+  it('renders a RouterLink when passed `name` and `params` props', () => {
     const routeName = 'home'
     const routeParams = { foo: 'bar' }
     const { element, vm } = mountBaseLink({
@@ -105,7 +105,7 @@ describe('@components/_base-link', () => {
     })
   })
 
-  it('renders a router-link when passed a `to` prop', () => {
+  it('renders a RouterLink when passed a `to` prop', () => {
     const routeName = 'home'
     const { element, vm } = mountBaseLink({
       propsData: {
@@ -120,7 +120,7 @@ describe('@components/_base-link', () => {
     expect(vm.routerLinkTo).toEqual({ name: routeName, params: {} })
   })
 
-  it('renders a router-link when passed a `to` prop with `params`', () => {
+  it('renders a RouterLink when passed a `to` prop with `params`', () => {
     const routeName = 'home'
     const routeParams = { foo: 'bar' }
     const { element, vm } = mountBaseLink({

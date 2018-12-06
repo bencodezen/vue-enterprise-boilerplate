@@ -30,8 +30,6 @@ module.exports = {
           'transition-group',
           'keep-alive',
           'slot',
-          'router-view',
-          'router-link',
         ],
       },
     ],

@@ -84,11 +84,11 @@ export default {
   >
     <slot />
   </a>
-  <router-link
+  <RouterLink
     v-else
     :to="routerLinkTo"
     v-bind="$attrs"
   >
     <slot />
-  </router-link>
+  </RouterLink>
 </template>
