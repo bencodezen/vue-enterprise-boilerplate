@@ -30,14 +30,14 @@
     "pre-commit": "cross-env PRE_COMMIT=true lint-staged"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "1.2.8",
-    "@fortawesome/free-solid-svg-icons": "5.5.0",
+    "@fortawesome/fontawesome-svg-core": "1.2.10",
+    "@fortawesome/free-solid-svg-icons": "5.6.1",
     "@fortawesome/vue-fontawesome": "0.1.3",
     "axios": "0.18.0",
     "lodash": "4.17.11",
     "normalize.css": "8.0.1",
     "nprogress": "0.2.0",
-    "vue": "2.5.18-beta.0",
+    "vue": "2.5.21",
     "vue-meta": "1.5.6",
     "vue-router": "3.0.2",
     "vuex": "3.0.1"
@@ -50,7 +50,7 @@
     "@vue/cli-service": "3.2.x",
     "@vue/eslint-config-prettier": "4.0.x",
     "@vue/eslint-config-standard": "4.0.x",
-    "@vue/test-utils": "1.0.0-beta.26",
+    "@vue/test-utils": "1.0.0-beta.27",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "23.6.x",
     "cross-env": "5.2.x",
@@ -60,7 +60,7 @@
     "imagemin-lint-staged": "0.3.x",
     "lint-staged": "8.1.x",
     "markdownlint-cli": "0.13.x",
-    "node-sass": "4.10.x",
+    "node-sass": "4.11.x",
     "npm-run-all": "4.1.x",
     "prettier": "prettier/prettier#11f26a2",
     "sass-loader": "7.1.x",
@@ -70,7 +70,7 @@
     "stylelint-config-recess-order": "2.0.x",
     "stylelint-config-standard": "18.2.x",
     "stylelint-scss": "3.4.x",
-    "vue-template-compiler": "2.5.18-beta.0",
+    "vue-template-compiler": "2.5.21",
     "vuepress": "0.14.x"
   },
   "engines": {
