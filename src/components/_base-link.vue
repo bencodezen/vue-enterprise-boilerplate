@@ -51,7 +51,7 @@ export default {
           )
         }
         // Check for insecure URL in href.
-        if (!this.allowInsecure && !/^https/.test(this.href)) {
+        if (!this.allowInsecure && !/^(https|mailto|tel):/.test(this.href)) {
           return console.warn(
             `Insecure <BaseLink> href: ${
               this.href
