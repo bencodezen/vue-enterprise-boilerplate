@@ -4,8 +4,9 @@
 
 import camelCase from 'lodash/camelCase'
 
-const moduleCache = {}
-const root = { modules: {} }
+const modulesCache = {}
+const storeData = { modules: {} }
+
 ;(function updateModules() {
   // Allow us to dynamically require all Vuex module files.
   // https://webpack.js.org/guides/dependency-management/#require-context
@@ -24,10 +25,10 @@ const root = { modules: {} }
 
     // Skip the module during hot reload if it refers to the
     // same module definition as the one we have cached.
-    if (moduleCache[fileName] === moduleDefinition) return
+    if (modulesCache[fileName] === moduleDefinition) return
 
     // Update the module cache, for efficient hot reloading.
-    moduleCache[fileName] = moduleDefinition
+    modulesCache[fileName] = moduleDefinition
 
     // Get the module path as an array.
     const modulePath = fileName
@@ -41,7 +42,7 @@ const root = { modules: {} }
       .map(camelCase)
 
     // Get the modules object for the current path.
-    const { modules } = getNamespace(root, modulePath)
+    const { modules } = getNamespace(storeData, modulePath)
 
     // Add the module to our modules object.
     modules[modulePath.pop()] = {
@@ -55,10 +56,10 @@ const root = { modules: {} }
   if (module.hot) {
     // Whenever any Vuex module is updated...
     module.hot.accept(requireModule.id, () => {
-      // Update `root.modules` with the latest definitions.
+      // Update `storeData.modules` with the latest definitions.
       updateModules()
       // Trigger a hot update in the store.
-      require('../store').default.hotUpdate({ modules: root.modules })
+      require('../store').default.hotUpdate({ modules: storeData.modules })
     })
   }
 })()
@@ -70,9 +71,10 @@ function getNamespace(subtree, path) {
   const namespace = path.shift()
   subtree.modules[namespace] = {
     modules: {},
+    namespaced: true,
     ...subtree.modules[namespace],
   }
   return getNamespace(subtree.modules[namespace], path)
 }
 
-export default root.modules
+export default storeData.modules
