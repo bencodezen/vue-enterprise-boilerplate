@@ -15,7 +15,7 @@ module.exports = {
     sourceMap: true,
   },
   // Configure Webpack's dev server.
-  // https://github.com/vuejs/vue-cli/blob/dev/docs/cli-service.md
+  // https://cli.vuejs.org/guide/cli-service.html
   devServer: {
     ...(process.env.API_BASE_URL
       ? // Proxy API endpoints to the production base URL.
