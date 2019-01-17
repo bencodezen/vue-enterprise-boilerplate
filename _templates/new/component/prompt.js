@@ -17,24 +17,22 @@ module.exports = [
     },
   },
   {
-    type: 'checkbox',
+    type: 'multiselect',
     name: 'blocks',
     message: 'Blocks:',
+    initial: ['script', 'template', 'style'],
     choices: [
       {
-        name: '<script>',
-        value: 'script',
-        default: true,
+        name: 'script',
+        message: '<script>',
       },
       {
-        name: '<template>',
-        value: 'template',
-        default: true,
+        name: 'template',
+        message: '<template>',
       },
       {
-        name: '<style>',
-        value: 'style',
-        default: true,
+        name: 'style',
+        message: '<style>',
       },
     ],
     validate(value) {
