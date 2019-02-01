@@ -21,7 +21,7 @@ export const actions = {
     }
 
     // 2. Check if we've already fetched and cached the user.
-    const matchedUser = state.cached.find((user) => user.name === username)
+    const matchedUser = state.cached.find((user) => user.username === username)
     if (matchedUser) {
       return Promise.resolve(currentUser)
     }
