@@ -58,10 +58,6 @@ A few notable conventions:
 
 - The version of `vue-template-compiler` must always match the version of `vue` specified in `dependencies`.
 
-### `prettier@prettier/prettier#3de36e3`
-
-We're temporarily locking to this commit until the next version after `1.15.3` is released, because it contains important fixes for HTML formatting that are essential for `.vue` files.
-
 ## [`engines`](https://docs.npmjs.com/files/package.json#engines)
 
 This field allows you to define specific versions for globally installed runtimes and tooling, such as [Node](https://nodejs.org) and [Yarn](https://yarnpkg.com). Ensuring that everyone on your team meets a minimum version threshold can vastly simplify debugging issues that only some developers experience.
