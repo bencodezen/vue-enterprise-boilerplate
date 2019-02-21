@@ -57,12 +57,12 @@ export default {
 <template>
   <Layout>
     <form :class="$style.form" @submit.prevent="tryToLogIn">
-      <BaseInput
+      <BaseInputText
         v-model="username"
         name="username"
         :placeholder="placeholders.username"
       />
-      <BaseInput
+      <BaseInputText
         v-model="password"
         name="password"
         type="password"

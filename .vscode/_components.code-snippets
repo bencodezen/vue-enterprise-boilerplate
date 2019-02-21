@@ -11,11 +11,11 @@
     "body": ["<BaseIcon name=\"${1}\">", "\t${2}", "</BaseIcon>"],
     "description": "<BaseIcon>"
   },
-  "BaseInput": {
+  "BaseInputText": {
     "scope": "vue-html",
-    "prefix": "BaseInput",
-    "body": ["<BaseInput ${1}/>"],
-    "description": "<BaseInput>"
+    "prefix": "BaseInputText",
+    "body": ["<BaseInputText ${1}/>"],
+    "description": "<BaseInputText>"
   },
   "BaseLink": {
     "scope": "vue-html",

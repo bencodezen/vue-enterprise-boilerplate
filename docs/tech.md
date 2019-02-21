@@ -216,7 +216,7 @@ To pass a class to a child component, it's usually best to do so as a prop:
 
 ```vue
 <template>
-  <BaseInput :labelClass="$style.label">
+  <BaseInputText :labelClass="$style.label">
 </template>
 
 <style lang="scss" module>
