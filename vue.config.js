@@ -1,5 +1,6 @@
 const appConfig = require('./src/app.config')
 
+/** @type import('@vue/cli-service').ProjectOptions */
 module.exports = {
   configureWebpack: {
     // We provide the app's title in Webpack's name field, so that
