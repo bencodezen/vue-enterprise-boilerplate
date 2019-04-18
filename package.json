@@ -52,7 +52,7 @@
     "@vue/eslint-config-standard": "4.0.x",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "24.1.x",
+    "babel-jest": "23.6.x",
     "cross-env": "5.2.x",
     "eslint-plugin-vue": "5.2.x",
     "express": "4.16.x",
