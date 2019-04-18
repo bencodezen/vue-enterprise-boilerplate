@@ -10,6 +10,14 @@ module.exports = {
     resolve: {
       alias: require('./aliases.config').webpack,
     },
+    performance: {
+      // Only enable performance hints for production builds,
+      // outside of tests.
+      hints:
+        process.env.NODE_ENV === 'production' &&
+        !process.env.VUE_APP_TEST &&
+        'warning',
+    },
   },
   css: {
     // Enable CSS source maps.
