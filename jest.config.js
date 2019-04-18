@@ -14,11 +14,10 @@ module.exports = {
   transform: {
     '^.+\\.vue$': 'vue-jest',
     '^.+\\.js$': 'babel-jest',
+    '.+\\.(css|scss|jpe?g|png|gif|webp|svg|mp4|webm|ogg|mp3|wav|flac|aac|woff2?|eot|ttf|otf)$':
+      'jest-transform-stub',
   },
   moduleNameMapper: {
-    // Transform any static assets to empty strings
-    '\\.(jpe?g|png|gif|webp|svg|mp4|webm|ogg|mp3|wav|flac|aac|woff2?|eot|ttf|otf)$':
-      '<rootDir>/tests/unit/fixtures/empty-string.js',
     ...require('./aliases.config').jest,
   },
   snapshotSerializers: ['jest-serializer-vue'],
@@ -40,4 +39,9 @@ module.exports = {
   // Solves: https://stackoverflow.com/questions/42677387/jest-returns-network-error-when-doing-an-authenticated-request-with-axios
   testURL:
     process.env.API_BASE_URL || `http://localhost:${process.env.MOCK_API_PORT}`,
+  // https://github.com/jest-community/jest-watch-typeahead
+  watchPlugins: [
+    'jest-watch-typeahead/filename',
+    'jest-watch-typeahead/testname',
+  ],
 }
