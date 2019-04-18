@@ -35,7 +35,6 @@ module.exports = {
     'vue/no-deprecated-scope-attribute': 'error',
     'vue/no-empty-pattern': 'error',
     'vue/object-curly-spacing': ['error', 'always'],
-    'vue/script-indent': 'error',
     'vue/space-infix-ops': 'error',
     'vue/space-unary-ops': 'error',
     'vue/v-on-function-call': 'error',
