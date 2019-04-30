@@ -58,6 +58,10 @@ A few notable conventions:
 
 - The version of `vue-template-compiler` must always match the version of `vue` specified in `dependencies`.
 
+### `babel-jest`
+
+For users installing with NPM, there seems to be a bug in NPM module resolution (and possibly in `babel-jest`) that results in [Jest errors](https://github.com/chrisvfritz/vue-enterprise-boilerplate/issues/77) when using `babel-jest` >=24.
+
 ### `eslint-plugin-vue`
 
 This package is locked to a specific commit until version >=5.3 is released, which should include all the uncategorized rules listed in `.eslintrc.js`.

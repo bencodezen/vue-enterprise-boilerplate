@@ -43,25 +43,27 @@
     "vuex": "3.1.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "3.6.x",
-    "@vue/cli-plugin-e2e-cypress": "3.6.x",
-    "@vue/cli-plugin-eslint": "3.6.x",
-    "@vue/cli-plugin-unit-jest": "3.6.x",
-    "@vue/cli-service": "3.6.x",
+    "@vue/cli-plugin-babel": "3.7.x",
+    "@vue/cli-plugin-e2e-cypress": "3.7.x",
+    "@vue/cli-plugin-eslint": "3.7.x",
+    "@vue/cli-plugin-unit-jest": "3.7.x",
+    "@vue/cli-service": "3.7.x",
     "@vue/eslint-config-prettier": "4.0.x",
     "@vue/eslint-config-standard": "4.0.x",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "10.0.x",
     "babel-jest": "23.6.x",
     "cross-env": "5.2.x",
+    "eslint": "5.16.x",
     "eslint-plugin-vue": "vuejs/eslint-plugin-vue#edd5f14",
     "express": "4.16.x",
     "hygen": "2.1.2",
     "imagemin-lint-staged": "0.4.x",
     "lint-staged": "8.1.x",
     "markdownlint-cli": "0.15.x",
-    "node-sass": "4.11.x",
     "npm-run-all": "4.1.x",
+    "sass": "1.19.x",
     "sass-loader": "7.1.x",
     "stylelint": "10.0.x",
     "stylelint-config-css-modules": "1.4.x",
@@ -73,12 +75,7 @@
     "vuepress": "0.14.x"
   },
   "engines": {
-    "node": ">=8.9.0",
+    "node": ">=10.13.3",
     "yarn": ">=1.0.0"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+  }
 }

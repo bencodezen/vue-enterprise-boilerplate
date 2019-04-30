@@ -5,7 +5,7 @@ module.exports = {
     'git add',
     'yarn test:unit:file',
   ],
-  '{!(package)*.json,*.code-snippets,.*rc}': [
+  '{!(package)*.json,*.code-snippets,.!(browserslist)*rc}': [
     'yarn lint:prettier --parser json',
     'git add',
   ],
