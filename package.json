@@ -62,7 +62,6 @@
     "markdownlint-cli": "0.15.x",
     "node-sass": "4.11.x",
     "npm-run-all": "4.1.x",
-    "prettier": "1.17.x",
     "sass-loader": "7.1.x",
     "stylelint": "10.0.x",
     "stylelint-config-css-modules": "1.4.x",
