@@ -51,7 +51,6 @@ module.exports = {
   overrides: [
     {
       files: ['src/**/*', 'tests/unit/**/*', 'tests/e2e/**/*'],
-      excludedFiles: 'app.config.js',
       parserOptions: {
         parser: 'babel-eslint',
         sourceType: 'module',
