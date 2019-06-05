@@ -1,0 +1,17 @@
+default: true
+
+# ===
+# Rule customizations for markdownlint go here
+# https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md
+# ===
+
+# Disable line length restrictions, because editor soft-wrapping is being
+# used instead.
+line-length: false
+
+# ===
+# Prettier overrides
+# ===
+
+no-multiple-blanks: false
+list-marker-space: false
