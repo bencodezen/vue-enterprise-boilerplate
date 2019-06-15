@@ -35,6 +35,11 @@ See `package.json` to update.
 ### Pre-commit
 
 Staged files are automatically linted and tested before each commit. See `lint-staged.config.js` to update.
+If you are adding this your project you need to include lint-staged and I recommend npm-run-all, a CLI tool to run multiple npm-scripts in parallel or sequential. See `package.json` for how the lint commands are setup. 
+```bash
+yarn add -D lint-staged
+yarn add -D npm-run-all
+```
 
 ### Editor
 
