@@ -18,7 +18,7 @@
     - [`app.vue`](#appvue)
     - [`main.js`](#mainjs)
   - [`tests`](#tests)
-  - [Dockerfile](#Dockerfile)
+  - [`Dockerfile`](#Dockerfile)
 
 ## `_templates`
 
@@ -88,6 +88,6 @@ The entry point to our app, were we create our Vue instance and mount it to the 
 
 Where all our tests go. See [the tests doc](tests.md) for more.
 
-## Dockerfile
+## `Dockerfile`
 
 The entrypoint for our Docker image.

@@ -5,7 +5,7 @@
   - [Installation](#Installation)
   - [Dev server](#Dev-server)
     - [Developing with the production API](#Developing-with-the-production-API)
-  - [Developing with Docker](#Developing-with-Docker)
+    - [Developing locally with Docker](#Developing-locally-with-Docker)
   - [Generators](#Generators)
   - [Aliases](#Aliases)
   - [Globals](#Globals)
@@ -59,9 +59,9 @@ API_BASE_URL=http://localhost:3000 yarn dev
 API_BASE_URL=https://example.io yarn dev:e2e
 ```
 
-## Developing with Docker
+### Developing locally with Docker
 
-The projects supports local development running the project with Docker.
+This project supports local development with Docker.
 
 Build and tag the image:
 
