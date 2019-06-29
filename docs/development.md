@@ -1,14 +1,15 @@
 # Setup and development
 
-- [Setup and development](#setup-and-development)
-  - [First-time setup](#first-time-setup)
-  - [Installation](#installation)
-  - [Dev server](#dev-server)
-    - [Developing with the production API](#developing-with-the-production-api)
-  - [Generators](#generators)
-  - [Aliases](#aliases)
-  - [Globals](#globals)
-    - [Base components](#base-components)
+- [Setup and development](#Setup-and-development)
+  - [First-time setup](#First-time-setup)
+  - [Installation](#Installation)
+  - [Dev server](#Dev-server)
+    - [Developing with the production API](#Developing-with-the-production-API)
+  - [Developing with Docker](#Developing-with-Docker)
+  - [Generators](#Generators)
+  - [Aliases](#Aliases)
+  - [Globals](#Globals)
+    - [Base components](#Base-components)
 
 ## First-time setup
 
@@ -56,6 +57,22 @@ API_BASE_URL=http://localhost:3000 yarn dev
 
 # To test and develop against a production server
 API_BASE_URL=https://example.io yarn dev:e2e
+```
+
+## Developing with Docker
+
+The projects supports local development running the project with Docker.
+
+Build and tag the image:
+
+```bash
+docker build -t my-vue-enterprise-app .
+```
+
+Run the image as a container:
+
+```bash
+docker run -it -p 8081:8081 --rm --name my-vue-enterprise-app dockerhub-user/my-vue-enterprise-app
 ```
 
 ## Generators

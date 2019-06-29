@@ -1,26 +1,27 @@
 # Languages and technologies
 
-- [Languages and technologies](#languages-and-technologies)
-  - [JavaScript](#javascript)
-    - [Polyfills](#polyfills)
-    - [Vue](#vue)
-    - [Vue Router](#vue-router)
-    - [Vuex (state management)](#vuex-state-management)
-    - [JavaScript FAQ](#javascript-faq)
-  - [HTML](#html)
-    - [Templates](#templates)
-    - [Render functions](#render-functions)
-    - [HTML FAQ](#html-faq)
-  - [CSS](#css)
-    - [SCSS](#scss)
-    - [Importing global modules](#importing-global-modules)
-    - [Referencing aliased asset URLs](#referencing-aliased-asset-urls)
-    - [Design variables and tooling](#design-variables-and-tooling)
-    - [CSS modules](#css-modules)
-      - [Styling subcomponents](#styling-subcomponents)
-      - [Sharing SCSS variables with JavaScript](#sharing-scss-variables-with-javascript)
-    - [Global CSS](#global-css)
-    - [CSS FAQ](#css-faq)
+- [Languages and technologies](#Languages-and-technologies)
+  - [JavaScript](#JavaScript)
+    - [Polyfills](#Polyfills)
+    - [Vue](#Vue)
+    - [Vue Router](#Vue-Router)
+    - [Vuex (state management)](#Vuex-state-management)
+    - [JavaScript FAQ](#JavaScript-FAQ)
+  - [HTML](#HTML)
+    - [Templates](#Templates)
+    - [Render functions](#Render-functions)
+    - [HTML FAQ](#HTML-FAQ)
+  - [CSS](#CSS)
+    - [SCSS](#SCSS)
+    - [Importing global modules](#Importing-global-modules)
+    - [Referencing aliased asset URLs](#Referencing-aliased-asset-URLs)
+    - [Design variables and tooling](#Design-variables-and-tooling)
+    - [CSS modules](#CSS-modules)
+      - [Styling subcomponents](#Styling-subcomponents)
+      - [Sharing SCSS variables with JavaScript](#Sharing-SCSS-variables-with-JavaScript)
+    - [Global CSS](#Global-CSS)
+    - [CSS FAQ](#CSS-FAQ)
+    - [Docker](#Docker)
 
 ## JavaScript
 
@@ -291,3 +292,9 @@ While a little more complex to begin with, CSS modules offer:
 - True protection from collisions. Using the `scoped` attribute, vendor CSS could still affect your own classes, if you both use the same names.
 - Improved performance. Generated class selectors like `.base-input_inputLabel__3EAebB_0` are faster than attribute selectors, especially on an element selector like `input[data-v-3EAebB]`.
 - Increased versatility. There are cases the `scoped` attribute just can't handle, such as passing a scoped class to a child component that does _not_ render HTML directly. This is fairly common for component wrappers of views driven by WebGL or Canvas, that often inject HTML overlays such as tooltips at the root of the `<body>`.
+
+### Docker
+
+Essentially, Docker is a set of integrated technologies and solutions for building, sharing and running container-based applications, from a developer’s desktop to the cloud.
+
+Running our app as a Docker container allows you to represent the final app build artifact, the same artifact that would be verified against our continuous delivery pipeline and that could potentially be released to production with confidence.
