@@ -61,17 +61,13 @@ API_BASE_URL=https://example.io yarn dev:e2e
 
 ### Developing locally with Docker
 
-This project supports local development with Docker.
-
-Build and tag the image:
+This project supports local development with Docker:
 
 ```bash
+# Build and tag the image
 docker build -t my-vue-enterprise-app .
-```
 
-Run the image as a container:
-
-```bash
+# Run the image as a container and give it a name
 docker run -it -p 8081:8081 --rm --name my-vue-enterprise-app dockerhub-user/my-vue-enterprise-app
 ```
 
