@@ -20,6 +20,14 @@ _.mixin({
 })
 
 // ===
+// Configure Axios
+// ===
+
+// Force Axios to use the XHR adapter so that it behaves
+// more like it would in a browser environment.
+axios.defaults.adapter = require('axios/lib/adapters/xhr')
+
+// ===
 // Configure Vue
 // ===
 

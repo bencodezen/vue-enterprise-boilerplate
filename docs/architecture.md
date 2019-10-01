@@ -1,10 +1,10 @@
 # Architecture
 
 - [Architecture](#architecture)
-  - [`_templates`](#templates)
   - [`.circleci`](#circleci)
   - [`.vscode`](#vscode)
   - [`docs`](#docs)
+  - [`generators`](#generators)
   - [`public`](#public)
     - [`index.html`](#indexhtml)
   - [`src`](#src)
@@ -19,10 +19,6 @@
     - [`main.js`](#mainjs)
   - [`tests`](#tests)
 
-## `_templates`
-
-Generator templates to speed up development. See [the development doc](development.md#generators) for more.
-
 ## `.circleci`
 
 Configuration for continuous integration with [Circle CI](https://circleci.com/). See [the production doc](production.md#from-circle-ci) for more.
@@ -34,6 +30,10 @@ Settings and extensions specific to this project, for Visual Studio Code. See [t
 ## `docs`
 
 You found me! :wink:
+
+## `generators`
+
+Generator templates to speed up development. See [the development doc](development.md#generators) for more.
 
 ## `public`
 

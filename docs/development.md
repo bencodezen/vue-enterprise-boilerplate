@@ -78,11 +78,11 @@ yarn new module
 # Generate a new utility function with adjacent unit test
 yarn new util
 
-# Generate a new end-to-end spec
+# Generate a new end-to-end test
 yarn new e2e
 ```
 
-Update existing or create new generators in the `_templates` folder, with help from the [Hygen docs](http://www.hygen.io/).
+Update existing or create new generators in the `generators` folder, with help from the [Hygen docs](http://www.hygen.io/).
 
 ## Aliases
 

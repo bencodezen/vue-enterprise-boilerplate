@@ -1,5 +1,5 @@
 ---
-to: src/state/modules/<%= h.inflection.dasherize(name) %>.js
+to: src/state/modules/<%= h.changeCase.kebab(name) %>.js
 ---
 export const state = {}
 

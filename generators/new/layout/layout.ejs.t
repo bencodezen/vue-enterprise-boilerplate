@@ -1,5 +1,5 @@
 ---
-to: "src/router/layouts/<%= h.inflection.dasherize(name) %>.vue"
+to: "src/router/layouts/<%= h.changeCase.kebab(name) %>.vue"
 ---
 <template>
   <div :class="$style.container">

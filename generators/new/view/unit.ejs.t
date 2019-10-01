@@ -1,9 +1,9 @@
 ---
-to: "src/router/views/<%= h.inflection.dasherize(name) %>.unit.js"
+to: "src/router/views/<%= h.changeCase.kebab(name) %>.unit.js"
 ---
 <%
-  const fileName = h.inflection.dasherize(name)
-  const importName = h.inflection.camelize(fileName.replace(/-/g, '_'))
+  const fileName = h.changeCase.kebab(name)
+  const importName = h.changeCase.pascal(fileName)
 %>import <%= importName %> from './<%= fileName %>'
 
 describe('@views/<%= fileName %>', () => {
