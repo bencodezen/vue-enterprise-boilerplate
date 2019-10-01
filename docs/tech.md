@@ -28,12 +28,12 @@ Our JavaScript is compiled by Babel, using the [`@vue/babel-preset-app`](https:/
 
 If you're new to features such as `const`, `let`, and `=>` (arrow functions), take some time to read about the following features in Babel's ES2015 guide:
 
-- [Arrow functions](https://babeljs.io/learn-es2015/#ecmascript-2015-features-arrows-and-lexical-this)
-- [Template literals](https://babeljs.io/learn-es2015/#ecmascript-2015-features-template-strings)
-- [Destructuring](https://babeljs.io/learn-es2015/#ecmascript-2015-features-destructuring)
-- [Spread operator](https://babeljs.io/learn-es2015/#ecmascript-2015-features-default-rest-spread)
-- [`let`/`const`](https://babeljs.io/learn-es2015/#ecmascript-2015-features-let-const)
-- [`for`...`of`](https://babeljs.io/learn-es2015/#ecmascript-2015-features-iterators-for-of)
+- [Arrow functions](https://babeljs.io/docs/en/learn/#arrows-and-lexical-this)
+- [Template literals](https://babeljs.io/docs/en/learn/#template-strings)
+- [Destructuring](https://babeljs.io/docs/en/learn/#destructuring)
+- [Spread operator](https://babeljs.io/docs/en/learn/#default-rest-spread)
+- [`let`/`const`](https://babeljs.io/docs/en/learn/#let-const)
+- [`for`...`of`](https://babeljs.io/docs/en/learn/#iterators-forof)
 
 Reading these sections alone will get you 99% of the way to mastering Babel code. It's also a good idea to read about Promises, if you don't yet feel comfortable with them. Here's a [good intro](https://developers.google.com/web/fundamentals/getting-started/primers/promises).
 
