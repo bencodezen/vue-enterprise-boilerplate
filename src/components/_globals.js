@@ -29,7 +29,7 @@ requireComponent.keys().forEach((fileName) => {
         // Upper case
         .map(kebab => kebab.charAt(0).toUpperCase() + kebab.slice(1))
         // Concatenated
-        .join('');
+        .join('')
 
   // Globally register the component
   Vue.component(componentName, componentConfig.default || componentConfig)
