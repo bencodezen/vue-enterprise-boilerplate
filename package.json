@@ -35,7 +35,6 @@
     "@fortawesome/free-solid-svg-icons": "5.11.2",
     "@fortawesome/vue-fontawesome": "0.1.7",
     "axios": "0.19.0",
-    "cuid": "2.1.6",
     "lodash": "4.17.15",
     "normalize.css": "8.0.1",
     "nprogress": "0.2.0",

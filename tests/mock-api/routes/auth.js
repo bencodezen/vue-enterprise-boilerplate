@@ -25,4 +25,9 @@ module.exports = (app) => {
 
     response.json(currentUser)
   })
+
+  // A simple ping for checking online status
+  app.get('/api/ping', (request, response) => {
+    response.send('OK')
+  })
 }

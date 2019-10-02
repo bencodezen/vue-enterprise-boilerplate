@@ -1,5 +1,7 @@
 <script>
+import axios from 'axios'
 import Layout from '@layouts/main'
+import LoadingView from '@views/_loading'
 
 export default {
   page: {
@@ -8,17 +10,33 @@ export default {
       { name: 'description', content: 'The page timed out while loading.' },
     ],
   },
-  components: { Layout },
+  components: { Layout, LoadingView },
+  data() {
+    return {
+      offlineConfirmed: false,
+    }
+  },
+  beforeCreate() {
+    axios
+      .head('/api/ping')
+      .then(() => {
+        window.location.reload()
+      })
+      .catch(() => {
+        this.offlineConfirmed = true
+      })
+  },
 }
 </script>
 
 <template>
-  <Layout>
+  <Layout v-if="offlineConfirmed">
     <h1 :class="$style.title">
       The page timed out while loading. Are you sure you're still connected to
       the Internet?
     </h1>
   </Layout>
+  <LoadingView v-else />
 </template>
 
 <style lang="scss" module>
