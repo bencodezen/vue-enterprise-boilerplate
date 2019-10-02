@@ -9,6 +9,7 @@
   - [Aliases](#aliases)
   - [Globals](#globals)
     - [Base components](#base-components)
+  - [Docker (optional)](#docker-optional)
 
 ## First-time setup
 
@@ -93,3 +94,53 @@ To simplify referencing local modules and refactoring, you can set aliases to be
 ### Base components
 
 [Base components](https://vuejs.org/v2/style-guide/#Base-component-names-strongly-recommended) (a.k.a. presentational, dumb, or pure components) that apply app-specific styling and conventions should all begin with the `_base-` prefix. Since these components are typically used in place of raw HTML element (and thus used as frequently), they're automatically globally registered for convenience. This means you don't have to import and locally register them to use them in templates.
+
+## Docker (optional)
+
+If you'd prefer to use Docker for development, it's recommended to install and run [Docker Desktop](https://www.docker.com/products/docker-desktop). Once the app is started, you'll be able to run commands like:
+
+```bash
+# Build and run a containerized version of your app in the background
+docker-compose up --detach
+```
+
+Once your container has started, you can run any script from `package.json` inside the container by prefixing the command with `yarn docker` instead of just `yarn`. For example:
+
+```bash
+# Install dependencies in the container
+yarn docker install
+
+# Run the dev environment in the container
+yarn docker dev
+
+# Run tests in the container
+yarn docker test
+```
+
+To list your containers and their statuses, you can run:
+
+```bash
+docker-compose ps
+```
+
+To stop your running containers, run:
+
+```bash
+docker-compose stop
+```
+
+If ever update the following files:
+
+- `.dockerignore`
+- `docker-compose.yml`
+- `docker-dev.dockerfile`
+
+Then you'll want to stop and remove all containers, networks, volumes, and images created for your app with:
+
+```bash
+docker-compose down --volumes --rmi all --remove-orphans
+```
+
+This command can also be useful in case something goes wrong with a container and you'd like to start over. All containers, networks, volumes, and images defined in `docker-compose.yml` will be rebuilt the next time you run `docker-compose up`.
+
+See the docs for [Docker](https://docs.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) for more information on how to use and configure Docker tooling.

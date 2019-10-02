@@ -24,7 +24,8 @@
     "test": "run-s test:unit test:e2e",
     "test:ci": "run-s test:unit:ci test:e2e",
     "new": "cross-env HYGEN_TMPLS=generators hygen new",
-    "docs": "vuepress dev"
+    "docs": "vuepress dev",
+    "docker": "docker-compose exec dev yarn"
   },
   "gitHooks": {
     "pre-commit": "cross-env PRE_COMMIT=true lint-staged"
