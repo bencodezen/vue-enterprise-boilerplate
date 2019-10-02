@@ -1,5 +1,5 @@
 <script>
-import Layout from '@layouts/main'
+import Layout from '@layouts/main.vue'
 import { authMethods } from '@state/helpers'
 import appConfig from '@src/app.config'
 

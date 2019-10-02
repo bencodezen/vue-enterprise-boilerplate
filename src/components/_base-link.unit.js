@@ -1,4 +1,4 @@
-import BaseLink from './_base-link'
+import BaseLink from './_base-link.vue'
 
 const mountBaseLink = (options = {}) => {
   return mount(BaseLink, {

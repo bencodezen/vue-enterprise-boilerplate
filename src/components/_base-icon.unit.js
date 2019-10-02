@@ -1,4 +1,4 @@
-import BaseIcon from './_base-icon'
+import BaseIcon from './_base-icon.vue'
 
 describe('@components/_base-icon', () => {
   it('renders a font-awesome icon', () => {

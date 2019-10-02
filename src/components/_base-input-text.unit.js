@@ -1,4 +1,4 @@
-import BaseInputText from './_base-input-text'
+import BaseInputText from './_base-input-text.vue'
 
 describe('@components/_base-input-text', () => {
   it('works with v-model', () => {

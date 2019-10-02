@@ -6,7 +6,7 @@ to: "src/router/views/<%= h.changeCase.kebab(name) %>.vue"
   const importName = h.changeCase.pascal(fileName)
   const titleName = h.changeCase.title(name)
 %><script>
-import Layout from '@layouts/main'
+import Layout from '@layouts/main.vue'
 
 export default {
   page: {

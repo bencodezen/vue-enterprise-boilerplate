@@ -1,4 +1,4 @@
-import NavBarRoutes from './nav-bar-routes'
+import NavBarRoutes from './nav-bar-routes.vue'
 
 const mountRoutes = (options) => {
   return mount(

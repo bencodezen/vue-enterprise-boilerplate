@@ -1,4 +1,4 @@
-import NavBar from './nav-bar'
+import NavBar from './nav-bar.vue'
 
 describe('@components/nav-bar', () => {
   it(`displays the user's name in the profile link`, () => {
