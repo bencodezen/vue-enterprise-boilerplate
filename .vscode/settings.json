@@ -40,7 +40,11 @@
     { "language": "html", "autoFix": true }
   ],
   "vetur.format.enable": false,
-  "vetur.completion.useScaffoldSnippets": false,
+  "vetur.completion.scaffoldSnippetSources": {
+    "user": "🗒️",
+    "workspace": "💼",
+    "vetur": ""
+  },
   "prettier.disableLanguages": [],
 
   // ===
