@@ -79,6 +79,8 @@ Object.defineProperty(window, 'localStorage', {
 const error = console.error
 console.error = function(message) {
   error.apply(console, arguments)
+  // NOTE: You can whitelist some `console.error` messages here
+  //       by returning if the `message` value is acceptable.
   throw message instanceof Error ? message : new Error(message)
 }
 
@@ -86,6 +88,8 @@ console.error = function(message) {
 const warn = console.warn
 console.warn = function(message) {
   warn.apply(console, arguments)
+  // NOTE: You can whitelist some `console.warn` messages here
+  //       by returning if the `message` value is acceptable.
   throw message instanceof Error ? message : new Error(message)
 }
 
