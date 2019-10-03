@@ -54,7 +54,6 @@
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.x",
-    "babel-jest": "24.9.x",
     "cross-env": "6.0.x",
     "eslint": "5.16.x",
     "eslint-plugin-vue": "vuejs/eslint-plugin-vue#edf43ffe1c56db99c81d8eaa62de36b2fa47604e",
@@ -74,6 +73,10 @@
     "stylelint-scss": "3.11.x",
     "vue-template-compiler": "2.6.10",
     "vuepress": "1.1.x"
+  },
+  "resolutions": {
+    "@vue/cli-plugin-unit-jest/jest": "24.9.x",
+    "@vue/cli-plugin-unit-jest/babel-jest": "24.9.x"
   },
   "engines": {
     "node": ">=10.13.3",

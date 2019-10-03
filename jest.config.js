@@ -8,7 +8,7 @@ module.exports = {
   setupFiles: ['<rootDir>/tests/unit/setup'],
   globalSetup: '<rootDir>/tests/unit/global-setup',
   globalTeardown: '<rootDir>/tests/unit/global-teardown',
-  setupTestFrameworkScriptFile: '<rootDir>/tests/unit/matchers',
+  setupFilesAfterEnv: ['<rootDir>/tests/unit/matchers'],
   testMatch: ['**/(*.)unit.js'],
   moduleFileExtensions: ['js', 'json'],
   transform: {
@@ -17,9 +17,7 @@ module.exports = {
     '.+\\.(css|scss|jpe?g|png|gif|webp|svg|mp4|webm|ogg|mp3|wav|flac|aac|woff2?|eot|ttf|otf)$':
       'jest-transform-stub',
   },
-  moduleNameMapper: {
-    ...require('./aliases.config').jest,
-  },
+  moduleNameMapper: require('./aliases.config').jest,
   snapshotSerializers: ['jest-serializer-vue'],
   coverageDirectory: '<rootDir>/tests/unit/coverage',
   collectCoverageFrom: [

@@ -72,6 +72,24 @@ Object.defineProperty(window, 'localStorage', {
 })
 
 // ===
+// Console handlers
+// ===
+
+// Make console.error throw, so that Jest tests fail
+const error = console.error
+console.error = function(message) {
+  error.apply(console, arguments)
+  throw message instanceof Error ? message : new Error(message)
+}
+
+// Make console.warn throw, so that Jest tests fail
+const warn = console.warn
+console.warn = function(message) {
+  warn.apply(console, arguments)
+  throw message instanceof Error ? message : new Error(message)
+}
+
+// ===
 // Global helpers
 // ===
 
@@ -174,6 +192,11 @@ global.createModuleStore = (vuexModule, options = {}) => {
         },
       },
     },
+    // Enable strict mode when testing Vuex modules so that
+    // mutating state outside of a mutation results in a
+    // failing test.
+    // https://vuex.vuejs.org/guide/strict.html
+    strict: true,
   })
   axios.defaults.headers.common.Authorization = options.currentUser
     ? options.currentUser.token

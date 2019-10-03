@@ -60,6 +60,8 @@ export const actions = {
       .catch((error) => {
         if (error.response && error.response.status === 401) {
           commit('SET_CURRENT_USER', null)
+        } else {
+          console.warn(error)
         }
         return null
       })
