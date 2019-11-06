@@ -3,6 +3,7 @@
 - [Architecture](#architecture)
   - [`.circleci`](#circleci)
   - [`.vscode`](#vscode)
+  - [`.vuepress`](#vuepress)
   - [`docs`](#docs)
   - [`generators`](#generators)
   - [`public`](#public)
@@ -26,6 +27,10 @@ Configuration for continuous integration with [Circle CI](https://circleci.com/)
 ## `.vscode`
 
 Settings and extensions specific to this project, for Visual Studio Code. See [the editors doc](editors.md#visual-studio-code) for more.
+
+## `.vuepress`
+
+[VuePress](https://vuepress.vuejs.org/) configuration for docs static site generation.
 
 ## `docs`
 
