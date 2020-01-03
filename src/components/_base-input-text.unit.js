@@ -15,7 +15,7 @@ describe('@components/_base-input-text', () => {
     expect(wrapper.emitted().update).toEqual([['bbb']])
 
     // Sets the input to the correct value when props change
-    wrapper.setProps({ value: 'ccc' })
+    wrapper.setValue('ccc')
     expect(inputEl.value).toEqual('ccc')
   })
 

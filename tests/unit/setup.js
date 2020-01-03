@@ -13,10 +13,7 @@ import vueTestUtils from '@vue/test-utils'
 // https://lodash.com/
 import _ from 'lodash'
 _.mixin({
-  pascalCase: _.flow(
-    _.camelCase,
-    _.upperFirst
-  ),
+  pascalCase: _.flow(_.camelCase, _.upperFirst),
 })
 
 // ===
