@@ -38,14 +38,18 @@ export default [
     component: () => lazyLoadView(import('@views/profile.vue')),
     meta: {
       authRequired: true,
+      // HACK: In order to share data between the `beforeResolve` hook
+      // and the `props` function, we must create an object for temporary
+      // data only used during route resolution.
+      tmp: {},
       beforeResolve(routeTo, routeFrom, next) {
         store
           // Try to fetch the user's information by their username
           .dispatch('users/fetchUser', { username: routeTo.params.username })
           .then((user) => {
-            // Add the user to the route params, so that it can
-            // be provided as a prop for the view component below.
-            routeTo.params.user = user
+            // Add the user to `meta.tmp`, so that it can
+            // be provided as a prop.
+            routeTo.meta.tmp.user = user
             // Continue to the route.
             next()
           })
@@ -58,7 +62,7 @@ export default [
     },
     // Set the user from the route params, once it's set in the
     // beforeResolve route guard.
-    props: (route) => ({ user: route.params.user }),
+    props: (route) => ({ user: route.meta.tmp.user }),
   },
   {
     path: '/logout',
