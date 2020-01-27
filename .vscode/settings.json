@@ -30,14 +30,18 @@
   // ===
 
   "editor.formatOnSave": true,
-  "eslint.autoFixOnSave": true,
-  "eslint.run": "onSave",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true,
+    "source.fixAll.markdownlint": true
+  },
   "eslint.validate": [
-    { "language": "javascript", "autoFix": true },
-    { "language": "javascriptreact", "autoFix": true },
-    { "language": "vue", "autoFix": true },
-    { "language": "vue-html", "autoFix": true },
-    { "language": "html", "autoFix": true }
+    "javascript",
+    "javascriptreact",
+    "vue",
+    "vue-html",
+    "html"
   ],
   "vetur.format.enable": false,
   "vetur.completion.scaffoldSnippetSources": {

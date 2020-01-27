@@ -11,12 +11,16 @@
     "dariofuzinato.vue-peek",
 
     // Lint-on-save with ESLint
-    // https://github.com/Microsoft/vscode-eslint
+    // https://github.com/microsoft/vscode-eslint
     "dbaeumer.vscode-eslint",
 
     // Lint-on-save with Stylelint
-    // https://github.com/shinnn/vscode-stylelint
-    "shinnn.stylelint",
+    // https://github.com/stylelint/vscode-stylelint
+    "stylelint.vscode-stylelint",
+
+    // Lint-on-save markdown in README files
+    // https://github.com/DavidAnson/vscode-markdownlint
+    "DavidAnson.vscode-markdownlint",
 
     // Format-on-save with Prettier
     // https://github.com/prettier/prettier-vscode
@@ -28,10 +32,6 @@
 
     // Test `.unit.js` files on save with Jest
     // https://github.com/jest-community/vscode-jest
-    "Orta.vscode-jest",
-
-    // Lint markdown in README files
-    // https://github.com/DavidAnson/vscode-markdownlint
-    "DavidAnson.vscode-markdownlint"
+    "Orta.vscode-jest"
   ]
 }
