@@ -1,7 +1,7 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
 import fs from 'fs'
 import path from 'path'
+import Vue from 'vue'
+import Vuex from 'vuex'
 import axios from 'axios'
 
 // ===
@@ -9,9 +9,9 @@ import axios from 'axios'
 // ===
 
 // https://vue-test-utils.vuejs.org/
-import vueTestUtils from '@vue/test-utils'
+const vueTestUtils = require('@vue/test-utils')
 // https://lodash.com/
-import _ from 'lodash'
+const _ = require('lodash')
 _.mixin({
   pascalCase: _.flow(_.camelCase, _.upperFirst),
 })

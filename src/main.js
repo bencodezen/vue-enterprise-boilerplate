@@ -1,7 +1,9 @@
 import Vue from 'vue'
-import App from './app.vue'
 import router from '@router'
 import store from '@state/store'
+import App from './app.vue'
+
+// Globally register all `_base`-prefixed components
 import '@components/_globals'
 
 // Don't warn about using the dev version of Vue in development.
