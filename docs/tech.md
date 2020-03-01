@@ -59,17 +59,13 @@ To wrap your head around our state management, I recommend reading through [thos
 
 **Why not use TypeScript instead of JavaScript? Isn't that more appropriate for enterprise environments?**
 
-At its current rate of development, I think TypeScript will eventually _become_ the standard, but I don't think it's there yet. First, I don't believe the advantages are currently that significant:
+At its current rate of development, I think TypeScript will eventually _become_ the standard, but I don't think it's there yet for application development. Here's my reasoning:
 
 - The vast majority of bugs I encounter are _not_ due to type violations. The most powerful tools against bugs remain linting, tests, and code reviews - none of which are made easier by TypeScript.
 - TypeScript doesn't guarantee type safety - that still requires discipline. You can still use hundreds of `any` annotations and libraries without any type definitions.
-- In Visual Studio Code, users can already get a lot of useful intellisense (including type information) without having to use TypeScript.
-- You can get type checks without static types. Just not at compile time. Between Vue's type checks for props, `typeof`, and `instanceof`, developers can still get warnings about type violations during development and tests.
-
-There are also a few disadvantages I've seen in practice:
-
-- Despite most bugs having nothing to do with type violations, developers can spend _a lot_ of time working towards full type safety. As I mentioned earlier, I think that time would be better spent on tests and code reviews.
-- ESLint remains a much more versatile linter than TSLint and [its TypeScript parser](https://github.com/eslint/typescript-eslint-parser) is still experimental, so may waste time with false positives - or worse, simply miss clear violations.
+- In Visual Studio Code, users can already get a lot of useful intellisense (including type information) without having to use TypeScript. [JSDoc comments](https://jsdoc.app/about-getting-started.html) can also be added to [serve the same purpose](https://blog.usejournal.com/type-vue-without-typescript-b2b49210f0b) on an as-needed basis.
+- Despite most bugs having nothing to do with type violations, developers can spend _a lot_ of time working towards full type safety, meaning teams unaccustomed to strongly typed languages may face significant drops in productivity. As I mentioned earlier, I think that time would be better spent on tests and code reviews.
+- While the next version of Vuex will be designed with TypeScript in mind, the current version can be particularly painful with TypeScript.
 
 ## HTML
 
