@@ -6,7 +6,7 @@ const mountBaseLink = (options = {}) => {
       RouterLink: {
         functional: true,
         render(h, { slots, data }) {
-          return <a data-router-link="true">{slots().default}</a>
+          return <a data-router-link='true'>{slots().default}</a>
         },
       },
     },

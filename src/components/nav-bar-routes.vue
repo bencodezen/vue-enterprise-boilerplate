@@ -24,7 +24,7 @@ export default {
     // root node.
     return props.routes.map((route) => (
       <BaseLink
-        tag="li"
+        tag='li'
         key={route.name}
         to={route}
         exact-active-class={$style.active}
