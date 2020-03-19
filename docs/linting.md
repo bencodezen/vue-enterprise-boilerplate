@@ -34,7 +34,7 @@ See `package.json` to update.
 
 ### Pre-commit
 
-Staged files are automatically linted and tested before each commit. See `lint-staged.config.js` to update.
+Staged files are automatically linted and tested before each commit. See `lint-staged.config.js` to update. [Yorkie](https://github.com/yyx990803/yorkie) is used by `@vue/cli-plugin-eslint` to install the pre-commit hook.
 
 ### Editor
 
