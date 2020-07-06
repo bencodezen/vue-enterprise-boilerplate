@@ -32,6 +32,17 @@ export default [
     },
     props: (route) => ({ user: store.state.auth.currentUser || {} }),
   },
+
+  // playgroundview for assignment
+  {
+    path: '/playground',
+    name: 'playgroundView',
+    component: () => lazyLoadView(import('@views/playgroundView.vue')),
+    meta: {
+      authRequired: true,
+    },
+  },
+
   {
     path: '/profile/:username',
     name: 'username-profile',

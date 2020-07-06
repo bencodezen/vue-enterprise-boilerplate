@@ -17,6 +17,12 @@ export default {
           name: 'profile',
           title: () => 'Logged in as ' + this.currentUser.name,
         },
+
+        // added a route for the playout view
+        {
+          name: 'playgroundView',
+          title: 'Playground',
+        },
         {
           name: 'logout',
           title: 'Log out',
