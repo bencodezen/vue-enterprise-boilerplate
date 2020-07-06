@@ -1,10 +1,8 @@
 <script>
 import { playgroundComputed, playgroundMethods } from '@state/helpers'
-// import { MdTable } from 'vue-material/dist/components'
 
 export default {
   name: 'PlaygroundComp',
-  //   components:{ 'md-table':MdTable},
   data() {
     return {
       dataArray: [],

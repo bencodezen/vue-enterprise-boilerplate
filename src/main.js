@@ -6,23 +6,13 @@ import store from '@state/store'
 import { MdTable, MdContent } from 'vue-material/dist/components'
 import 'vue-material/dist/vue-material.css'
 
-// import VueMaterial from 'vue-material';
-// import 'vue-material/dist/vue-material.min.css';
-
 import App from './app.vue'
 
 // Globally register all `_base`-prefixed components
 import '@components/_globals'
 
-// using and registering the matirial component globally
-
-// Vue.component('MdTable',{ 'md-table' : MdTable })
 Vue.use(MdTable)
 Vue.use(MdContent)
-
-// Vue.component('MdTable', { MdTable})
-// Vue.component('MdContent', { MdContent})
-// Vue.use(VueMaterial);
 
 // Don't warn about using the dev version of Vue in development.
 Vue.config.productionTip = process.env.NODE_ENV === 'production'
