@@ -32,9 +32,8 @@ export default {
 </script>
 
 <template>
-  <div
-    >dddd
-    <!-- <md-table>
+  <div>
+    <md-table>
       <md-table-toolbar>
         <h1 class="md-title">Users</h1>
       </md-table-toolbar>
@@ -42,10 +41,15 @@ export default {
         <md-table-head
           v-for="(value, propertyName) in dataArray[0]"
           :key="propertyName"
-        >{{propertyName | titleFilter}}</md-table-head>
+          >{{ propertyName | titleFilter }}</md-table-head
+        >
       </md-table-row>
 
-      <md-table-row v-for="dataObj in dataArray" :key="dataObj.name" class="allrows">
+      <md-table-row
+        v-for="dataObj in dataArray"
+        :key="dataObj.name"
+        class="allrows"
+      >
         <md-table-cell
           v-for="(value, propertyName) in dataObj"
           :key="propertyName"
@@ -53,17 +57,17 @@ export default {
           v-html="mapValueImg(value, propertyName)"
         />
       </md-table-row>
-    </md-table>-->
+    </md-table>
   </div>
 </template>
 
 <style lang="scss" scoped>
-// .cell {
-//   padding-left: 24px;
-//   margin-top: 10px;
-//   margin-bottom: 10px;
-// }
-// .allrows:hover {
-//   background: lightgray;
-// }
+.cell {
+  padding-left: 24px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.allrows:hover {
+  background: lightgray;
+}
 </style>

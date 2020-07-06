@@ -3,8 +3,8 @@ import router from '@router'
 import store from '@state/store'
 
 // i imported the matirial component globali (instead of importing the whole libary)
-// import { MdTable, MdContent } from 'vue-material/dist/components'
-// import 'vue-material/dist/vue-material.css'
+import { MdTable, MdContent } from 'vue-material/dist/components'
+import 'vue-material/dist/vue-material.css'
 
 // import VueMaterial from 'vue-material';
 // import 'vue-material/dist/vue-material.min.css';
@@ -17,8 +17,8 @@ import '@components/_globals'
 // using and registering the matirial component globally
 
 // Vue.component('MdTable',{ 'md-table' : MdTable })
-// Vue.use(MdTable)
-// Vue.use(MdContent)
+Vue.use(MdTable)
+Vue.use(MdContent)
 
 // Vue.component('MdTable', { MdTable})
 // Vue.component('MdContent', { MdContent})
