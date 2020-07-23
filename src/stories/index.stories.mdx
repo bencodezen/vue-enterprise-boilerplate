@@ -1,0 +1,39 @@
+import { Meta, Props, Story, Preview } from '@storybook/addon-docs/blocks';
+import { action } from "@storybook/addon-actions";
+import { linkTo } from '@storybook/addon-links'
+import MyButton from '@components/_base-button.vue';
+
+<Meta title="MDX|Button" component={MyButton} />
+
+# Button
+
+<Props of={MyButton} />
+
+This is a simple button with some text in it.
+
+<Preview>
+  <Story name="With Text">
+    {{
+        components: { MyButton },
+        template: '<my-button @click="action">Hello Button</my-button>',
+        methods: { action: action("clicked") }
+    }}
+  </Story>
+</Preview>
+
+You can perform some action when the button is clicked.
+
+<Preview>
+  <RMyButton onClick={linkTo('Button', 'With Some Emoji')}>With JSX</RMyButton>
+</Preview>
+
+You can even have Emoji in the button.
+
+<Preview>
+  <Story name="With Some Emoji">
+    {{
+        components: { MyButton },
+        template: '<my-button>😀 😎 👍 💯</my-button>'
+    }}
+  </Story>
+</Preview>

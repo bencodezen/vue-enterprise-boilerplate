@@ -11,6 +11,7 @@ node_modules/
 /tests/e2e/screenshots/
 /tests/unit/coverage/
 jsconfig.json
+storybook-static
 
 # Local Env Files
 .env.local
