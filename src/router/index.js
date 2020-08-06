@@ -92,11 +92,13 @@ router.beforeResolve(async (routeTo, routeFrom, next) => {
               next(...args)
               reject(new Error('Redirected'))
             } else {
+              next()
               resolve()
             }
           })
         } else {
           // Otherwise, continue resolving the route.
+          next()
           resolve()
         }
       })
