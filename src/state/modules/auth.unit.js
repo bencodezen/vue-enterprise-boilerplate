@@ -71,6 +71,7 @@ describe('@state/modules/auth', () => {
 
     it('actions.logIn rejects with 401 when NOT already logged in and provided an incorrect username and password', () => {
       expect.assertions(1)
+      store.commit('SET_CURRENT_USER', null)
 
       return store
         .dispatch('logIn', {

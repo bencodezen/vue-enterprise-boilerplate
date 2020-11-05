@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-export const state = {
+export const state = () => ({
   currentUser: getSavedState('auth.currentUser'),
-}
+})
 
 export const mutations = {
   SET_CURRENT_USER(state, newValue) {
