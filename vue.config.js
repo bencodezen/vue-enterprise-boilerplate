@@ -1,10 +1,37 @@
-const path = require('path')
+// const path = require('path')
 const appConfig = require('./src/app.config')
 
-const resolve = (p) => path.resolve(__dirname, p)
+// const resolve = (p) => path.resolve(__dirname, p)
 
 /** @type import('@vue/cli-service').ProjectOptions */
 module.exports = {
+  // configureWebpack: {
+  //   resolve: {
+  //     alias: {
+  //       '@@': resolve('.'),
+  //     },
+  //   }
+  // },
+  // configureWebpack: config => {
+  //   config.resolve.alias = {
+  //     '@@@': resolve('.'),
+  //   }
+  // },
+  // configureWebpack: config => {
+  //   config.resolve.alias = {
+  //     '@@@@': resolve('.'),
+  //   }
+  //   return config
+  // },
+  // configureWebpack: () => {
+  //   return {
+  //     resolve: {
+  //       alias: {
+  //         '@@@@@': resolve('.'),
+  //       }
+  //     }
+  //   }
+  // },
   // https://github.com/neutrinojs/webpack-chain/tree/v4#getting-started
   chainWebpack(config) {
     // We provide the app's title in Webpack's name field, so that
@@ -41,18 +68,6 @@ module.exports = {
   },
   pluginOptions: {
     vite: {
-      alias: {
-        '@': resolve('.'),
-        '@src': resolve('src'),
-        '@router': resolve('src/router'),
-        '@views': resolve('src/router/views'),
-        '@layouts': resolve('src/router/layouts'),
-        '@components': resolve('src/components'),
-        '@assets': resolve('src/assets'),
-        '@utils': resolve('src/utils'),
-        '@state': resolve('src/state'),
-        '@design': resolve('src/design/index.scss'),
-      },
       vitePluginVue2Options: {
         jsx: true,
       },
