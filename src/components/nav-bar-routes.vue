@@ -1,4 +1,4 @@
-<script>
+<script lang="jsx">
 // Allows stubbing BaseLink in unit tests
 const BaseLink = 'BaseLink'
 

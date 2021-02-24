@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+const path = require('path')
+const { spawn } = require('child_process')
+const configPath = require.resolve('vue-cli-plugin-vite/config/index.ts')
+const cwd = path.resolve(__dirname, '../')
+
+const MODE = process.env.MODE
+const params = [
+  `${process.env.BUILD ? 'build' : ''}`,
+  process.env.VITE_DEBUG ? '--debug' : '',
+  '--config',
+  `${configPath}`,
+].filter(Boolean)
+
+console.log(`running: vite ${params.join(' ')}`)
+const serveService = spawn('vite', params, { cwd, stdio: 'inherit' })
+
+serveService.on('close', code => {
+  process.exit(code)
+})

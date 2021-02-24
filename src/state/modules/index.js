@@ -54,15 +54,15 @@ const storeData = { modules: {} }
   })
 
   // If the environment supports hot reloading...
-  if (module.hot) {
-    // Whenever any Vuex module is updated...
-    module.hot.accept(requireModule.id, () => {
-      // Update `storeData.modules` with the latest definitions.
-      updateModules()
-      // Trigger a hot update in the store.
-      require('../store').default.hotUpdate({ modules: storeData.modules })
-    })
-  }
+  // if (module.hot) {
+  //   // Whenever any Vuex module is updated...
+  //   module.hot.accept(requireModule.id, () => {
+  //     // Update `storeData.modules` with the latest definitions.
+  //     updateModules()
+  //     // Trigger a hot update in the store.
+  //     require('../store').default.hotUpdate({ modules: storeData.modules })
+  //   })
+  // }
 })()
 
 // Recursively get the namespace of a Vuex module, even if nested.

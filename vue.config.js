@@ -1,4 +1,7 @@
+const path = require('path')
 const appConfig = require('./src/app.config')
+
+const resolve = (p) => path.resolve(__dirname, p)
 
 /** @type import('@vue/cli-service').ProjectOptions */
 module.exports = {
@@ -35,5 +38,24 @@ module.exports = {
         { proxy: { '/api': { target: process.env.API_BASE_URL } } }
       : // Proxy API endpoints a local mock API.
         { before: require('./tests/mock-api') }),
+  },
+  pluginOptions: {
+    vite: {
+      alias: {
+        '@': resolve('.'),
+        '@src': resolve('src'),
+        '@router': resolve('src/router'),
+        '@views': resolve('src/router/views'),
+        '@layouts': resolve('src/router/layouts'),
+        '@components': resolve('src/components'),
+        '@assets': resolve('src/assets'),
+        '@utils': resolve('src/utils'),
+        '@state': resolve('src/state'),
+        '@design': resolve('src/design/index.scss'),
+      },
+      vitePluginVue2Options: {
+        jsx: true,
+      },
+    },
   },
 }
