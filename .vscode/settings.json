@@ -6,10 +6,10 @@
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
   "editor.trimAutoWhitespace": true,
-  "files.trimTrailingWhitespace": true,
+  // "files.trimTrailingWhitespace": true,
   "files.eol": "\n",
-  "files.insertFinalNewline": true,
-  "files.trimFinalNewlines": true,
+  // "files.insertFinalNewline": true,
+  // "files.trimFinalNewlines": true,
 
   // ===
   // Files
@@ -30,12 +30,12 @@
   // ===
 
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true,
-    "source.fixAll.markdownlint": true
-  },
+  // "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // "editor.codeActionsOnSave": {
+  //   "source.fixAll.eslint": true,
+  //   "source.fixAll.stylelint": true,
+  //   "source.fixAll.markdownlint": true
+  // },
   "eslint.validate": [
     "javascript",
     "javascriptreact",

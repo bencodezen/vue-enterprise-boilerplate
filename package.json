@@ -27,23 +27,20 @@
     "docs": "vuepress dev",
     "docker": "docker-compose exec dev yarn"
   },
-  "gitHooks": {
-    "pre-commit": "cross-env PRE_COMMIT=true lint-staged"
-  },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "1.2.27",
-    "@fortawesome/free-solid-svg-icons": "5.12.1",
-    "@fortawesome/vue-fontawesome": "0.1.9",
-    "axios": "0.19.2",
-    "core-js": "3.6.4",
-    "date-fns": "2.10.0",
-    "lodash": "4.17.15",
-    "normalize.css": "8.0.1",
-    "nprogress": "0.2.0",
-    "vue": "2.6.11",
-    "vue-meta": "2.3.3",
-    "vue-router": "3.1.6",
-    "vuex": "3.1.2"
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@fortawesome/vue-fontawesome": "^0.1.9",
+    "axios": "^0.19.2",
+    "core-js": "^3.6.4",
+    "date-fns": "^2.10.0",
+    "lodash": "^4.17.15",
+    "normalize.css": "^8.0.1",
+    "nprogress": "^0.2.0",
+    "vue": "^2.6.11",
+    "vue-meta": "^2.3.3",
+    "vue-router": "^3.1.6",
+    "vuex": "^3.1.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "4.2.x",

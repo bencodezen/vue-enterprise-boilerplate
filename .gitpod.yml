@@ -4,3 +4,7 @@ image:
 tasks:
   - init: yarn install && yarn run build
     command: yarn run dev
+
+vscode:
+  extensions:
+    - stylelint.vscode-stylelint@0.86.0:b7wCsBPLKjtb6EgCXLO5sg==
