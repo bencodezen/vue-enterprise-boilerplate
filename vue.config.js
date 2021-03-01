@@ -1,37 +1,7 @@
-// const path = require('path')
 const appConfig = require('./src/app.config')
-
-// const resolve = (p) => path.resolve(__dirname, p)
 
 /** @type import('@vue/cli-service').ProjectOptions */
 module.exports = {
-  // configureWebpack: {
-  //   resolve: {
-  //     alias: {
-  //       '@@': resolve('.'),
-  //     },
-  //   }
-  // },
-  // configureWebpack: config => {
-  //   config.resolve.alias = {
-  //     '@@@': resolve('.'),
-  //   }
-  // },
-  // configureWebpack: config => {
-  //   config.resolve.alias = {
-  //     '@@@@': resolve('.'),
-  //   }
-  //   return config
-  // },
-  // configureWebpack: () => {
-  //   return {
-  //     resolve: {
-  //       alias: {
-  //         '@@@@@': resolve('.'),
-  //       }
-  //     }
-  //   }
-  // },
   // https://github.com/neutrinojs/webpack-chain/tree/v4#getting-started
   chainWebpack(config) {
     // We provide the app's title in Webpack's name field, so that
