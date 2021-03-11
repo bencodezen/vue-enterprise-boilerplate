@@ -29,10 +29,10 @@ export default {
 
 // Normalize default styles across browsers,
 // https://necolas.github.io/normalize.css/
-@import 'normalize.css/normalize.css';
+@import '../node_modules/normalize.css/normalize.css';
 // Style loading bar between pages.
 // https://github.com/rstacruz/nprogress
-@import 'nprogress/nprogress.css';
+@import '../node_modules/nprogress/nprogress.css';
 
 // Design variables and utilities from src/design.
 @import '@design';
