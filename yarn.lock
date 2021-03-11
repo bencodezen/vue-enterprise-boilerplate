@@ -14246,10 +14246,10 @@ vfile@^3.0.0:
     unist-util-stringify-position "^1.0.0"
     vfile-message "^1.0.0"
 
-vite-plugin-env-compatible@0.1.0:
-  version "0.1.0"
-  resolved "http://r.npm.sankuai.com/vite-plugin-env-compatible/download/vite-plugin-env-compatible-0.1.0.tgz#b15b38c27783c165621fc4b7fe052644f64bb80d"
-  integrity sha1-sVs4wneDwWViH8S3/gUmRPZLuA0=
+vite-plugin-env-compatible@0.2.0:
+  version "0.2.0"
+  resolved "http://r.npm.sankuai.com/vite-plugin-env-compatible/download/vite-plugin-env-compatible-0.2.0.tgz#dad330eb15ed104fd17592c79d3482a466f368e3"
+  integrity sha1-2tMw6xXtEE/RdZLHnTSCpGbzaOM=
 
 vite-plugin-mpa@0.3.1:
   version "0.3.1"
@@ -14313,13 +14313,13 @@ vm-browserify@^1.0.1:
   resolved "http://r.npm.sankuai.com/vm-browserify/download/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha1-eGQcSIuObKkadfUR56OzKobl3aA=
 
-vue-cli-plugin-vite@0.3.2:
-  version "0.3.2"
-  resolved "http://r.npm.sankuai.com/vue-cli-plugin-vite/download/vue-cli-plugin-vite-0.3.2.tgz#4df26bc1aa099c23156d50237880c77adbf3f07d"
-  integrity sha1-TfJrwaoJnCMVbVAjeIDHetvz8H0=
+vue-cli-plugin-vite@0.3.3:
+  version "0.3.3"
+  resolved "http://r.npm.sankuai.com/vue-cli-plugin-vite/download/vue-cli-plugin-vite-0.3.3.tgz#3328ddbc4b6a9098d89b4ee2dd0dddba94576bec"
+  integrity sha1-MyjdvEtqkJjYm07i3Q3dupRXa+w=
   dependencies:
     vite "2.0.5"
-    vite-plugin-env-compatible "0.1.0"
+    vite-plugin-env-compatible "0.2.0"
     vite-plugin-mpa "0.3.1"
     vite-plugin-vue-cli "0.4.2"
     vite-plugin-vue2 "1.2.2"
