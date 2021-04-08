@@ -3892,6 +3892,14 @@ ccount@^1.0.0:
   resolved "http://r.npm.sankuai.com/ccount/download/ccount-1.1.0.tgz#246687debb6014735131be8abab2d93898f8d043"
   integrity sha1-JGaH3rtgFHNRMb6KurLZOJj40EM=
 
+chalk@4.1.0, chalk@^4.0.0, chalk@^4.1.0:
+  version "4.1.0"
+  resolved "http://r.npm.sankuai.com/chalk/download/chalk-4.1.0.tgz#4e14870a618d9e2edd97dd8345fd9d9dc315646a"
+  integrity sha1-ThSHCmGNni7dl92DRf2dncMVZGo=
+  dependencies:
+    ansi-styles "^4.1.0"
+    supports-color "^7.1.0"
+
 chalk@^1.0.0, chalk@^1.1.3:
   version "1.1.3"
   resolved "http://r.npm.sankuai.com/chalk/download/chalk-1.1.3.tgz#a8115c55e4a702fe4d150abd3872822a7e09fc98"
@@ -3916,14 +3924,6 @@ chalk@^3.0.0:
   version "3.0.0"
   resolved "http://r.npm.sankuai.com/chalk/download/chalk-3.0.0.tgz#3f73c2bf526591f574cc492c51e2456349f844e4"
   integrity sha1-P3PCv1JlkfV0zEksUeJFY0n4ROQ=
-  dependencies:
-    ansi-styles "^4.1.0"
-    supports-color "^7.1.0"
-
-chalk@^4.0.0, chalk@^4.1.0:
-  version "4.1.0"
-  resolved "http://r.npm.sankuai.com/chalk/download/chalk-4.1.0.tgz#4e14870a618d9e2edd97dd8345fd9d9dc315646a"
-  integrity sha1-ThSHCmGNni7dl92DRf2dncMVZGo=
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
@@ -5594,10 +5594,10 @@ es6-promise@^4.1.0:
   resolved "http://r.npm.sankuai.com/es6-promise/download/es6-promise-4.2.8.tgz#4eb21594c972bc40553d276e510539143db53e0a"
   integrity sha1-TrIVlMlyvEBVPSduUQU5FD21Pgo=
 
-esbuild@^0.8.52:
-  version "0.8.55"
-  resolved "http://r.npm.sankuai.com/esbuild/download/esbuild-0.8.55.tgz#4bf949c44db4ffc2a206ac0c002e8e94eecff7d5"
-  integrity sha1-S/lJxE20/8KiBqwMAC6OlO7P99U=
+esbuild@^0.9.3:
+  version "0.9.7"
+  resolved "http://r.npm.sankuai.com/esbuild/download/esbuild-0.9.7.tgz#ea0d639cbe4b88ec25fbed4d6ff00c8d788ef70b"
+  integrity sha1-6g1jnL5LiOwl++1Nb/AMjXiO9ws=
 
 escalade@^3.1.1:
   version "3.1.1"
@@ -14240,10 +14240,17 @@ vfile@^3.0.0:
     unist-util-stringify-position "^1.0.0"
     vfile-message "^1.0.0"
 
-vite-plugin-env-compatible@0.2.0:
+vite-plugin-env-compatible@0.2.1:
+  version "0.2.1"
+  resolved "http://r.npm.sankuai.com/vite-plugin-env-compatible/download/vite-plugin-env-compatible-0.2.1.tgz#5a72e4f2cdddb9b3104bfba8f2fe37c7b880afed"
+  integrity sha1-WnLk8s3dubMQS/uo8v43x7iAr+0=
+
+vite-plugin-html-template@0.2.0:
   version "0.2.0"
-  resolved "http://r.npm.sankuai.com/vite-plugin-env-compatible/download/vite-plugin-env-compatible-0.2.0.tgz#dad330eb15ed104fd17592c79d3482a466f368e3"
-  integrity sha1-2tMw6xXtEE/RdZLHnTSCpGbzaOM=
+  resolved "http://r.npm.sankuai.com/vite-plugin-html-template/download/vite-plugin-html-template-0.2.0.tgz#030d443567edee7ddfb438361a5a0ebeae9a5183"
+  integrity sha1-Aw1ENWft7n3ftDg2GloOvq6aUYM=
+  dependencies:
+    shelljs "0.8.4"
 
 vite-plugin-mpa@0.3.1:
   version "0.3.1"
@@ -14254,10 +14261,10 @@ vite-plugin-mpa@0.3.1:
     shelljs "0.8.4"
     yargs "16.2.0"
 
-vite-plugin-vue-cli@0.6.1:
-  version "0.6.1"
-  resolved "http://r.npm.sankuai.com/vite-plugin-vue-cli/download/vite-plugin-vue-cli-0.6.1.tgz#e5d7e5f9763bb5e9c40e865849c7439394b245c5"
-  integrity sha1-5dfl+XY7tenEDoZYScdDk5SyRcU=
+vite-plugin-vue-cli@0.7.1:
+  version "0.7.1"
+  resolved "http://r.npm.sankuai.com/vite-plugin-vue-cli/download/vite-plugin-vue-cli-0.7.1.tgz#7f1a266d843dadc728d73d019556c93ee6da4383"
+  integrity sha1-fxombYQ9rcco1z0BlVbJPubaQ4M=
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-transform-typescript" "^7.12.1"
@@ -14266,10 +14273,10 @@ vite-plugin-vue-cli@0.6.1:
     "@rollup/pluginutils" "^4.1.0"
     express "4.17.1"
 
-vite-plugin-vue2@1.4.1:
-  version "1.4.1"
-  resolved "http://r.npm.sankuai.com/vite-plugin-vue2/download/vite-plugin-vue2-1.4.1.tgz#a336cfc7ee4fecc8119d4b4376684d5db279bf2b"
-  integrity sha1-ozbPx+5P7MgRnUtDdmhNXbJ5vys=
+vite-plugin-vue2@1.4.3:
+  version "1.4.3"
+  resolved "http://r.npm.sankuai.com/vite-plugin-vue2/download/vite-plugin-vue2-1.4.3.tgz#8ac3cba219ee459bf0cb9c1f2096f10a0961a792"
+  integrity sha1-isPLohnuRZvwy5wfIJbxCglhp5I=
   dependencies:
     "@babel/core" "^7.11.6"
     "@babel/parser" "^7.13.10"
@@ -14294,12 +14301,12 @@ vite-plugin-vue2@1.4.1:
     vue-template-compiler "^2.6.11"
     vue-template-es2015-compiler "^1.9.1"
 
-vite@2.0.5:
-  version "2.0.5"
-  resolved "http://r.npm.sankuai.com/vite/download/vite-2.0.5.tgz#ac46857a3fa8686d077921e61bd48a986931df1d"
-  integrity sha1-rEaFej+oaG0HeSHmG9SKmGkx3x0=
+vite@2.1.5:
+  version "2.1.5"
+  resolved "http://r.npm.sankuai.com/vite/download/vite-2.1.5.tgz#4857da441c62f7982c83cbd5f42a00330f20c9c1"
+  integrity sha1-SFfaRBxi95gsg8vV9CoAMw8gycE=
   dependencies:
-    esbuild "^0.8.52"
+    esbuild "^0.9.3"
     postcss "^8.2.1"
     resolve "^1.19.0"
     rollup "^2.38.5"
@@ -14311,16 +14318,18 @@ vm-browserify@^1.0.1:
   resolved "http://r.npm.sankuai.com/vm-browserify/download/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha1-eGQcSIuObKkadfUR56OzKobl3aA=
 
-vue-cli-plugin-vite@0.4.0:
-  version "0.4.0"
-  resolved "http://r.npm.sankuai.com/vue-cli-plugin-vite/download/vue-cli-plugin-vite-0.4.0.tgz#29f5c09612ca1cb9be322cd58db43215a6dcbd90"
-  integrity sha1-KfXAlhLKHLm+MizVjbQyFabcvZA=
+vue-cli-plugin-vite@1.0.0-rc.1:
+  version "1.0.0-rc.1"
+  resolved "http://r.npm.sankuai.com/vue-cli-plugin-vite/download/vue-cli-plugin-vite-1.0.0-rc.1.tgz#46c88f09df897eb63ea409a650084b3ec9959238"
+  integrity sha1-RsiPCd+JfrY+pAmmUAhLPsmVkjg=
   dependencies:
-    vite "2.0.5"
-    vite-plugin-env-compatible "0.2.0"
+    chalk "4.1.0"
+    vite "2.1.5"
+    vite-plugin-env-compatible "0.2.1"
+    vite-plugin-html-template "0.2.0"
     vite-plugin-mpa "0.3.1"
-    vite-plugin-vue-cli "0.6.1"
-    vite-plugin-vue2 "1.4.1"
+    vite-plugin-vue-cli "0.7.1"
+    vite-plugin-vue2 "1.4.3"
 
 vue-eslint-parser@^7.0.0:
   version "7.5.0"
