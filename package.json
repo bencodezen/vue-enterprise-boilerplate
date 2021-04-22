@@ -48,6 +48,7 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "4.2.x",
+    "@vue/cli-plugin-e2e-cypress": "4.2.x",
     "@vue/cli-plugin-eslint": "4.2.x",
     "@vue/cli-plugin-unit-jest": "4.2.x",
     "@vue/cli-service": "4.2.x",
