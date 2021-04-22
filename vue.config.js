@@ -41,6 +41,24 @@ module.exports = {
       vitePluginVue2Options: {
         jsx: true,
       },
+      optimizeDeps: {
+        include: [
+          'vue',
+          'vuex',
+          'vue-router',
+          'vue-meta',
+          'axios',
+          'nprogress/nprogress',
+          'lodash/camelCase',
+          '@fortawesome/vue-fontawesome',
+          '@fortawesome/fontawesome-svg-core',
+          '@fortawesome/free-solid-svg-icons/faSync',
+          '@fortawesome/free-solid-svg-icons/faUser',
+          // dont know why core-js module logged
+          'core-js/modules/es.array.map.js',
+          'core-js/modules/es.function.name.js',
+        ],
+      },
     },
   },
 }
