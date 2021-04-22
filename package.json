@@ -54,7 +54,7 @@
     "@vue/eslint-config-prettier": "6.0.x",
     "@vue/eslint-config-standard": "5.1.x",
     "@vue/test-utils": "1.0.0-beta.31",
-    "vue-cli-plugin-vite": "1.0.0-rc.1",
+    "vue-cli-plugin-vite": "1.0.0-rc.5",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.1.x",
     "cross-env": "7.0.x",
