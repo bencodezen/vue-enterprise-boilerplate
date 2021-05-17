@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios'
+import { isEmpty } from 'lodash'
 
 export default {
   page: {
@@ -9,6 +10,11 @@ export default {
     return {
       quotes: [],
       currentQuoteIndex: -1,
+      characters: [],
+      movies: [],
+      quoteText: '',
+      quoteAuthor: '',
+      quoteMovie: '',
     }
   },
   mounted() {
@@ -17,7 +23,7 @@ export default {
   methods: {
     fetchData() {
       axios
-        .get('https://the-one-api.dev/v2/quote', {
+        .get('https://the-one-api.dev/v2/quote?limit=1000000', {
           headers: {
             Authorization: 'Bearer uzUMPxE8664bijd0sxRi',
           },
@@ -25,10 +31,29 @@ export default {
         .then((res) => {
           this.quotes = res.data.docs
         })
+      axios
+        .get('https://the-one-api.dev/v2/character', {
+          headers: {
+            Authorization: 'Bearer uzUMPxE8664bijd0sxRi',
+          },
+        })
+        .then((res) => {
+          this.characters = res.data.docs
+        })
+      axios
+        .get('https://the-one-api.dev/v2/movie', {
+          headers: {
+            Authorization: 'Bearer uzUMPxE8664bijd0sxRi',
+          },
+        })
+        .then((res) => {
+          this.movies = res.data.docs
+        })
     },
     getRandomQuoteIndex() {
       const max = this.quotes.length
       this.currentQuoteIndex = Math.round(Math.random() * max)
+      this.getQuoteDetails()
     },
     getRandomQuote() {
       if (
@@ -38,12 +63,30 @@ export default {
       ) {
         return ''
       }
-      const foundQuote = this.quotes[this.currentQuoteIndex]?.dialog
+
+      let foundQuote = this.quotes[this.currentQuoteIndex]?.dialog
       if (foundQuote.length > 200) {
         this.getRandomQuoteIndex()
-        return this.quotes[this.currentQuoteIndex]?.dialog
+        foundQuote = this.quotes[this.currentQuoteIndex]?.dialog
       }
-      return foundQuote
+      this.quoteText = foundQuote
+      return this.quotes[this.currentQuoteIndex]
+    },
+    getQuoteDetails() {
+      const quote = this.getRandomQuote()
+      if (!isEmpty(this.characters)) {
+        const author = this.characters.find(
+          (character) => character._id === quote.character
+        )
+        this.quoteAuthor = author?.name || ''
+      }
+
+      if (!isEmpty(this.movies)) {
+        const movieOfOrigin = this.movies.find(
+          (movie) => movie._id === quote.movie
+        )
+        this.quoteMovie = movieOfOrigin?.name || ''
+      }
     },
   },
 }
@@ -56,9 +99,15 @@ export default {
     </BaseButton>
     <div :class="$style.quoteContainer">
       <div v-if="currentQuoteIndex > -1" :class="$style.startQuote">"</div>
-      <h3>
-        {{ getRandomQuote() }}
-      </h3>
+      <div>
+        <h3>
+          {{ quoteText }}
+        </h3>
+        <div :class="$style.quoteDetails">
+          <p>{{ quoteAuthor ? `~ ${quoteAuthor}` : '' }}</p>
+          <p :class="$style.quoteMovie">{{ quoteMovie }}</p>
+        </div>
+      </div>
       <div v-if="currentQuoteIndex > -1" :class="$style.endQuote">"</div>
     </div>
   </div>
@@ -100,6 +149,17 @@ export default {
     position: fixed;
     top: 30vh;
     right: 30px;
+  }
+
+  .quoteDetails {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+
+  .quoteMovie {
+    margin-top: 0;
+    font-style: italic;
   }
 }
 </style>
