@@ -14,11 +14,9 @@ export default {
 </template>
 
 <style lang="scss" module>
-@import '@design';
-
 .container {
-  min-width: $size-content-width-min;
-  max-width: $size-content-width-max;
-  margin: 0 auto;
+  min-width: 90vw;
+  max-width: 90vw;
+  margin: 20px;
 }
 </style>

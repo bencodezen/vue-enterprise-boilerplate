@@ -48,6 +48,9 @@ body {
 }
 #app {
   @extend %typography-small;
+
+  display: flex;
+  justify-content: center;
 }
 
 // ===
@@ -57,10 +60,11 @@ body {
 a,
 a:visited {
   color: $color-link-text;
+  text-decoration: none;
 }
 
 h1 {
-  @extend %typography-xxlarge;
+  @extend %typography-xlarge;
 }
 
 h2 {
@@ -68,7 +72,7 @@ h2 {
 }
 
 h3 {
-  @extend %typography-large;
+  @extend %typography-xxlarge;
 }
 
 h4 {
