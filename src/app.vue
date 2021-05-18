@@ -44,6 +44,8 @@ export default {
 }
 
 body {
+  width: 100vw;
+  height: 100vh;
   background: $color-body-bg;
 }
 #app {

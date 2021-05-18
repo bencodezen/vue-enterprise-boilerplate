@@ -7,6 +7,11 @@ export default [
     component: () => lazyLoadView(import('@views/home.vue')),
   },
   {
+    path: '/favourites',
+    name: 'favourites',
+    component: () => lazyLoadView(import('@views/favourites.vue')),
+  },
+  {
     path: '/login',
     name: 'login',
     component: () => lazyLoadView(import('@views/login.vue')),

@@ -1,10 +1,13 @@
 <script>
 import axios from 'axios'
-import { isEmpty } from 'lodash'
+import RandomQuoteDetailsSection from './random-quote-details-section.vue'
 
 export default {
   page: {
     title: 'Random Quote',
+  },
+  components: {
+    RandomQuoteDetailsSection,
   },
   data() {
     return {
@@ -13,8 +16,6 @@ export default {
       characters: [],
       movies: [],
       quoteText: '',
-      quoteAuthor: '',
-      quoteMovie: '',
     }
   },
   mounted() {
@@ -53,7 +54,6 @@ export default {
     getRandomQuoteIndex() {
       const max = this.quotes.length
       this.currentQuoteIndex = Math.round(Math.random() * max)
-      this.getQuoteDetails()
     },
     getRandomQuote() {
       if (
@@ -61,7 +61,7 @@ export default {
         this.currentQuoteIndex < 0 ||
         !this.quotes[this.currentQuoteIndex]
       ) {
-        return ''
+        return
       }
 
       let foundQuote = this.quotes[this.currentQuoteIndex]?.dialog
@@ -71,22 +71,6 @@ export default {
       }
       this.quoteText = foundQuote
       return this.quotes[this.currentQuoteIndex]
-    },
-    getQuoteDetails() {
-      const quote = this.getRandomQuote()
-      if (!isEmpty(this.characters)) {
-        const author = this.characters.find(
-          (character) => character._id === quote.character
-        )
-        this.quoteAuthor = author?.name || ''
-      }
-
-      if (!isEmpty(this.movies)) {
-        const movieOfOrigin = this.movies.find(
-          (movie) => movie._id === quote.movie
-        )
-        this.quoteMovie = movieOfOrigin?.name || ''
-      }
     },
   },
 }
@@ -103,10 +87,12 @@ export default {
         <h3>
           {{ quoteText }}
         </h3>
-        <div :class="$style.quoteDetails">
-          <p>{{ quoteAuthor ? `~ ${quoteAuthor}` : '' }}</p>
-          <p :class="$style.quoteMovie">{{ quoteMovie }}</p>
-        </div>
+        <RandomQuoteDetailsSection
+          :quote="getRandomQuote()"
+          :movies="movies"
+          :characters="characters"
+          :quote-text="quoteText"
+        />
       </div>
       <div v-if="currentQuoteIndex > -1" :class="$style.endQuote">"</div>
     </div>
@@ -149,17 +135,6 @@ export default {
     position: fixed;
     top: 30vh;
     right: 30px;
-  }
-
-  .quoteDetails {
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-  }
-
-  .quoteMovie {
-    margin-top: 0;
-    font-style: italic;
   }
 }
 </style>

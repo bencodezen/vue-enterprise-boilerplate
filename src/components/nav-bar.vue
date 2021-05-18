@@ -6,7 +6,12 @@ export default {
   components: { NavBarRoutes },
   data() {
     return {
-      persistentNavRoutes: [],
+      persistentNavRoutes: [
+        {
+          name: 'favourites',
+          title: 'Favourites',
+        },
+      ],
       loggedInNavRoutes: [
         {
           name: 'logout',

@@ -35,6 +35,7 @@
     "@fortawesome/free-solid-svg-icons": "5.12.1",
     "@fortawesome/vue-fontawesome": "0.1.9",
     "axios": "0.19.2",
+    "buefy": "^0.9.7",
     "core-js": "3.6.4",
     "date-fns": "2.10.0",
     "lodash": "4.17.15",
