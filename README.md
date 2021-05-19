@@ -2,11 +2,11 @@
 
 Have fun here: https://goofy-pare-8dd54e.netlify.app/
 
-[x] Randomizing quotes from LOTR movies
-[x] Displaying author and movie of origin
-[x] Adding quotes to favourites - saved in local storage
-[x] Reviewing favourite quotes on dedicated part of website
-[ ] Sharing quotes with friends
+- [x] Randomizing quotes from LOTR movies
+- [x] Displaying author and movie of origin
+- [x] Adding quotes to favourites - saved in local storage
+- [x] Reviewing favourite quotes on dedicated part of website
+- [ ] Sharing quotes with friends
 
 App based on [Vue Enterprise Boilerplate](https://github.com/bencodezen/vue-enterprise-boilerplate), using [LOTR API](https://the-one-api.dev/)
 
