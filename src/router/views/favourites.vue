@@ -14,6 +14,7 @@ export default {
 
 <template>
   <Layout>
+    <h2 class="title is-3 ml-3 mb-1">Favourite quotes</h2>
     <FavouritesList />
   </Layout>
 </template>

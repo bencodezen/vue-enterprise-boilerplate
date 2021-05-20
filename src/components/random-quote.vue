@@ -52,7 +52,7 @@ export default {
         })
     },
     getRandomQuoteIndex() {
-      const max = this.quotes.length
+      const max = this.quotes.length - 1
       this.currentQuoteIndex = Math.round(Math.random() * max)
     },
     getRandomQuote() {

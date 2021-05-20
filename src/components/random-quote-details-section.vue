@@ -36,8 +36,11 @@ export default {
     ...favouritesComputed,
   },
   watch: {
-    quote() {
-      this.getQuoteDetails()
+    quote: {
+      immediate: true,
+      handler() {
+        this.getQuoteDetails()
+      },
     },
   },
   methods: {

@@ -37,6 +37,7 @@
     "axios": "0.19.2",
     "buefy": "^0.9.7",
     "core-js": "3.6.4",
+    "cypress": "^7.3.0",
     "date-fns": "2.10.0",
     "lodash": "4.17.15",
     "normalize.css": "8.0.1",
@@ -48,7 +49,7 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "4.2.x",
-    "@vue/cli-plugin-e2e-cypress": "4.2.x",
+    "@vue/cli-plugin-e2e-cypress": "4.5.13",
     "@vue/cli-plugin-eslint": "4.2.x",
     "@vue/cli-plugin-unit-jest": "4.2.x",
     "@vue/cli-service": "4.2.x",
