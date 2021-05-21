@@ -26,6 +26,8 @@ export const mutations = {
   },
 }
 
+export const getters = {}
+
 export const actions = {
   init({ commit }) {
     commit('INIT_FAVOURITE_QUOTES')

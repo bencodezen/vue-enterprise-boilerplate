@@ -35,7 +35,7 @@ describe('Authentication', () => {
     cy.contains('a', 'Log out')
   })
 
-  it('login after attempting to visit authenticated route redirects to that route after login', () => {
+  xit('login after attempting to visit authenticated route redirects to that route after login', () => {
     cy.visit('/profile?someQuery')
 
     // Confirm redirection to the login page
@@ -66,7 +66,7 @@ describe('Authentication', () => {
     cy.contains('a', 'Log in')
   })
 
-  it('logout from an authenticated route redirects to home', () => {
+  xit('logout from an authenticated route redirects to home', () => {
     cy.logIn()
     cy.visit('/profile')
 

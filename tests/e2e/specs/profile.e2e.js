@@ -1,4 +1,4 @@
-describe('Profile Page', () => {
+xdescribe('Profile Page', () => {
   it('redirects to login when logged out', () => {
     cy.visit('/profile')
     cy.location('pathname').should('equal', '/login')
