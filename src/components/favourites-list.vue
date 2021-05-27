@@ -15,11 +15,11 @@ export default {
   methods: {
     ...favouritesMethods,
     copyToClipboard(quote) {
-      const link = `${window.location.host}/quote/${quote.id}`
       if (navigator.share) {
+        const link = `/quote/${quote.id}`
         navigator.share({ text: 'My new favourite LOTR quote', url: link })
       } else {
-        this.newText = link
+        const link = `${window.location.host}/quote/${quote.id}`
         navigator.clipboard.writeText(link)
       }
     },

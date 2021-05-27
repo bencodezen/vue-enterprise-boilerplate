@@ -1,12 +1,12 @@
 # :crown: The one app to randomize them all - 💍 LOTR quotes randomizer
 
-Have fun here: https://goofy-pare-8dd54e.netlify.app/
+Have fun [here](https://goofy-pare-8dd54e.netlify.app/) :crown:
 
 - [x] Randomizing quotes from LOTR movies
 - [x] Displaying author and movie of origin
 - [x] Adding quotes to favourites - saved in local storage
 - [x] Reviewing favourite quotes on dedicated part of website
-- [ ] Sharing quotes with friends
+- [x] Sharing quotes with friends
 
 App based on [Vue Enterprise Boilerplate](https://github.com/bencodezen/vue-enterprise-boilerplate), using [LOTR API](https://the-one-api.dev/)
 
