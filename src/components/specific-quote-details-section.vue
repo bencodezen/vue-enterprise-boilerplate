@@ -1,75 +1,37 @@
 <script>
 import { isEmpty } from 'lodash'
-import CopyToClipboard from '@components/./copy-to-clipboard.vue'
 import { favouritesComputed, favouritesMethods } from '@state/helpers'
 
 export default {
-  components: {
-    CopyToClipboard,
-  },
   props: {
-    quote: {
-      type: Object,
-      default: () => ({
-        id: '',
-        text: '',
-        character: '',
-        movie: '',
-      }),
-    },
-    characters: {
-      type: Array,
-      default: () => [],
-    },
-    movies: {
-      type: Array,
-      default: () => [],
+    quoteId: {
+      type: String,
+      default: '',
     },
     quoteText: {
       type: String,
       default: () => '',
     },
-  },
-  data() {
-    return {
-      quoteAuthor: '',
-      quoteMovie: '',
-    }
+    author: {
+      type: String,
+      default: () => '',
+    },
+    movie: {
+      type: String,
+      default: () => '',
+    },
   },
   computed: {
     ...favouritesComputed,
   },
-  watch: {
-    quote: {
-      immediate: true,
-      handler() {
-        this.getQuoteDetails()
-      },
-    },
-  },
   methods: {
     ...favouritesMethods,
-    getQuoteDetails() {
-      if (!isEmpty(this.characters)) {
-        const author = this.characters.find(
-          (character) => character._id === this.quote?.character
-        )
-        this.quoteAuthor = author?.name || ''
-      }
-
-      if (!isEmpty(this.movies)) {
-        const movieOfOrigin = this.movies.find(
-          (movie) => movie?._id === this.quote?.movie
-        )
-        this.quoteMovie = movieOfOrigin?.name || ''
-      }
-    },
     getCurrentQuoteObject() {
       return {
-        id: this.quote?._id,
+        id: this.quoteId,
         text: this.quoteText,
-        author: this.quoteAuthor,
-        movie: this.quoteMovie,
+        author: this.author,
+        movie: this.movie,
       }
     },
     addToFavourites() {
@@ -82,21 +44,12 @@ export default {
       let isFav = false
       if (!isEmpty(this.favouriteQuotes)) {
         this.favouriteQuotes.map((favouriteQuote) => {
-          if (favouriteQuote.id === this.quote._id) {
+          if (favouriteQuote.text === this.quoteText) {
             isFav = true
           }
         })
       }
       return isFav
-    },
-    copyToClipboard(quote) {
-      const link = `${window.location.host}/quote/${quote._id}`
-      if (navigator.share) {
-        navigator.share({ text: 'My new favourite LOTR quote', url: link })
-      } else {
-        this.newText = link
-        navigator.clipboard.writeText(link)
-      }
     },
   },
 }
@@ -104,9 +57,9 @@ export default {
 
 <template>
   <div>
-    <div v-if="quote._id" :class="$style.quoteDetails">
-      <p>{{ quoteAuthor ? `~ ${quoteAuthor}` : '' }}</p>
-      <p :class="$style.quoteMovie">{{ quoteMovie }}</p>
+    <div v-if="quoteId" :class="$style.quoteDetails">
+      <p>{{ author ? `~ ${author}` : '' }}</p>
+      <p :class="$style.quoteMovie">{{ movie }}</p>
       <section
         v-if="!isFavourited()"
         :class="$style.favouriteSection"
@@ -131,12 +84,6 @@ export default {
         />
         Remove from favourites
       </section>
-      <span :class="$style.favouriteSection" @click="copyToClipboard(quote)">
-        <CopyToClipboard
-          button-text="Share with a friend"
-          tooltip-text="Copy link to clipboard"
-        />
-      </span>
     </div>
   </div>
 </template>

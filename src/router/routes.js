@@ -12,6 +12,11 @@ export default [
     component: () => lazyLoadView(import('@views/favourites.vue')),
   },
   {
+    path: '/quote/:id',
+    name: 'quote',
+    component: () => lazyLoadView(import('@views/specific-quote.vue')),
+  },
+  {
     path: '/login',
     name: 'login',
     component: () => lazyLoadView(import('@views/login.vue')),

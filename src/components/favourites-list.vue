@@ -1,15 +1,28 @@
 <script>
 import { favouritesComputed, favouritesMethods } from '@state/helpers'
+import CopyToClipboard from '@components/./copy-to-clipboard.vue'
 
 export default {
   page: {
     title: 'Favourites',
+  },
+  components: {
+    CopyToClipboard,
   },
   computed: {
     ...favouritesComputed,
   },
   methods: {
     ...favouritesMethods,
+    copyToClipboard(quote) {
+      const link = `${window.location.host}/quote/${quote.id}`
+      if (navigator.share) {
+        navigator.share({ text: 'My new favourite LOTR quote', url: link })
+      } else {
+        this.newText = link
+        navigator.clipboard.writeText(link)
+      }
+    },
   },
 }
 </script>
@@ -29,22 +42,20 @@ export default {
       </div>
       <footer class="card-footer">
         <p class="card-footer-item">
-          <span
-            :class="$style.removeButton"
-            @click="deleteFavouriteQuote(quote)"
-          >
+          <span :class="$style.button" @click="deleteFavouriteQuote(quote)">
             <img
-              :class="$style.heartIcon"
+              :class="$style.icon"
               alt="Remove favourite"
               src="@assets/icons/iconmonstr-favorite-14.svg"
             />
             Remove from favourites
           </span>
         </p>
-        <p class="card-footer-item">
-          <span>
-            Share with a friend
-          </span>
+        <p class="card-footer-item" @click="copyToClipboard(quote)">
+          <CopyToClipboard
+            button-text="Share with a friend"
+            tooltip-text="Copy link to clipboard"
+          />
         </p>
       </footer>
     </div>
@@ -58,7 +69,7 @@ export default {
   margin-bottom: 8px;
 }
 
-.removeButton {
+.button {
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -69,7 +80,7 @@ export default {
   }
 }
 
-.heartIcon {
+.icon {
   width: 20px;
   height: auto;
   margin-right: 8px;

@@ -11,18 +11,22 @@ export default {
           name: 'favourites',
           title: 'Favourites',
         },
+        {
+          name: 'home',
+          title: 'Random Quote',
+        },
       ],
       loggedInNavRoutes: [
-        {
-          name: 'logout',
-          title: 'Log out',
-        },
+        // {
+        //   name: 'logout',
+        //   title: 'Log out',
+        // },
       ],
       loggedOutNavRoutes: [
-        {
-          name: 'login',
-          title: 'Log in',
-        },
+        // {
+        //   name: 'login',
+        //   title: 'Log in',
+        // },
       ],
     }
   },
