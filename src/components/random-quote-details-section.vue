@@ -91,10 +91,10 @@ export default {
     },
     copyToClipboard(quote) {
       if (navigator.share) {
-        const link = `/quote/${quote.id}`
+        const link = `/quote/${quote._id}`
         navigator.share({ text: 'My new favourite LOTR quote', url: link })
       } else {
-        const link = `${window.location.host}/quote/${quote.id}`
+        const link = `${window.location.host}/quote/${quote._id}`
         navigator.clipboard.writeText(link)
       }
     },
