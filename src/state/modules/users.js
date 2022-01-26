@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-export const state = {
+export const state = () => ({
   cached: [],
-}
+})
 
 export const getters = {}
 

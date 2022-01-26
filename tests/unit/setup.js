@@ -152,7 +152,7 @@ global.createComponentMocks = ({ store, router, style, mocks, stubs }) => {
           const storeModule = store[moduleName]
           return {
             [moduleName]: {
-              state: storeModule.state || {},
+              state: storeModule.state || (() => ({})),
               getters: storeModule.getters || {},
               actions: storeModule.actions || {},
               namespaced:
@@ -188,9 +188,9 @@ global.createModuleStore = (vuexModule, options = {}) => {
     modules: {
       auth: {
         namespaced: true,
-        state: {
+        state: () => ({
           currentUser: options.currentUser,
-        },
+        }),
       },
     },
     // Enable strict mode when testing Vuex modules so that

@@ -93,7 +93,8 @@ customMatchers.toBeAVuexModule = function(options) {
   function isAVuexModule() {
     return (
       _.isPlainObject(options) &&
-      _.isPlainObject(options.state) &&
+      (_.isPlainObject(options.state) ||
+        (_.isFunction(options.state) && _.isPlainObject(options.state()))) &&
       _.isPlainObject(options.getters) &&
       _.isPlainObject(options.mutations) &&
       _.isPlainObject(options.actions)
