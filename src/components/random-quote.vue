@@ -26,7 +26,7 @@ export default {
       axios
         .get('https://the-one-api.dev/v2/quote?limit=1000000', {
           headers: {
-            Authorization: 'Bearer uzUMPxE8664bijd0sxRi',
+            Authorization: 'Bearer NxvOQmZ4tS-ZAljD5DFs',
           },
         })
         .then((res) => {
@@ -35,7 +35,7 @@ export default {
       axios
         .get('https://the-one-api.dev/v2/character', {
           headers: {
-            Authorization: 'Bearer uzUMPxE8664bijd0sxRi',
+            Authorization: 'Bearer NxvOQmZ4tS-ZAljD5DFs',
           },
         })
         .then((res) => {
@@ -44,7 +44,7 @@ export default {
       axios
         .get('https://the-one-api.dev/v2/movie', {
           headers: {
-            Authorization: 'Bearer uzUMPxE8664bijd0sxRi',
+            Authorization: 'Bearer NxvOQmZ4tS-ZAljD5DFs',
           },
         })
         .then((res) => {
