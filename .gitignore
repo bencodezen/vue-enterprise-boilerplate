@@ -1,31 +1,31 @@
-# OS Files
-.DS_Store
-Thumbs.db
-
-# Dependencies
-node_modules/
-
-# Dev/Build Artifacts
-/dist/
-/tests/e2e/videos/
-/tests/e2e/screenshots/
-/tests/unit/coverage/
-jsconfig.json
-
-# Local Env Files
-.env.local
-.env.*.local
-
-# Log Files
+# Logs
+logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# Unconfigured Editors
+node_modules
+.DS_Store
+dist
+dist-ssr
+coverage
+*.local
+
+/cypress/videos/
+/cypress/screenshots/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
 .idea
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
-*.sw*
+*.sw?
+
+test-results/
+playwright-report/

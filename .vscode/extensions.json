@@ -1,37 +1,7 @@
 {
-  // See http://go.microsoft.com/fwlink/?LinkId=827846
-  // for the documentation about the extensions.json format
   "recommendations": [
-    // Syntax highlighting and more for .vue files
-    // https://github.com/vuejs/vetur
-    "octref.vetur",
-
-    // Peek and go-to-definition for .vue files
-    // https://github.com/fuzinato/vscode-vue-peek
-    "dariofuzinato.vue-peek",
-
-    // Lint-on-save with ESLint
-    // https://github.com/microsoft/vscode-eslint
-    "dbaeumer.vscode-eslint",
-
-    // Lint-on-save with Stylelint
-    // https://github.com/stylelint/vscode-stylelint
-    "stylelint.vscode-stylelint",
-
-    // Lint-on-save markdown in README files
-    // https://github.com/DavidAnson/vscode-markdownlint
-    "DavidAnson.vscode-markdownlint",
-
-    // Format-on-save with Prettier
-    // https://github.com/prettier/prettier-vscode
-    "esbenp.prettier-vscode",
-
-    // SCSS intellisense
-    // https://github.com/mrmlnc/vscode-scss
-    "mrmlnc.vscode-scss",
-
-    // Test `.unit.js` files on save with Jest
-    // https://github.com/jest-community/vscode-jest
-    "Orta.vscode-jest"
+    "Vue.volar",
+    "Vue.vscode-typescript-vue-plugin",
+    "ms-playwright.playwright"
   ]
 }
