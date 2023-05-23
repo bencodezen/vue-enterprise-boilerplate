@@ -1,0 +1,80 @@
+{
+  "veb-sfc": {
+    "scope": "vue",
+    "prefix": "sfc",
+    "body": [
+      "<script setup lang='ts'>",
+      "${0}",
+      "</script>",
+      "",
+      "<template>",
+      "\t",
+      "</template>",
+      "",
+      "<style lang=\"scss\" scoped>",
+      "",
+      "</style>"
+    ],
+    "description": "Single File Component (Comp API + TS) from VEB"
+  },
+  "veb-sfc-options": {
+    "scope": "vue",
+    "prefix": "sfc-options",
+    "body": [
+      "<script lang='ts'>",
+      "import { defineComponent } from 'vue'",
+      "",
+      "export default defineComponent({",
+      "\t${0}",
+      "})",
+      "</script>",
+      "",
+      "<template>",
+      "\t",
+      "</template>",
+      "",
+      "<style lang=\"scss\" scoped>",
+      "",
+      "</style>"
+    ],
+    "description": "Single File Component (Options API + TS) from VEB"
+  },
+  "veb-script": {
+    "scope": "vue",
+    "prefix": "script",
+    "body": ["<script setup lang='ts'>", "${0}", "</script>"],
+    "description": "Script block (Comp API + TS)"
+  },
+  "veb-script-options": {
+    "scope": "vue",
+    "prefix": "script-options",
+    "body": [
+      "<script lang='ts'>",
+      "import { defineComponent } from 'vue'",
+      "",
+      "export default defineComponent({",
+      "\t${0}",
+      "})",
+      "</script>"
+    ],
+    "description": "Script block (Options API + TS)"
+  },
+  "veb-template": {
+    "scope": "vue",
+    "prefix": "template",
+    "body": ["<template>", "\t${0}", "</template>"],
+    "description": "Template block"
+  },
+  "veb-style": {
+    "scope": "vue",
+    "prefix": "style",
+    "body": ["<style lang=\"scss\" scoped>", "${0}", "</style>"],
+    "description": "Scoped CSS + Sass styles block from VEB"
+  },
+  "veb-style-module": {
+    "scope": "vue",
+    "prefix": "style-module",
+    "body": ["<style lang=\"scss\" module>", "${0}", "</style>"],
+    "description": "CSS Module + Sass styles block from VEB"
+  }
+}
