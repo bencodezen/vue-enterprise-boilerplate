@@ -1,6 +1,10 @@
-# vue-enterprise-boilerplate
+# Vue Enterprise Boilerplate v3 (alpha)
 
-This template should help get you started developing with Vue 3 in Vite.
+This repo is currently in active development and considered in alpha release.
+
+> This is an ever-evolving, opinionated architecture and dev environment for new Vue 3 + Vite SPA projects using [create-vue](https://github.com/vuejs/create-vue).
+
+🎩 A huge thanks to [Chris Fritz](https://twitter.com/chrisvfritz) for the incredible work that this work builds upon. For those looking for his version, see [this branch for the original Vue 2 enterprise boilerplate](https://github.com/bencodezen/vue-enterprise-boilerplate/tree/vue-2-version).
 
 ## Recommended IDE Setup
 
@@ -13,13 +17,9 @@ TypeScript cannot handle type information for `.vue` imports by default, so we r
 If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
 
 1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
+   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
+   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
