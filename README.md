@@ -23,6 +23,8 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 
 ## Project Setup
 
+To get up and running either [click this link](https://runme.dev/api/runme?repository=https%3A%2F%2Fgithub.com%2Fbencodezen%2Fvue-enterprise-boilerplate.git&fileToOpen=README.md) or clone the project manually. Then run:
+
 ```sh
 npm install
 ```
