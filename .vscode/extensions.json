@@ -1,7 +1,27 @@
 {
   "recommendations": [
-    "Vue.volar",
-    "Vue.vscode-typescript-vue-plugin",
-    "ms-playwright.playwright"
+    // Vue - Official Extension
+    // https://github.com/vuejs/language-tools
+    "vue.volar",
+
+    // Format-on-save with Prettier
+    // https://github.com/prettier/prettier-vscode
+    "esbenp.prettier-vscode",
+
+    // Playwright Test - Official Extension
+    // https://github.com/microsoft/playwright-vscode
+    "ms-playwright.playwright",
+
+    // Better Comments
+    // https://github.com/aaron-bond/better-comments
+    "aaron-bond.better-comments",
+
+    // Path Intellisense
+    // https://github.com/ChristianKohler/PathIntellisense
+    "christian-kohler.path-intellisense",
+
+    // Peacock - Workspace Color Customizer
+    // https://github.com/johnpapa/vscode-peacock
+    "johnpapa.vscode-peacock"
   ]
 }
