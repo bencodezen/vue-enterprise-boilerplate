@@ -10,7 +10,7 @@ const app = createApp(App)
 /** Pinia **/
 /** https://pinia.vuejs.org/ **/
 const pinia = createPinia()
-app.use(createPinia())
+app.use(pinia)
 
 /** Vue Router **/
 /** https://router.vuejs.org/ **/
