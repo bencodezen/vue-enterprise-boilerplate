@@ -26,16 +26,5 @@ coverage
 test-results/
 playwright-report/
 
-# Cypress directories
-/cypress/videos/
-/cypress/screenshots/
-
-# Local Netlify folder
-.netlify
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
-
 # Auto-generated TypeScript files
 components.d.ts
