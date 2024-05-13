@@ -1,3 +1,17 @@
+<script setup lang="ts">
+import { useHead } from '@unhead/vue'
+
+useHead({
+  title: 'About - Vue Enterprise Boilerplate',
+  meta: [
+    {
+      name: 'description',
+      content: 'The about page for Vue Enterprise Boilerplate!'
+    }
+  ]
+})
+</script>
+
 <template>
   <div class="about">
     <h1>This is an about page</h1>
