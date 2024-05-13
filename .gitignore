@@ -14,8 +14,7 @@ dist-ssr
 coverage
 *.local
 
-/cypress/videos/
-/cypress/screenshots/
+
 
 # Editor directories and files
 .idea
@@ -25,8 +24,17 @@ coverage
 *.sln
 *.sw?
 
+# Playwright directories
 test-results/
 playwright-report/
 
+# Cypress directories
+/cypress/videos/
+/cypress/screenshots/
+
 # Local Netlify folder
 .netlify
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
