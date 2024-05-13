@@ -12,7 +12,7 @@ export default defineConfig({
     vue(),
     AutoImport({
       // global imports to register
-      imports: ['vue', 'vue-router', { '@unhead/vue': ['useHead'] }],
+      imports: ['vue', 'vue-router', '@vueuse/core', { '@unhead/vue': ['useHead'] }],
       dirs: ['@src/composables']
     }),
     Components({
