@@ -1,0 +1,22 @@
+@import 'colors';
+@import 'durations';
+@import 'fonts';
+@import 'layers';
+@import 'sizes';
+@import 'typography';
+
+:export {
+  // Any values that need to be accessible from JavaScript
+  // outside of a Vue component can be defined here, prefixed
+  // with `global-` to avoid conflicts with classes. For
+  // example:
+  //
+  // global-grid-padding: $size-grid-padding;
+  //
+  // Then in a JavaScript file, you can import this object
+  // as you would normally with:
+  //
+  // import design from '@design'
+  //
+  // console.log(design['global-grid-padding'])
+}
