@@ -19,7 +19,7 @@ export default defineConfig({
         /\.md$/ // .md
       ],
       // global imports to register
-      imports: ['vue', 'vue-router']
+      imports: ['vue', 'vue-router', { '@unhead/vue': ['useHead'] }]
     }),
     Components({
       dirs: ['src/components', 'src/layouts']
