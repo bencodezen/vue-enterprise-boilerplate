@@ -4,13 +4,19 @@
   </button>
 </template>
 
-<style module>
+<style lang="scss" module>
 .button {
-  cursor: pointer;
-  border: none;
-}
+  @extend %typography-small;
 
-.button:disabled {
-  cursor: not-allowed;
+  padding: $size-button-padding;
+  border: none;
+  background: $color-button-bg;
+  color: $color-button-text;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+    background: $color-button-disabled-bg;
+  }
 }
 </style>
