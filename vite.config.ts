@@ -11,15 +11,9 @@ export default defineConfig({
   plugins: [
     vue(),
     AutoImport({
-      // targets to transform
-      include: [
-        /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
-        /\.vue$/,
-        /\.vue\?vue/, // .vue
-        /\.md$/ // .md
-      ],
       // global imports to register
-      imports: ['vue', 'vue-router', { '@unhead/vue': ['useHead'] }]
+      imports: ['vue', 'vue-router', { '@unhead/vue': ['useHead'] }],
+      dirs: ['@src/composables']
     }),
     Components({
       dirs: ['src/components', 'src/layouts']
