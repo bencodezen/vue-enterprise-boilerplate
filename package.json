@@ -27,7 +27,7 @@
     "@vitejs/plugin-vue": "^4.2.3",
     "@vue/eslint-config-prettier": "^7.1.0",
     "@vue/eslint-config-typescript": "^11.0.3",
-    "@vue/test-utils": "^2.3.2",
+    "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.4.0",
     "eslint": "^8.39.0",
     "eslint-plugin-vue": "^9.11.0",
