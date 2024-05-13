@@ -14,8 +14,6 @@ dist-ssr
 coverage
 *.local
 
-
-
 # Editor directories and files
 .idea
 *.suo
@@ -38,3 +36,6 @@ playwright-report/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# Auto-generated TypeScript files
+components.d.ts
