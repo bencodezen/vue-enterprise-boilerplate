@@ -12,4 +12,14 @@ describe('BaseButton Componenet', () => {
     })
     expect(element.innerHTML).toContain(slotContent)
   })
+
+  it('renders default content', () => {
+    const slotContent = ''
+    const { element } = shallowMount(BaseButton, {
+      slots: {
+        default: slotContent
+      }
+    })
+    expect(element.innerHTML).toContain('Submit')
+  })
 })

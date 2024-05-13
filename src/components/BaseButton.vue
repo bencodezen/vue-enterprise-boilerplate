@@ -1,6 +1,6 @@
 <template>
   <button :class="$style.button">
-    <slot />
+    <slot>Submit</slot>
   </button>
 </template>
 
