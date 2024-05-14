@@ -25,7 +25,3 @@ coverage
 # Playwright directories
 test-results/
 playwright-report/
-
-# Auto-generated TypeScript files
-auto-imports.d.ts
-components.d.ts
