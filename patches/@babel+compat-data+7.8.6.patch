@@ -1,0 +1,13 @@
+diff --git a/node_modules/@babel/compat-data/package.json b/node_modules/@babel/compat-data/package.json
+index 0000000..5154bc8 100644
+--- a/package.json
++++ b/node_modules/@babel/compat-data/package.json
+@@ -12,7 +12,7 @@
+     "./plugins": "./data/plugins.json",
+     "./native-modules": "./data/native-modules.json",
+     "./corejs2-built-ins": "./data/corejs2-built-ins.json",
+-    "./corejs3-shipped-proposals": "./data/corejs3-shipped-proposals",
++    "./corejs3-shipped-proposals": "./data/corejs3-shipped-proposals.json",
+     "./overlapping-plugins": "./data/overlapping-plugins.json"
+   },
+   "scripts": {

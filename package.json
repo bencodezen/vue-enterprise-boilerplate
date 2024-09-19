@@ -40,6 +40,7 @@
     "lodash": "4.17.15",
     "normalize.css": "8.0.1",
     "nprogress": "0.2.0",
+    "patch-package": "^8.0.0",
     "vue": "2.6.11",
     "vue-meta": "2.3.3",
     "vue-router": "3.1.6",
