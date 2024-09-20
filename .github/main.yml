@@ -1,0 +1,68 @@
+name: Build and Test
+
+on:
+  schedule:
+    - cron: '0 * * * *' # daily @ 12a
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '22'
+
+      # - name: Create .npmrc
+      #   run: |
+      #     echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+      #     echo "registry=${{ secrets.NPM_REGISTRY_URL }}" >> .npmrc
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build the app
+        run: yarn build
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Run unit tests
+        run: yarn test:unit
+
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v6
+        with:
+          build: yarn build
+          start: yarn start
+          wait-on: 'http://localhost:8080'
+          browser: chrome
+
+      uses: neverendingsupport/.github/.github/workflows/sonar-snyk-sauce-cypress.yml@main
+      secrets: inherit
+      with:
+        productName: Vue2
+        sauceBrowsers: cypress-lts
+        sauceTestGlob: ./cypress/e2e/*.cy.ts
