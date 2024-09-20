@@ -1,6 +1,43 @@
 name: Cypress E2E Tests w/ SauceLabs
 
 on:
+  workflow_dispatch:
+    inputs:
+      nodeVersion:
+        required: false
+        type: string
+        default: '18'
+      sauceTunnelName:
+        required: false
+        type: string
+        default: "$GITHUB_ACTOR-$GITHUB_REF_NAME-${GITHUB_SHA:0:8}"
+      saucePrerunScript:
+        required: false
+        type: string
+        default: |
+          yarn build
+          yarn start &
+      sauceConfig:
+        required: false
+        type: string
+        default: ./.sauce/config.yml
+      sauceBrowsers:
+        required: false
+        type: string
+        description: 'which shared sauce labs browsers config to use (options: `cypress-dev-beta`, `cypress-lts`)'
+      sauceTestGlob:
+        required: false
+        type: string
+      sauceSkipSauceCtl:
+        required: false
+        type: string
+      snykThreshold:
+        required: false
+        type: string
+        default: medium
+      productName:
+        required: true
+        type: string
   workflow_call:
     inputs:
       nodeVersion:
