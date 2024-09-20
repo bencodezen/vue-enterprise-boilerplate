@@ -1,0 +1,142 @@
+name: Cypress E2E Tests w/ SauceLabs
+
+on:
+  workflow_dispatch:
+    inputs:
+      nodeVersion:
+        required: false
+        type: string
+        default: '18'
+      sauceTunnelName:
+        required: false
+        type: string
+        default: "$GITHUB_ACTOR-$GITHUB_REF_NAME-${GITHUB_SHA:0:8}"
+      saucePrerunScript:
+        required: false
+        type: string
+        default: |
+          yarn build
+          yarn start &
+      sauceConfig:
+        required: false
+        type: string
+        default: ./.sauce/config.yml
+      sauceBrowsers:
+        required: false
+        type: string
+        description: 'which shared sauce labs browsers config to use (options: `cypress-dev-beta`, `cypress-lts`)'
+      sauceTestGlob:
+        required: false
+        type: string
+      sauceSkipSauceCtl:
+        required: false
+        type: string
+      snykThreshold:
+        required: false
+        type: string
+        default: medium
+      productName:
+        required: true
+        type: string
+  workflow_call:
+    inputs:
+      nodeVersion:
+        required: false
+        type: string
+        default: '18'
+      sauceTunnelName:
+        required: false
+        type: string
+        default: "$GITHUB_ACTOR-$GITHUB_REF_NAME-${GITHUB_SHA:0:8}"
+      saucePrerunScript:
+        required: false
+        type: string
+        default: |
+          yarn build
+          yarn start &
+      sauceConfig:
+        required: false
+        type: string
+        default: ./.sauce/config.yml
+      sauceBrowsers:
+        required: false
+        type: string
+        description: 'which shared sauce labs browsers config to use (options: `cypress-dev-beta`, `cypress-lts`)'
+      sauceTestGlob:
+        required: false
+        type: string
+      sauceSkipSauceCtl:
+        required: false
+        type: string
+      snykThreshold:
+        required: false
+        type: string
+        default: medium
+      productName:
+        required: true
+        type: string
+
+env:
+  GITHUB_TOKEN: ${{ github.token }}
+
+jobs:
+  Sonar-Snyk-Sauce:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ inputs.nodeVersion }}
+
+      - name: Cache npm dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.yarn-cache
+            node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Setup .npmrc & yarn install
+        run: |
+          cat <<EOF > ".npmrc"
+          @neverendingsupport:registry=https://registry.nes.herodevs.com/npm/pkg/
+          //registry.nes.herodevs.com/npm/pkg/:_authToken="${{ secrets.NES_ACCESS_TOKEN }}"
+          @xlts.dev:registry=https://registry.xlts.dev/
+          //registry.xlts.dev/:always-auth=true
+          //registry.xlts.dev/:_authToken=${{ secrets.XLTS_ACCESS_TOKEN }}
+          EOF
+          yarn install --frozen-lockfile --cache-folder ~/.yarn-cache
+
+      - name: Download shared sauce configs/ignore
+        if: ${{ inputs.sauceBrowsers != '' }}
+        shell: bash
+        run: |
+          # shared sauce ignore ---->
+          export SAUCE_IGNORE_TMP_FILE=.tmp.sauce.ignore
+          wget --no-cache --no-cookies --header="Accept: */*" --header="Authorization: bearer ${{ secrets.READ_PRIVATE_NES_REPO_ARTIFACTS_TOKEN }}" https://raw.githubusercontent.com/neverendingsupport/.github/main/config/sauce/.sauceignore -O $SAUCE_IGNORE_TMP_FILE
+          cat $SAUCE_IGNORE_TMP_FILE >> .sauceignore
+
+          # shared browser definitions config ---->
+          export FILENAME="${{ inputs.sauceBrowsers }}.yml"
+          export BUILD=${GITHUB_SHA:0:8} # short sha
+          export TEST_GLOB=${{ inputs.sauceTestGlob }}
+          export PRODUCT_PREFIX="${{ inputs.productName }} :: $GITHUB_REPOSITORY ::"
+          echo "PRODUCT PREFIX: $PRODUCT_PREFIX"
+          wget --no-cache --no-cookies --header="Accept: */*" --header="Authorization: bearer ${{ secrets.READ_PRIVATE_NES_REPO_ARTIFACTS_TOKEN }}" https://raw.githubusercontent.com/neverendingsupport/.github/main/config/sauce/$FILENAME
+          mkdir -p $(dirname ${{ inputs.sauceConfig }})
+          cat $FILENAME | envsubst | tee ${{ inputs.sauceConfig }}
+
+      - name: Run Browser Tests
+        uses: neverendingsupport/actions/sauce@v1
+        with:
+          sauceUsername: "${{ vars.SAUCE_USERNAME }}"
+          sauceAccessKey: "${{ secrets.SAUCE_ACCESS_KEY }}"
+          sauceTunnelName: "${{ inputs.sauceTunnelName }}-${{ github.run_id }}-${{ github.run_attempt }}"
+          sauceConfig: ${{ inputs.sauceConfig }}
+          prerunScript: ${{ inputs.saucePrerunScript }}
+          skipSauceCtl: ${{ inputs.sauceSkipSauceCtl }}
