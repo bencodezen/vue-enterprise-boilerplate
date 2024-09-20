@@ -40,9 +40,12 @@ module.exports = (on, config) => {
     // Main Directories
     // https://docs.cypress.io/guides/references/configuration.html#Folders-Files
     // ===
-    supportFile: 'tests/e2e/support/setup.js',
-    integrationFolder: 'tests/e2e/specs',
-    fixturesFolder: 'tests/e2e/fixtures',
+    baseUrl: 'http://localhost:8080',
+    e2e: {
+      specPattern: 'tests/e2e/specs/**/*.cy.{js,jsx,ts,tsx}',
+      supportFile: 'tests/e2e/support/setup.js',
+      fixturesFolder: 'tests/e2e/fixtures',
+    },
     // ===
     // Videos & Screenshots
     // https://docs.cypress.io/guides/core-concepts/screenshots-and-videos.html
