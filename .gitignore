@@ -25,3 +25,7 @@ coverage
 # Playwright directories
 test-results/
 playwright-report/
+
+# VitePress
+docs/.vitepress/cache
+docs/.vitepress/dist
